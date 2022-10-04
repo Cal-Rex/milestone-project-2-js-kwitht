@@ -13,23 +13,23 @@
 <!-- title and introductory text that vanished once a game starts -->
     <header>
     <h1>Kwitht</h1>
-    <h2>intro text</h2>
+    <h2 id="intro-text"></h2>
     </header>
 
 <!-- images for narrative of game will be displayed here by changing background images -->
     <div id="story-box">
         <div id="story-bg">
-            <div id="job-icon"></div>
+            <div class="start" id="job-icon"></div>
         </div>
     </div>
 
 <!-- boxes that display Stat values for chosen class -->
-    <div class="stat-values" id="str-num">0</div>
-    <div class="stat-values" id="dex-num">0</div>
-    <div class="stat-values" id="cun-num">0</div>
-    <div class="stat-values" id="strength">Strength</div>
-    <div class="stat-values" id="dexterity">Dexterity</div>
-    <div class="stat-values" id="cunning">Cunning</div>
+    <div class="start stat-values" id="str-num">0</div>
+    <div class="start stat-values" id="dex-num">0</div>
+    <div class="start stat-values" id="cun-num">0</div>
+    <div class="start stat-values" id="strength">Strength</div>
+    <div class="start stat-values" id="dexterity">Dexterity</div>
+    <div class="start stat-values" id="cunning">Cunning</div>
 
 <!-- buttons that allow you to choose your class at the start of the game -->
     <div class="btn-box" id="Knight-choice">
@@ -51,7 +51,7 @@
     </div>
 
 <!-- game buttons that are used to determine actions when game is running, and start new game button -->
-    <div class="btn-box" id="actions">
+    <div class="start btn-box" id="actions">
         <button class="btn" id="fight-btn">
             Fight!
         </button>
@@ -60,14 +60,14 @@
         </button>
     </div>
 
-    <div class="btn-box" id="progress-ng">
+    <div class="start btn-box" id="progress-ng">
         <button class="btn" id="new-game">
             Start a new Kwitht!
         </button>
         <p>Journey <span id="encounter-counter">0</span>0% complete</p>
     </div>
 
-    <div class="btn-box" id="run-actions">
+    <div class="start btn-box" id="run-actions">
         <button class="btn" id="flee-btn">
             Run Away!
         </button>

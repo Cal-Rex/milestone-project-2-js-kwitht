@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 /* alignment for the game page and game functions */
@@ -62,10 +63,6 @@ header {
     grid-area: cunn;
 }
 
-.btn-box {
-    text-align: center;
-}
-
 #knight-choice {
     grid-area: kbtn;
 }
@@ -90,6 +87,11 @@ header {
     grid-area: run;
 }
 
+/* header styling */
+header h2 {
+    font-size: 1em;
+}
+
 /* story tile styling */
 #story-bg {
     margin: 0 auto;
@@ -107,6 +109,11 @@ header {
     background-position: 45% 90%;
     width: 100%;
     height: 300px;
+}
+
+/* controls styling */
+.btn-box {
+    text-align: center;
 }
 
 /* footer styling */
