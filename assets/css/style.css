@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+}
+
+/* alignment for the game page and game functions */
+#game {
+    padding: 0;
+    border: none;
+    display: grid;
+    margin: 0 auto;
+    width: 91.75vw;
+    height: 90%;
+    row-gap: 10px;
+    grid-template-areas:
+        'header header header'
+        'storybox storybox storybox'
+        'strv dexv cunv'
+        'strn dexn cunn'
+        'kbtn tbtn mbtn'
+        'act ngp run';
+}
+
+header {
+    text-align: center;
+    grid-area: header;
+}
+
+#story-box {
+    grid-area: storybox;
+}
+
+.stat-values {
+    text-align: center;
+}
+
+.stat-titles {
+    text-align: center;
+}
+
+
+#str-num {
+    grid-area: strv;
+}
+
+#dex-num {
+    grid-area: dexv;
+}
+
+#cun-num {
+    grid-area: cunv;
+}
+
+#strength {
+    grid-area: strn;
+}
+
+#dexterity {
+    grid-area: dexn;
+}
+
+#cunning {
+    grid-area: cunn;
+}
+
+.btn-box {
+    text-align: center;
+}
+
+#knight-choice {
+    grid-area: kbtn;
+}
+
+#thief-choice {
+    grid-area: tbtn;
+}
+
+#merchant-choice {
+    grid-area: mbtn;
+}
+
+#actions {
+    grid-area: act;
+}
+
+#progress-ng {
+    grid-area: ngp;
+}
+
+#run-actions {
+    grid-area: run;
+}
+
+/* story tile styling */
+#story-bg {
+    margin: 0 auto;
+    background: url(../images/citizen_sleeper_hed.jpeg) no-repeat;
+    background-size: contain;
+    background-position: bottom;
+    width: 66%;
+    height: 300px;
+
+}
+
+#job-icon {
+    background: url(../images/placeholder.png) no-repeat;
+    background-size: 75px 75px;
+    background-position: 45% 90%;
+    width: 100%;
+    height: 300px;
+}
+
+/* footer styling */
+footer {
+    position: absolute;
+    bottom: 0;
+    background-color: black;
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    color: #ffffff;
+}
