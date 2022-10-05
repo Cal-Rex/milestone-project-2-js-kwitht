@@ -24,6 +24,8 @@ document.getElementById('intro-text').textContent =
      ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
       in voluptate velit esse cillum dolore eu fugiat nulla pariatur.`;
 
+// 3 functions below allow player to pick their job before starting their quest using the 3 job buttons
+/** selects the Knight Job, allocates necessary stats and begins the quest */
 function rollKnight() {
    document.getElementById('str-num').textContent = "4"; 
    document.getElementById('dex-num').textContent = "3"; 
@@ -31,6 +33,7 @@ function rollKnight() {
    startGame()
 }
 
+/** selects the Thief Job, allocates necessary stats and begins the quest */
 function rollThief() {
    document.getElementById('str-num').textContent = "2"; 
    document.getElementById('dex-num').textContent = "6"; 
@@ -38,6 +41,7 @@ function rollThief() {
    startGame()
 }
 
+/** selects the Merchant Job, allocates necessary stats and begins the quest */
 function rollMerch() {
    document.getElementById('str-num').textContent = "3"; 
    document.getElementById('dex-num').textContent = "2"; 
@@ -45,6 +49,7 @@ function rollMerch() {
    startGame()
 }
 
+/** removes job selector buttons and replaces with game controls */
 function startGame() {
     let stats = document.querySelectorAll('.load')
  stats.forEach(stat => {
@@ -57,6 +62,7 @@ function startGame() {
     
 }
 
+// event listeners for the 3 job buttons that start the quests
 knightButton.addEventListener('click', rollKnight);
 thiefButton.addEventListener('click', rollThief);
 merchButton.addEventListener('click', rollMerch);
