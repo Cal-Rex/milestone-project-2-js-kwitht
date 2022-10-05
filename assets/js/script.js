@@ -3,6 +3,7 @@
 const knightButton = document.getElementById('choose-knight');
 const thiefButton = document.getElementById('choose-thief');
 const merchButton = document.getElementById('choose-merchant');
+// selected Job
 let job = "";
 
 /**removes game controls on page inital load so that users can only select options that start the game */
@@ -103,3 +104,34 @@ function createQuest() {
 knightButton.addEventListener('click', rollKnight);
 thiefButton.addEventListener('click', rollThief);
 merchButton.addEventListener('click', rollMerch);
+
+
+
+// str tests:
+// fight
+// jump
+
+// dex tests:
+// mimic
+// climb
+
+// cun tests:
+// book
+// cardgame
+
+// the first function would roll a random encounter, first it has to roll 1d6 to determine one of the 6 encounters
+
+// will establish a variable named "check", which will then be given "str", "dex" or "cun" depending on the encounter rolled.
+// will establish a variable called encounterCounter and pull the value of the "encounter-counter" Id. 
+
+// an event listener should be attached to the run away and do it buttons
+
+// an if statement will then determine based on the value of the check variable what stat to roll against. 
+// a function to roll against that stat will be activated
+// will use strength as the exmaple here: 
+
+// a strength variable is established by getting the value of the strength stat in the docuement
+// strength check function will roll a number between 0 and 10 
+// if check number lower than the player's strength variable, then
+
+
