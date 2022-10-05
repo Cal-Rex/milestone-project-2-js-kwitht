@@ -10,8 +10,12 @@ let job = "";
 const adventureButton = document.getElementById('keep-going');
 // run away button
 const runAwayButton = document.getElementById('flee-btn');
+
+//game mechanics
 // used for assigning the type of ability checks in each scenario
 let check = "";
+// used to prevent getting the same encounter type twice in a row
+let dupeStopper = "";
 
 
 /**removes game controls on page inital load so that users can only select options that start the game */
@@ -139,6 +143,13 @@ function keepGoing() {
       let d6 = (Math.round((Math.floor(Math.random() * 11)) / 100 * 50));
       eCalc.push(d6)
    }
+   if (eCalc[4] === dupeStopper) {
+      eCalc[4]++
+      if (eCalc[4] === 6) {
+         eCalc[4] === 0; 
+      }
+      console.log("dupeStopper was used!")
+   }
 
    let monsterResult = eCalc[2] + eCalc[3];
    let nameResult = eCalc[0] + eCalc[1];
@@ -170,6 +181,8 @@ function keepGoing() {
       alert("invalid encounter type!")
       console.log("Error! encounter number =", eCalc[4])
    }
+   dupeStopper = eCalc[4];
+
    console.log("random name generator rolled a", nameResult, "and picked", names[nameResult]);
    console.log("eCalc =",eCalc);
    console.log("encounter number", eCalc[4], "selected");
