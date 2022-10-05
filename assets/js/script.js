@@ -5,6 +5,10 @@ const thiefButton = document.getElementById('choose-thief');
 const merchButton = document.getElementById('choose-merchant');
 // selected Job
 let job = "";
+// game controls
+// start an encounter
+const adventureButton = document.getElementById('keep-going');
+
 
 /**removes game controls on page inital load so that users can only select options that start the game */
 function pageLoad() {
@@ -74,7 +78,7 @@ function createQuest() {
    let questLine = {
       name: ["Harrison", "Brick", "Engelbert", "Constance", "Inga", "Gertrude"],
       endDestination: ["the Grand ol' Opry", "the Bahamas", "your Gran's house",
-         "Greggs", "the Amish Lowrider Motor Show", "your scheduled audience with the king"
+         "Greggs", "an Amish Lowrider Motor Show", "your scheduled audience with the king"
       ],
       reason: ["as is tradition", "for tax purposes", "on a spiritual journey of self-discovery",
          "for an important business lunch", "for a romantic long weekend", "because you have been paid a lot of money to do so"
@@ -83,21 +87,21 @@ function createQuest() {
    let x = []
    let y = []
    let z = []
-   for (let i = 0; i < 3; i++){
-     let d6 = (Math.round((Math.floor(Math.random() * 11)) / 100 * 50));
-     if (x.length === 0){
-       x.push(d6);
-       } else if (y.length === 0){
-       y.push(d6);
-       } else if (z.length === 0){
-       z.push(d6);
-       } else {
+   for (let i = 0; i < 3; i++) {
+      let d6 = (Math.round((Math.floor(Math.random() * 11)) / 100 * 50));
+      if (x.length === 0) {
+         x.push(d6);
+      } else if (y.length === 0) {
+         y.push(d6);
+      } else if (z.length === 0) {
+         z.push(d6);
+      } else {
          console.log("no variables to assign dice roll, breaking loop!")
          break;
-     }
+      }
    }
-   document.getElementById('intro-text').textContent = 
-    `You are ${questLine.name[x]} the ${job} and you are travelling to ${questLine.endDestination[y]}, ${questLine.reason[z]}!`;
+   document.getElementById('intro-text').textContent =
+      `You are ${questLine.name[x]} the ${job} and you are travelling to ${questLine.endDestination[y]}, ${questLine.reason[z]}!`;
 }
 
 // event listeners for the 3 job buttons that start the quests
@@ -105,6 +109,29 @@ knightButton.addEventListener('click', rollKnight);
 thiefButton.addEventListener('click', rollThief);
 merchButton.addEventListener('click', rollMerch);
 
+/** generates a new encounter */
+function keepGoing() {
+   document.getElementById('keep-going').style.visibility = "hidden"
+   document.getElementById('keep-going').textContent = "Keep Going!";
+   let names = ["Unfortunate Greg", "Deuce", "Snake-Eyes Pete", "Daunchy",
+      "The Artist formerly known as", "Doris", "Cynthia", "Majestic Michael", "Flothers", "Dangerous Daniel", "Bruce", "Alexander", "Crit McGee"
+   ]
+   let nameCalc = [];
+   for (let i = 0; i < 2; i++) {
+      let d6 = (Math.round((Math.floor(Math.random() * 11)) / 100 * 50));
+      nameCalc.push(d6)
+   }
+   let nameResult = nameCalc[0] + nameCalc[1];
+   document.getElementById('encounter-text').textContent = names[nameResult];
+
+
+   // let x = [];
+   // let d6 = (Math.round((Math.floor(Math.random() * 11)) / 100 * 50));
+   // x.push(d6);
+   // console.log("loading scernario", x[0])
+};
+
+adventureButton.addEventListener('click', keepGoing)
 
 
 // str tests:
@@ -132,6 +159,9 @@ merchButton.addEventListener('click', rollMerch);
 
 // a strength variable is established by getting the value of the strength stat in the docuement
 // strength check function will roll a number between 0 and 10 
-// if check number lower than the player's strength variable, then
-
-
+// if check number lower than the player's strength variable, then the encounter text box will say they have completed the task
+// the encounterCounter variable will increase by 1 and then be assigned to html id text content of encounter-counter
+// if the encounterCounter variable = 10 it will run the questCompleted function
+// else, the story background will change to black, job icon will disappear, 
+// red text will desplay "YOU DIED" and then print the .death value of the encounter object
+// game controls should disappear, new game button should appear which should refresh the page on click
