@@ -68,6 +68,7 @@ function startGame() {
    });
 }
 
+/** generates a random storyline for the player's quest */
 function createQuest() {
    let questLine = {
       name: ["Harrison", "Brick", "Engelbert", "Constance", "Inga", "Gertrude"],
