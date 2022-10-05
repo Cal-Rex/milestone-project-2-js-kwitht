@@ -8,6 +8,8 @@ let job = "";
 // game controls
 // start an encounter
 const adventureButton = document.getElementById('keep-going');
+// used for assigning the type of ability checks in each scenario
+let check = "";
 
 
 /**removes game controls on page inital load so that users can only select options that start the game */
@@ -113,16 +115,63 @@ merchButton.addEventListener('click', rollMerch);
 function keepGoing() {
    document.getElementById('keep-going').style.visibility = "hidden"
    document.getElementById('keep-going').textContent = "Keep Going!";
+
+   // this is the selection of names that can be chosen for encounter "monsters"
+   // the choice is determined by generating 2 numbers between 0 and 6, then adding them together
    let names = ["Unfortunate Greg", "Deuce", "Snake-Eyes Pete", "Daunchy",
-      "The Artist formerly known as", "Doris", "Cynthia", "Majestic Michael", "Flothers", "Dangerous Daniel", "Bruce", "Alexander", "Crit McGee"
+      "The Artist formerly known as", "Doris", "Cynthia", "Majestic Michael",
+      "Flothers", "Dangerous Daniel", "Bruce", "Alexander", "Crit McGee"
    ]
-   let nameCalc = [];
-   for (let i = 0; i < 2; i++) {
+   let monsters = ["goblin", "slime", "crab-person", "steam-powered debt collector",
+      "talking bear", "highwayman", "hoodlum", "land pirate", "outlaw", "rabid hobbit",
+      "handstanding mermaid", "Nestle executive", "splitter of realms"
+   ]
+
+   let npcs = ["last old lady alive who still plays bridge", "magician", "casino dealer",
+      "amateur Blackjack addict", 'kid who loves playing "Go Fish"', "cowboy", "noble",
+      "ol' timey gangster", "chain-smoking stock broker", "professional russian roullette player", "bounty hunter",
+      'self-proclaimed "betting man"', "card-counting robot"
+   ]
+   let eCalc = [];
+   for (let i = 0; i < 6; i++) {
       let d6 = (Math.round((Math.floor(Math.random() * 11)) / 100 * 50));
-      nameCalc.push(d6)
+      eCalc.push(d6)
    }
-   let nameResult = nameCalc[0] + nameCalc[1];
-   document.getElementById('encounter-text').textContent = names[nameResult];
+
+   let monsterResult = eCalc[2] + eCalc[3];
+   let nameResult = eCalc[0] + eCalc[1];
+   // let encounterText = document.getElementById('encounter-text').textContent;
+   if (eCalc[4] === 0) {
+      document.getElementById('encounter-text').textContent = `You come across a large gorge. 
+      to walk around it would take a really long time. or, you could just jump it... Will you do it!?`;
+      check = "strength";
+   } else if (eCalc[4] === 1) {
+      document.getElementById('encounter-text').textContent = `You have crossed paths with ${names[nameResult]} the ${monsters[monsterResult]}. 
+   They wont let you past unless you fight them to the death! Will you do it!?`;
+      check = "strength";
+   } else if (eCalc[4] === 2) {
+      document.getElementById('encounter-text').textContent = `It's getting dark and you come across a camp. You meet ${names[nameResult]}, the ${npcs[monsterResult]}.
+      They extend an offer to stay at their cozy camp for the night, provided you play a game of cards with them... Will you do it!?`;
+      check = "cunning";
+   } else if (eCalc[4] === 3) {
+      document.getElementById('encounter-text').textContent = `You have been ambushed by ${names[nameResult]} the notorious ${monsters[monsterResult]}! 
+      they try to mug you! you'll need to fight back if you want to press forward... Will you do it!?`;
+      check = "strength";
+   } else if (eCalc[4] === 4) {
+      document.getElementById('encounter-text').textContent = `You are travelling through a forest and you come across a big dusty book sitting on a tree stump. 
+      It's giving off real sppoky vibes and you think you can hear it whispering at you to read it... Will you do it!?`
+      check = "cunning";
+   } else if (eCalc[4] === 5) {
+      document.getElementById('encounter-text').textContent = `You find a big ol' chest abandoned on the side of the road. 
+      Looks like it might have something valuable in it. You could try an open it... Will you do it!?`
+   } else {
+      alert("invalid encounter type!")
+      console.log("Error! encounter number =", eCalc[4])
+   }
+   console.log("random name generator rolled a", nameResult, "and picked", names[nameResult]);
+   console.log("eCalc =",eCalc);
+   console.log("encounter number", eCalc[4], "selected");
+   // document.getElementById('encounter-text').textContent = names[nameResult];
 
 
    // let x = [];
