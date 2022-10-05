@@ -8,6 +8,8 @@ let job = "";
 // game controls
 // start an encounter
 const adventureButton = document.getElementById('keep-going');
+// run away button
+const runAwayButton = document.getElementById('flee-btn');
 // used for assigning the type of ability checks in each scenario
 let check = "";
 
@@ -182,18 +184,21 @@ function keepGoing() {
 
 adventureButton.addEventListener('click', keepGoing)
 
+function runAway() {
+   let stat = document.getElementById('dex-num').textContent;
+   let escapeRoll = (Math.round((Math.floor(Math.random() * 11)) / 100 * 90));
+   if (stat > escapeRoll) {
+      keepGoing();
+   } else {
+      keepGoing();
+   }
 
-// str tests:
-// fight
-// jump
+}
 
-// dex tests:
-// mimic
-// climb
+runAwayButton.addEventListener('click', runAway)
 
-// cun tests:
-// book
-// cardgame
+
+
 
 // the first function would roll a random encounter, first it has to roll 1d6 to determine one of the 6 encounters
 
