@@ -5,6 +5,7 @@ const thiefButton = document.getElementById('choose-thief');
 const merchButton = document.getElementById('choose-merchant');
 // selected Job
 let job = "";
+
 // game controls
 // start an encounter
 const adventureButton = document.getElementById('keep-going');
@@ -145,7 +146,7 @@ function keepGoing() {
    }
    if (eCalc[4] === dupeStopper) {
       eCalc[4]++
-      if (eCalc[4] === 6) {
+      if (eCalc[4] === 5) {
          eCalc[4] === 0; 
       }
       console.log("dupeStopper was used!")
@@ -203,7 +204,8 @@ function runAway() {
    if (stat > escapeRoll) {
       keepGoing();
    } else {
-      keepGoing();
+      alert(`system rolled ${escapeRoll}, you failed the check!`);
+      console.log("game rolled", escapeRoll, "for escape challenge");
    }
 
 }
