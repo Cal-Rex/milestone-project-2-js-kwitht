@@ -135,8 +135,11 @@ merchButton.addEventListener('click', rollMerch);
 
 /** generates a new encounter */
 function keepGoing() {
-   document.getElementById('keep-going').style.visibility = "hidden"
+   document.getElementById('keep-going').style.visibility = "hidden";
    document.getElementById('keep-going').textContent = "Keep Going!";
+   document.getElementById('actions').style.visibility = "visible";
+   document.getElementById('run-actions').style.visibility = "visible";
+
 
    // this is the selection of names that can be chosen for encounter "monsters"
    // the choice is determined by generating 2 numbers between 0 and 6, then adding them together
@@ -177,18 +180,22 @@ function keepGoing() {
    } else if (eCalc[4] === 1) {
       document.getElementById('encounter-text').textContent = `You have crossed paths with ${names[nameResult]} the ${monsters[monsterResult]}. 
    They wont let you past unless you fight them to the death! Will you do it!?`;
+   encounterFoe = monsters[monsterResult];
       check = "strength";
    } else if (eCalc[4] === 2) {
       document.getElementById('encounter-text').textContent = `It's getting dark and you come across a camp. You meet ${names[nameResult]}, the ${npcs[monsterResult]}.
       They extend an offer to stay at their cozy camp for the night, provided you play a game of cards with them... Will you do it!?`;
+      encounterFoe = npcs[monsterResult];
       check = "cunning";
    } else if (eCalc[4] === 3) {
       document.getElementById('encounter-text').textContent = `You have been ambushed by ${names[nameResult]} the notorious ${monsters[monsterResult]}! 
       they try to mug you! you'll need to fight back if you want to press forward... Will you do it!?`;
+      encounterFoe = monsters[monsterResult];
       check = "strength";
    } else if (eCalc[4] === 4) {
       document.getElementById('encounter-text').textContent = `You are travelling through a forest and you come across a big dusty book sitting on a tree stump. 
       It's giving off real spooky vibes and you think you can hear it whispering at you to read it... Will you do it!?`
+      encounterFoe = names[nameResult];
       check = "cunning";
    } else if (eCalc[4] === 5) {
       document.getElementById('encounter-text').textContent = `You find a big ol' chest abandoned on the side of the road. 
@@ -199,7 +206,7 @@ function keepGoing() {
    }
    dupeStopper = eCalc[4];
    encounterType = dupeStopper;
-   encounterFoe = monsters[monsterResult];
+   
 
    console.log("random name generator rolled a", nameResult, "and picked", names[nameResult]);
    console.log("encounter type", encounterType, "rolled");
@@ -215,6 +222,34 @@ function keepGoing() {
 
 adventureButton.addEventListener('click', keepGoing)
 
+// launches when a run away roll is successfull
+function runSuccess() {
+   let flee = [
+      `You decide against making the jump, a bunch of kids see you backing down. 
+      They mock you. You go and have a wee cry before taking the long way round`,
+
+      `The ${encounterFoe} tries to make chase, but you outrun them, 
+      you have no idea where you are now though`,
+
+      `You decide against it, the ${encounterFoe} seems sketchy AF. You backtrack the way you came to the nearest inn.`,
+
+      `You manage to successfully escape the ambush and hide in some nearby woods for a day, 
+      just to be on the safe side.`,
+
+      `You recite a verse from the book and you are teleported 50 miles up the road 
+      and you your acid reflux from eating that squirrel earlier is gone. Jackpot.`,
+
+      `Ah! the chest was a mimic! As it opens its big chest mouth you manage to jump out the way just in time. 
+      You burn it and head onwards.`
+   ];
+   document.getElementById('encounter-text').textContent = flee[encounterType]
+   document.getElementById('actions').style.visibility = "hidden";
+   document.getElementById('run-actions').style.visibility = "hidden";
+   document.getElementById('keep-going').style.visibility = "visible";
+
+}
+
+// launches when a run away roll or action roll is failed.
 function deathMessage() {
    let fightDeath = [];
    let runDeath = [
@@ -230,7 +265,7 @@ function deathMessage() {
    `You tried to escape the ambushed but you were ambushed with in your ambush 
    and were subsequently ambushed to death by an ambush of ${encounterFoe}s.`,
 
-   `You accidentally summon a demon. It eats you. You are dead.`,
+   `You accidentally summon ${encounterFoe} the demon. they eat you. You are dead.`,
 
    `You decided to play it safe and not open the chest. But were then mauled by a bear 
    for interrupting it's monologue on the economic distribution of wealth.
@@ -251,14 +286,16 @@ function runAway() {
    let stat = document.getElementById('dex-num').textContent;
    let escapeRoll = (Math.round((Math.floor(Math.random() * 11)) / 100 * 90));
    if (stat >= escapeRoll) {
-      keepGoing();
+      runSuccess();
+      runRoll = false;
    } else {
       document.getElementById("you-died-js-target").style.display = "block";
       deathMessage()
       alert(`system rolled ${escapeRoll} and beat your Dexterity of ${stat}`);
       console.log("game rolled", escapeRoll, "for escape challenge");
    }
-
+   document.getElementById('actions').style.visibility = "hidden";
+   document.getElementById('run-actions').style.visibility = "hidden";
 }
 
 runAwayButton.addEventListener('click', runAway)
