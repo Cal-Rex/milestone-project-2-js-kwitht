@@ -8,8 +8,9 @@
     <title>Kwitht!</title>
 </head>
 <body>
+<div class="loading-screen" id="loading"><p>loading...</p></div>
 <!-- grid containing game -->
-    <div id="game">
+<div class="game" id="game-loaded">
 <!-- title and introductory text that vanished once a game starts -->
     <header>
     <h1>Kwitht</h1>
@@ -20,6 +21,10 @@
 <!-- images for narrative of game will be displayed here by changing background images -->
     <div id="story-box">
         <div id="story-bg">
+            <div class="you-died-css" id="you-died-js-target">
+                <p id="dead">You Died</p>
+                <p id="death-text"></p>
+            </div>
             <div class="load" id="job-icon"><button id="keep-going">Let's go!</button></div>
         </div>
     </div>

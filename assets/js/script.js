@@ -17,6 +17,10 @@ const runAwayButton = document.getElementById('flee-btn');
 let check = "";
 // used to prevent getting the same encounter type twice in a row
 let dupeStopper = "";
+// logs the encounter type to ensure the correct system messages on action success or failure
+let encounterFoe = "";
+let encounterType = "";
+let runRoll = false;
 
 
 /**removes game controls on page inital load so that users can only select options that start the game */
@@ -27,9 +31,20 @@ function pageLoad() {
    });
    let restartButton = document.getElementById('new-game');
    restartButton.style.visibility = "hidden";
+   document.getElementById('loading').style.display = "none";
+   document.getElementById('game-loaded').style.display = "grid";
 }
 
 window.addEventListener('load', pageLoad);
+
+function pageReset() {
+   document.getElementById('loading').style.display = "block";
+   document.getElementById('game-loaded').style.display = "none";
+}
+
+window.addEventListener('unload', pageReset);
+
+
 
 // explanatory text on how the game works
 document.getElementById('intro-text').textContent =
@@ -173,7 +188,7 @@ function keepGoing() {
       check = "strength";
    } else if (eCalc[4] === 4) {
       document.getElementById('encounter-text').textContent = `You are travelling through a forest and you come across a big dusty book sitting on a tree stump. 
-      It's giving off real sppoky vibes and you think you can hear it whispering at you to read it... Will you do it!?`
+      It's giving off real spooky vibes and you think you can hear it whispering at you to read it... Will you do it!?`
       check = "cunning";
    } else if (eCalc[4] === 5) {
       document.getElementById('encounter-text').textContent = `You find a big ol' chest abandoned on the side of the road. 
@@ -183,9 +198,11 @@ function keepGoing() {
       console.log("Error! encounter number =", eCalc[4])
    }
    dupeStopper = eCalc[4];
+   encounterType = dupeStopper;
+   encounterFoe = monsters[monsterResult];
 
    console.log("random name generator rolled a", nameResult, "and picked", names[nameResult]);
-   console.log("eCalc =",eCalc);
+   console.log("encounter type", encounterType, "rolled");
    console.log("encounter number", eCalc[4], "selected");
    // document.getElementById('encounter-text').textContent = names[nameResult];
 
@@ -198,13 +215,47 @@ function keepGoing() {
 
 adventureButton.addEventListener('click', keepGoing)
 
+function deathMessage() {
+   let fightDeath = [];
+   let runDeath = [
+   `you decided to leave jumping the gorge but a bunch of jocks saw you wimp out 
+   so they tried to throw you across against your will. You fell to your death.`,
+   
+   `when you tried to flee, but the ${encounterFoe} shot you with an well-aimed arrow to the back.
+    You died a coward's death.`,
+
+   `You decided not to stay for the night, you died of hypothermia at 3AM. 
+   Should have worn more layers.`,
+
+   `You tried to escape the ambushed but you were ambushed with in your ambush 
+   and were subsequently ambushed to death by an ambush of ${encounterFoe}s.`,
+
+   `You accidentally summon a demon. It eats you. You are dead.`,
+
+   `You decided to play it safe and not open the chest. But were then mauled by a bear 
+   for interrupting it's monologue on the economic distribution of wealth.
+   You are dead.`
+   ];
+
+   let death = "";
+   if (runRoll = true) {
+      death = runDeath[encounterType]
+   } else {
+      death = fightDeath[encounterType]
+   }
+   document.getElementById('death-text').textContent = death;
+}
+
 function runAway() {
+   runRoll = true;
    let stat = document.getElementById('dex-num').textContent;
    let escapeRoll = (Math.round((Math.floor(Math.random() * 11)) / 100 * 90));
-   if (stat > escapeRoll) {
+   if (stat >= escapeRoll) {
       keepGoing();
    } else {
-      alert(`system rolled ${escapeRoll}, you failed the check!`);
+      document.getElementById("you-died-js-target").style.display = "block";
+      deathMessage()
+      alert(`system rolled ${escapeRoll} and beat your Dexterity of ${stat}`);
       console.log("game rolled", escapeRoll, "for escape challenge");
    }
 

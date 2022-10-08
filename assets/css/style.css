@@ -6,8 +6,31 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
+.loading-screen {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.loading-screen > p {
+    margin: 25% 0;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 4em;
+    font-weight: 700;
+}
+
+#loading {
+    display: block;
+}
+
+#game-loaded {
+    display: none;
+}
+
 /* alignment for the game page and game functions */
-#game {
+.game {
     background-color: #ffffff;
     padding: 0;
     border: none;
@@ -109,6 +132,7 @@ header h2 {
     background-position: bottom;
     width: 66%;
     height: 300px;
+    position: relative;
 
 }
 
@@ -121,6 +145,36 @@ header h2 {
     text-align: center;
     margin: 0 auto;
     padding: 100px 0 0 0;
+}
+
+.you-died-css {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: #000000 2px 2px;
+    color: #c00000;
+    background-color: #000000d6;
+    box-shadow: #000000d6 0px 0px 15px 20px;
+}
+
+#you-died-js-target {
+    display: none;
+}
+
+#dead {
+    font-size: 4em;
+    border-top: 2px solid #c00000;
+    border-bottom: 2px solid #c00000;
+    font-weight: 700;
+}
+
+#death-text {
+    text-align: center;
+   
 }
 
 /* controls styling */
