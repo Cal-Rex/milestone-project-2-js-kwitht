@@ -12,7 +12,9 @@ const adventureButton = document.getElementById('keep-going');
 // run away button
 const runAwayButton = document.getElementById('flee-btn');
 // action button
-const actionButton = document.getElementById('fight-btn')
+const actionButton = document.getElementById('fight-btn');
+// new game/refresh the page
+const nGButton = document.getElementById('new-game');
 
 //game mechanics
 // used for assigning the type of ability checks in each scenario
@@ -300,6 +302,7 @@ function deathMessage() {
       death = fightDeath[encounterType]
    }
    document.getElementById('death-text').textContent = death;
+   document.getElementById('new-game').style.visibility = "visible";
 }
 
 /** activates if the player's playerStat beats the challengeRoll against them */
@@ -403,6 +406,14 @@ function statCheck() {
 }
 
 actionButton.addEventListener('click', statCheck)
+
+function newGame() {
+   document.getElementById('game-loaded').style.display = "none";
+   document.getElementById('loading').style.display = "block";
+   location.reload();
+}
+
+nGButton.addEventListener('click', newGame)
 
 
 // the first function would roll a random encounter, first it has to roll 1d6 to determine one of the 6 encounters
