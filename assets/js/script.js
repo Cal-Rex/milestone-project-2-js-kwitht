@@ -11,6 +11,8 @@ let job = "";
 const adventureButton = document.getElementById('keep-going');
 // run away button
 const runAwayButton = document.getElementById('flee-btn');
+// action button
+const actionButton = document.getElementById('fight-btn')
 
 //game mechanics
 // used for assigning the type of ability checks in each scenario
@@ -163,12 +165,12 @@ function keepGoing() {
       eCalc.push(d6)
    }
    if (eCalc[4] === dupeStopper) {
-      eCalc[4]++
-      if (eCalc[4] === 5) {
-         eCalc[4] === 0; 
+      eCalc[4]++;
       }
-      console.log("dupeStopper was used!")
+   if (eCalc[4] === 6) {
+      eCalc[4] = 1;
    }
+      console.log("dupeStopper was used!")
 
    let monsterResult = eCalc[2] + eCalc[3];
    let nameResult = eCalc[0] + eCalc[1];
@@ -200,6 +202,7 @@ function keepGoing() {
    } else if (eCalc[4] === 5) {
       document.getElementById('encounter-text').textContent = `You find a big ol' chest abandoned on the side of the road. 
       Looks like it might have something valuable in it. You could try an open it... Will you do it!?`
+      check = "dexterity";
    } else {
       alert("invalid encounter type!")
       console.log("Error! encounter number =", eCalc[4])
@@ -251,6 +254,7 @@ function runSuccess() {
 
 // launches when a run away roll or action roll is failed.
 function deathMessage() {
+   document.getElementById("you-died-js-target").style.display = "block";
    let fightDeath = [];
    let runDeath = [
    `you decided to leave jumping the gorge but a bunch of jocks saw you wimp out 
@@ -273,12 +277,22 @@ function deathMessage() {
    ];
 
    let death = "";
+   
    if (runRoll = true) {
       death = runDeath[encounterType]
    } else {
       death = fightDeath[encounterType]
    }
    document.getElementById('death-text').textContent = death;
+}
+
+function victory() {
+   let progressString = document.getElementById('encounter-counter').textContent;
+   let progression = parseInt(progressString);
+   progression++
+   document.getElementById('encounter-counter').textContent = progression;
+   console.log("the check passed player's roll of", playerStat, "beat the encounter roll of", challengeRoll);
+   console.log("adventure progression should now be", progression,"0%")
 }
 
 function runAway() {
@@ -289,7 +303,6 @@ function runAway() {
       runSuccess();
       runRoll = false;
    } else {
-      document.getElementById("you-died-js-target").style.display = "block";
       deathMessage()
       alert(`system rolled ${escapeRoll} and beat your Dexterity of ${stat}`);
       console.log("game rolled", escapeRoll, "for escape challenge");
@@ -300,7 +313,34 @@ function runAway() {
 
 runAwayButton.addEventListener('click', runAway)
 
+function statCheck() {
+   let challengeRoll = (Math.round((Math.floor(Math.random() * 11)) / 100 * 90));
+   let playerStat = 0;
+   if (check === "strength") {
+      let stat = document.getElementById('str-num').textContent;
+      playerStat = parseInt(stat);
+   } else if (check === "cunning"){
+      let stat = document.getElementById('cun-num').textContent;
+      playerStat = parseInt(stat);
+   } else if (check === "dexterity") {
+      let stat = document.getElementById('dex-num').textContent;
+      playerStat = parseInt(stat);
+   } else {
+      alert("invalid check type!")
+      console.log("Error! check was", check);
+      console.log("stat =", stat);
+      console.log("playerStat =", playerStat)
+   }
+   console.log("playerStat is", playerStat, "because check is", check);
+   console.log("enemy rolled", challengeRoll);
+   if (playerStat > challengeRoll) {
+      victory()
+   } else {
+      deathMessage()
+   }
+}
 
+actionButton.addEventListener('click', statCheck)
 
 
 // the first function would roll a random encounter, first it has to roll 1d6 to determine one of the 6 encounters
