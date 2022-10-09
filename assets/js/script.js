@@ -239,11 +239,10 @@ function runSuccess() {
       `You manage to successfully escape the ambush and hide in some nearby woods for a day, 
       just to be on the safe side.`,
 
-      `You recite a verse from the book and you are teleported 50 miles up the road 
-      and you your acid reflux from eating that squirrel earlier is gone. Jackpot.`,
+      `You decide against it. Way too spooky. so spooky in fact, you run back the way you came...`,
 
-      `Ah! the chest was a mimic! As it opens its big chest mouth you manage to jump out the way just in time. 
-      You burn it and head onwards.`
+      `Ah! the chest was a mimic! As it opens its big chest mouth you stumble and fall back, it eats your weapons, 
+      but at least you're alive. You double back to the nearest town to make an insurance claim on your lost weapons.`
    ];
    document.getElementById('encounter-text').textContent = flee[encounterType]
    document.getElementById('actions').style.visibility = "hidden";
@@ -286,15 +285,57 @@ function deathMessage() {
    document.getElementById('death-text').textContent = death;
 }
 
+/** activates if the player's playerStat beats the challengeRoll against them */
 function victory() {
    let progressString = document.getElementById('encounter-counter').textContent;
    let progression = parseInt(progressString);
    progression++
    document.getElementById('encounter-counter').textContent = progression;
-   console.log("the check passed player's roll of", playerStat, "beat the encounter roll of", challengeRoll);
-   console.log("adventure progression should now be", progression,"0%")
+   
+   console.log("adventure progression should now be", progression,"0%");
+
+   if (check === "strength") {
+      let skill = document.getElementById('str-num').textContent;
+      strSkill = parseInt(skill);
+      strSkill++
+      document.getElementById('str-num').textContent = strSkill;
+      console.log("strength is now increased to", strSkill);
+   } else if (check === "cunning"){
+      let skill = document.getElementById('cun-num').textContent;
+      cunSkill = parseInt(skill);
+      cunSkill++
+      document.getElementById('cun-num').textContent = cunSkill;
+      console.log("strength is now increased to", cunSkill);
+   } else {
+      console.log(`check is "${check}" so no increment added`);
+   }
+   let vMessage = [
+      "You managed to jump the gorge! Clearly you didn't skip leg day. Your strength increases by 1",
+
+      `You fought the ${encounterFoe} to the death, and they died! what's even better than that is that you didn't die! 
+      Your strength has increases by 1`,
+
+      `you decide to stay and try your luck. The ${encounterFoe} keeps accidentally showing you their hand. 
+      You absolutely clean them out. Your Cunning has increases by 1`,
+
+      `The ambush was a bust, you absolutely battered them and took their lunch money.
+      Your strength increases by 1`,
+
+      `You recite a verse from the book and you are teleported 50 miles up the road 
+      and you your acid reflux from eating that squirrel earlier is gone. Jackpot.
+      Your cunning increases by 1`,
+
+      `Ah! the chest was a mimic! As it opens its big chest mouth you manage to jump out the way just in time. 
+      You burn it and head onwards.`
+   ]
+   document.getElementById('encounter-text').textContent = vMessage[encounterType];
+
+   document.getElementById('actions').style.visibility = "hidden";
+   document.getElementById('run-actions').style.visibility = "hidden";
+   document.getElementById('keep-going').style.visibility = "visible";
 }
 
+/** activates if the player chooses to run away */
 function runAway() {
    runRoll = true;
    let stat = document.getElementById('dex-num').textContent;
@@ -313,6 +354,7 @@ function runAway() {
 
 runAwayButton.addEventListener('click', runAway)
 
+/** assigns the correct stat to be checked based on the type of encounter that is rolled */
 function statCheck() {
    let challengeRoll = (Math.round((Math.floor(Math.random() * 11)) / 100 * 90));
    let playerStat = 0;
@@ -334,6 +376,7 @@ function statCheck() {
    console.log("playerStat is", playerStat, "because check is", check);
    console.log("enemy rolled", challengeRoll);
    if (playerStat > challengeRoll) {
+      console.log("the check passed player's roll of", playerStat, "beat the encounter roll of", challengeRoll);
       victory()
    } else {
       deathMessage()
