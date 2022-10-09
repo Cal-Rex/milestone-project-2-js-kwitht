@@ -128,7 +128,9 @@ function createQuest() {
    }
    document.getElementById('intro-text').textContent =
       `You are ${questLine.name[x]} the ${job} and you are travelling to ${questLine.endDestination[y]}, ${questLine.reason[z]}!`;
-}
+      document.getElementById('actions').style.visibility = "hidden";
+      document.getElementById('run-actions').style.visibility = "hidden";
+   }
 
 // event listeners for the 3 job buttons that start the quests
 knightButton.addEventListener('click', rollKnight);
@@ -254,7 +256,21 @@ function runSuccess() {
 // launches when a run away roll or action roll is failed.
 function deathMessage() {
    document.getElementById("you-died-js-target").style.display = "block";
-   let fightDeath = [];
+   let fightDeath = [
+      `You tried to jump it, but you got a leg cramp just as you lept. You fell to your death. You are dead.`,
+
+      `You agreed to fight them to the death, and you fought them to death, your death. You are dead.`,
+
+      `The ${encounterFoe} caught you looking at their cards! They pull out a revolver and start blastin'. You are dead.`,
+
+      `You tried to stand your ground but the ground was actually a bunch of ${encounterFoe}s in ghillie suits.
+      They severely outnumber you and overpower you. You are dead.`,
+
+      `You accidentally summon ${encounterFoe} the demon. they eat you. You are dead.`,
+
+      `The chest was a mimic, it snapped open and gobbled you up. You are dead.`
+   ];
+
    let runDeath = [
    `you decided to leave jumping the gorge but a bunch of jocks saw you wimp out 
    so they tried to throw you across against your will. You fell to your death.`,
@@ -268,7 +284,8 @@ function deathMessage() {
    `You tried to escape the ambushed but you were ambushed with in your ambush 
    and were subsequently ambushed to death by an ambush of ${encounterFoe}s.`,
 
-   `You accidentally summon ${encounterFoe} the demon. they eat you. You are dead.`,
+   `You decide against reading the book. It is insulted that you ignored it's whispers. It places a curse on you.
+   You die from radiation poisoning.`,
 
    `You decided to play it safe and not open the chest. But were then mauled by a bear 
    for interrupting it's monologue on the economic distribution of wealth.
@@ -277,7 +294,7 @@ function deathMessage() {
 
    let death = "";
    
-   if (runRoll = true) {
+   if (runRoll === true) {
       death = runDeath[encounterType]
    } else {
       death = fightDeath[encounterType]
@@ -381,6 +398,8 @@ function statCheck() {
    } else {
       deathMessage()
    }
+   document.getElementById('actions').style.visibility = "hidden";
+   document.getElementById('run-actions').style.visibility = "hidden";
 }
 
 actionButton.addEventListener('click', statCheck)
