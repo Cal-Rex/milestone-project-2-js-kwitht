@@ -5,6 +5,10 @@ const thiefButton = document.getElementById('choose-thief');
 const merchButton = document.getElementById('choose-merchant');
 // selected Job
 let job = "";
+// generated characteristics
+let charName = "";
+let destination = "";
+let destReason = "";
 
 // game controls
 // start an encounter
@@ -61,9 +65,9 @@ document.getElementById('intro-text').textContent =
 // 3 functions below allow player to pick their job before starting their quest using the 3 job buttons
 /** selects the Knight Job, allocates necessary stats and begins the quest */
 function rollKnight() {
-   document.getElementById('str-num').textContent = "4";
-   document.getElementById('dex-num').textContent = "3";
-   document.getElementById('cun-num').textContent = "2";
+   document.getElementById('str-num').textContent = "5";
+   document.getElementById('dex-num').textContent = "4";
+   document.getElementById('cun-num').textContent = "3";
    job = "Knight"
    startGame()
    createQuest()
@@ -72,7 +76,7 @@ function rollKnight() {
 /** selects the Thief Job, allocates necessary stats and begins the quest */
 function rollThief() {
    document.getElementById('str-num').textContent = "2";
-   document.getElementById('dex-num').textContent = "6";
+   document.getElementById('dex-num').textContent = "7";
    document.getElementById('cun-num').textContent = "3";
    job = "Thief"
    startGame()
@@ -82,8 +86,8 @@ function rollThief() {
 /** selects the Merchant Job, allocates necessary stats and begins the quest */
 function rollMerch() {
    document.getElementById('str-num').textContent = "3";
-   document.getElementById('dex-num').textContent = "2";
-   document.getElementById('cun-num').textContent = "4";
+   document.getElementById('dex-num').textContent = "3";
+   document.getElementById('cun-num').textContent = "6";
    job = "Merchant"
    startGame()
    createQuest()
@@ -132,6 +136,13 @@ function createQuest() {
       `You are ${questLine.name[x]} the ${job} and you are travelling to ${questLine.endDestination[y]}, ${questLine.reason[z]}!`;
       document.getElementById('actions').style.visibility = "hidden";
       document.getElementById('run-actions').style.visibility = "hidden";
+   
+   charName = questLine.name[x];
+   destination = questLine.endDestination[y];
+   destReason = z[0];
+   console.log("character name:", charName);
+   console.log("destination:", destination);
+   console.log("reason:", destReason);
    }
 
 // event listeners for the 3 job buttons that start the quests
@@ -305,6 +316,42 @@ function deathMessage() {
    document.getElementById('new-game').style.visibility = "visible";
 }
 
+function winQuest() {
+   let epilogue = [`With the tradition been upheld for another 100 years. You look towards the horizon, or rather, 
+   wherever the horizon would be in ${destination}, and ponder, "Will the next adventurer's journey be as perilous as mine?"
+   i guess you'll never know...`,
+
+   `Now that you have managed to move all of your assets safely. You can now retire knowing that you will 
+   never have to work another day in your life. Which makes you wonder, "what about the next life?". 
+   If only there was some way to find out...`,
+
+   `As you look back on all your encounters - and down at your stats - you truly feel like you have really discovered the real you.
+   The real ${charName} the enlightened ${job}. You regale the tales of your travels to anyone that would listen.
+   Years from now, Divine ${job} ${charName} is the monarch of the ${charName}anism, the religeon of great adventurers. 
+   Will any disciple ever hold a candle to the great flame of ${charName}?...`,
+
+   `Thank goodness you managed to make your business lunch, just on time and only with a few scrapes. You eat heartily
+   and seal the deal. With your new business in ${job}ing you make lots of money and can never have to worry about 
+   doing another quest. Will anyone else ever get so lucky?...`,
+
+   `unfortunately, your date didn't get so lucky in their quest. that, or you got stood up. 
+   but let's not fuss over the small details. You enjoyed ${destination} to it's fullest as ${charName} the strong independent
+   ${job} who don't need nobody. years later, you Look back on your adventures and ponder if things could have been different.
+   If only there was a way to see...`,
+
+   `Now that you have got to ${destination} you can now officially spend all that money you'd been paid. 
+   You blow it all on Funko Pops. You immediately regret your decision. They are utterly useless. 
+   Surely no one else will ever make the same mistake...`
+]
+   let winner = `You did it ${charName}! You made it to ${destination}! ${epilogue[destReason]}`
+   document.getElementById('actions').style.visibility = "hidden";
+   document.getElementById('run-actions').style.visibility = "hidden";
+   document.getElementById('keep-going').style.visibility = "hidden";
+   document.getElementById('new-game').style.visibility = "visible";
+   document.getElementById("you-died-js-target").style.display = "block";
+   document.getElementById('death-text').textContent = winner;
+}
+
 /** activates if the player's playerStat beats the challengeRoll against them */
 function victory() {
    let progressString = document.getElementById('encounter-counter').textContent;
@@ -353,6 +400,10 @@ function victory() {
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
    document.getElementById('keep-going').style.visibility = "visible";
+
+   if (progression === 10) {
+      winQuest()
+   }
 }
 
 /** activates if the player chooses to run away */
