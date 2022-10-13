@@ -56,6 +56,7 @@ function pageLoad() {
    restartButton.style.visibility = "hidden";
    document.getElementById('loading').style.display = "none";
    document.getElementById('game-loaded').style.display = "grid";
+   document.getElementById('encounter-log').style.visibility = "hidden"
 }
 
 window.addEventListener('load', pageLoad);
@@ -99,9 +100,9 @@ function rollThief() {
 
 /** selects the Merchant Job, allocates necessary stats and begins the quest */
 function rollMerch() {
-   document.getElementById('str-num').textContent = "3";
-   document.getElementById('dex-num').textContent = "3";
-   document.getElementById('cun-num').textContent = "6";
+   document.getElementById('str-num').textContent = "10";
+   document.getElementById('dex-num').textContent = "10";
+   document.getElementById('cun-num').textContent = "10";
    job = "Merchant"
    startGame()
    createQuest()
@@ -366,17 +367,22 @@ function winQuest() {
    You blow it all on Funko Pops. You immediately regret your decision. They are utterly useless. 
    Surely no one else will ever make the same mistake...`
 ]
-   let winner = `You did it ${charName}! You made it to ${destination}! ${epilogue[destReason]}`
+   let winner = `You did it ${charName}! You made it to ${destination}! ${epilogue[destReason]}`;
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
    document.getElementById('keep-going').style.visibility = "hidden";
    document.getElementById('new-game').style.visibility = "visible";
    document.getElementById("you-died-js-target").style.display = "block";
+   document.getElementById('you-died-js-target').classList.remove =("you-died-css");
+   document.getElementById('you-died-js-target').classList.add("you-won-css");
+   document.getElementById('story-box').classList.add("story-box-completed")
+   document.getElementById('dead').textContent = "You did it!"
    document.getElementById('death-text').textContent = winner;
 }
 
 /** activates if the player's playerStat beats the encounterDiceRoll against them */
 function victory() {
+   document.getElementById('encounter-log').style.visibility = "visible";
    let progressString = document.getElementById('encounter-counter').textContent;
    let progression = parseInt(progressString);
    progression++
@@ -433,7 +439,8 @@ function victory() {
 function runAway() {
    runRoll = true;
    let stat = document.getElementById('dex-num').textContent;
-   let escapeRoll = (Math.round((Math.floor(Math.random() * 11)) / 100 * 90));
+   rollDice()
+   let escapeRoll = encounterDiceRoll;
    if (stat >= escapeRoll) {
       runSuccess();
       runRoll = false;

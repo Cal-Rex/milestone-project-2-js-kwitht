@@ -62,6 +62,12 @@ header {
     grid-area: storybox;
     border: 1px #000000 solid;
     border-radius: 5px;
+
+}
+
+.story-box-completed {
+    width: 91.75%;
+    height: 50vh;
 }
 
 .stat-values {
@@ -152,18 +158,28 @@ header h2 {
     padding: 100px 0 0 0;
 }
 
-.you-died-css {
+.you-outcome-css {
     position: absolute;
-    height: 100%;
-    width: 100%;
+    top: 33vh;
+    margin: 0 5vw;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 3px;
     font-family: 'Times New Roman', Times, serif;
     text-shadow: #000000 2px 2px;
-    color: #c00000;
     background-color: #000000d6;
     box-shadow: #000000d6 0px 0px 15px 20px;
+}
+
+
+.you-died-css {
+    color: #c00000;
+    background-color: #000000d6;
+}
+
+.you-won-css {
+    text-shadow: #ffd90047 2px 2px;
+    color: #eb7e00;
 }
 
 #you-died-js-target {
