@@ -149,13 +149,19 @@ knightButton.addEventListener('click', rollKnight);
 thiefButton.addEventListener('click', rollThief);
 merchButton.addEventListener('click', rollMerch);
 
-function buttonAnim() {
-   let buttons = document.getElementsByClassName('btn')
-   for (i = 0; i < buttons.length; i++) {
-      let resetClone = buttons[i].cloneNode(true);
-      this.parentNode.replaceChild(resetClone, this)
-   }
+/** cycles random backgrounds */
+function backgroundRoller() {
+   let d6 = (Math.round((Math.floor(Math.random() * 11)) / 100 * 50));
+   let bgArray = [
+      "url(assets/images/backgrounds/env-1.webp)",
+      "url(assets/images/backgrounds/env-2.webp)",
+      "url(assets/images/backgrounds/env-3.webp)",
+      "url(assets/images/backgrounds/env-4.webp)",
+      "url(assets/images/backgrounds/env-5.webp)",
+      "url(assets/images/backgrounds/env-6.webp)"]
+   document.getElementById("story-bg").style.backgroundImage = bgArray[d6];
 }
+
 
 /** generates a new encounter */
 function keepGoing() {
@@ -236,13 +242,7 @@ function keepGoing() {
    console.log("random name generator rolled a", nameResult, "and picked", names[nameResult]);
    console.log("encounter type", encounterType, "rolled");
    console.log("encounter number", eCalc[4], "selected");
-   // document.getElementById('encounter-text').textContent = names[nameResult];
-
-
-   // let x = [];
-   // let d6 = (Math.round((Math.floor(Math.random() * 11)) / 100 * 50));
-   // x.push(d6);
-   // console.log("loading scernario", x[0])
+   backgroundRoller();
 };
 
 adventureButton.addEventListener('click', keepGoing)
