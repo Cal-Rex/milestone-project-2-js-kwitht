@@ -55,12 +55,11 @@ window.addEventListener('unload', pageReset);
 
 
 // explanatory text on how the game works
-document.getElementById('intro-text').textContent =
-   `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-     ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-      in voluptate velit esse cillum dolore eu fugiat nulla pariatur.`;
+document.getElementById('intro-text').innerHTML =
+   `Welcome to Qwetht. It's a game. The aim of the game is to complete the Qwetht by doing stuff.
+   Every Qwetht is different. Encounters are random, you are random, the reason for being on your qwetht is random.<br>
+   Qwethts can be pretty unforgiving, You can take action or run away from an encounter, but death can loom around the corner
+   of any choice you make. Take care in your choices and good luck!`;
 
 // 3 functions below allow player to pick their job before starting their quest using the 3 job buttons
 /** selects the Knight Job, allocates necessary stats and begins the quest */
@@ -150,6 +149,14 @@ knightButton.addEventListener('click', rollKnight);
 thiefButton.addEventListener('click', rollThief);
 merchButton.addEventListener('click', rollMerch);
 
+function buttonAnim() {
+   let buttons = document.getElementsByClassName('btn')
+   for (i = 0; i < buttons.length; i++) {
+      let resetClone = buttons[i].cloneNode(true);
+      this.parentNode.replaceChild(resetClone, this)
+   }
+}
+
 /** generates a new encounter */
 function keepGoing() {
    document.getElementById('keep-going').style.visibility = "hidden";
@@ -161,10 +168,10 @@ function keepGoing() {
    // this is the selection of names that can be chosen for encounter "monsters"
    // the choice is determined by generating 2 numbers between 0 and 6, then adding them together
    let names = ["Unfortunate Greg", "Deuce", "Snake-Eyes Pete", "Daunchy",
-      "The Artist formerly known as", "Doris", "Cynthia", "Majestic Michael",
+      "The Artist formerly known as", "Doris", "Boblin", "Majestic Michael",
       "Flothers", "Dangerous Daniel", "Bruce", "Alexander", "Crit McGee"
    ]
-   let monsters = ["goblin", "slime", "crab-person", "steam-powered debt collector",
+   let monsters = ["crab-person", "slime", "goblin", "steam-powered debt collector",
       "talking bear", "highwayman", "hoodlum", "land pirate", "outlaw", "rabid hobbit",
       "handstanding mermaid", "Nestle executive", "splitter of realms"
    ]
@@ -316,6 +323,7 @@ function deathMessage() {
    document.getElementById('new-game').style.visibility = "visible";
 }
 
+/** function that activates when player beats the game */
 function winQuest() {
    let epilogue = [`With the tradition been upheld for another 100 years. You look towards the horizon, or rather, 
    wherever the horizon would be in ${destination}, and ponder, "Will the next adventurer's journey be as perilous as mine?"
@@ -465,24 +473,3 @@ function newGame() {
 }
 
 nGButton.addEventListener('click', newGame)
-
-
-// the first function would roll a random encounter, first it has to roll 1d6 to determine one of the 6 encounters
-
-// will establish a variable named "check", which will then be given "str", "dex" or "cun" depending on the encounter rolled.
-// will establish a variable called encounterCounter and pull the value of the "encounter-counter" Id. 
-
-// an event listener should be attached to the run away and do it buttons
-
-// an if statement will then determine based on the value of the check variable what stat to roll against. 
-// a function to roll against that stat will be activated
-// will use strength as the exmaple here: 
-
-// a strength variable is established by getting the value of the strength stat in the docuement
-// strength check function will roll a number between 0 and 10 
-// if check number lower than the player's strength variable, then the encounter text box will say they have completed the task
-// the encounterCounter variable will increase by 1 and then be assigned to html id text content of encounter-counter
-// if the encounterCounter variable = 10 it will run the questCompleted function
-// else, the story background will change to black, job icon will disappear, 
-// red text will desplay "YOU DIED" and then print the .death value of the encounter object
-// game controls should disappear, new game button should appear which should refresh the page on click

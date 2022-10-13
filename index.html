@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-    <title>Kwitht!</title>
+    <title>Qwetht!</title>
 </head>
 <body>
 <div class="loading-screen" id="loading"><p>loading...</p></div>
@@ -13,19 +13,19 @@
 <div class="game" id="game-loaded">
 <!-- title and introductory text that vanished once a game starts -->
     <header>
-    <h1>Kwitht</h1>
+    <h1>Qwetht</h1>
     <h2 id="intro-text"></h2>
     <p id="encounter-text"></p>
     </header>
 
 <!-- images for narrative of game will be displayed here by changing background images -->
     <div id="story-box">
-        <div id="story-bg">
+        <div class="story" id="story-bg">
             <div class="you-died-css" id="you-died-js-target">
                 <p id="dead">You Died</p>
                 <p id="death-text"></p>
             </div>
-            <div class="load" id="job-icon"><button id="keep-going">Let's go!</button></div>
+            <div class="load" id="job-icon"><button class="btn" id="keep-going">Let's go!</button></div>
         </div>
     </div>
 
@@ -38,20 +38,20 @@
     <div class="load stat-values" id="cunning">Cunning</div>
 
 <!-- buttons that allow you to choose your class at the start of the game -->
-    <div class="start btn-box" id="Knight-choice">
-        <button class="start-btn" id="choose-knight">
+    <div class="start btn-box" id="knight-choice">
+        <button class="btn start-btn" id="choose-knight">
             Play as a Knight
         </button>
         </div>
 
     <div class="start btn-box" id="thief-choice">
-        <button class="start-btn" id="choose-thief">
+        <button class="btn start-btn" id="choose-thief">
             Play as a Thief
         </button>
     </div>
 
     <div class="start btn-box" id="merchant-choice">
-        <button class="start-btn" id="choose-merchant">
+        <button class="btn start-btn" id="choose-merchant">
             Play as a Merchant
         </button>
     </div>
