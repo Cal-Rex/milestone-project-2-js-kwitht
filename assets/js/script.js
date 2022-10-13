@@ -28,7 +28,22 @@ let dupeStopper = "";
 // logs the encounter type to ensure the correct system messages on action success or failure
 let encounterFoe = "";
 let encounterType = "";
+let encounterDiceRoll = 0;
 let runRoll = false;
+
+function rollDice (){
+   let diceRoll = 0;
+   let encounterDocLog = document.getElementById('encounter-counter').textContent;
+   let encounterCounter = parseInt(encounterDocLog);
+   if (encounterCounter <= 4) {
+      diceRoll = (Math.round((Math.floor(Math.random() * 11)) / 100 * 40));
+   } else if (encounterCounter <= 7) {
+      diceRoll = (Math.round((Math.floor(Math.random() * 11)) / 100 * 60));
+   } else {
+      diceRoll = (Math.round((Math.floor(Math.random() * 11)) / 100 * 90));
+   }
+   encounterDiceRoll = diceRoll;
+}
 
 
 /**removes game controls on page inital load so that users can only select options that start the game */
@@ -360,7 +375,7 @@ function winQuest() {
    document.getElementById('death-text').textContent = winner;
 }
 
-/** activates if the player's playerStat beats the challengeRoll against them */
+/** activates if the player's playerStat beats the encounterDiceRoll against them */
 function victory() {
    let progressString = document.getElementById('encounter-counter').textContent;
    let progression = parseInt(progressString);
@@ -435,7 +450,7 @@ runAwayButton.addEventListener('click', runAway)
 
 /** assigns the correct stat to be checked based on the type of encounter that is rolled */
 function statCheck() {
-   let challengeRoll = (Math.round((Math.floor(Math.random() * 11)) / 100 * 90));
+   rollDice()
    let playerStat = 0;
    if (check === "strength") {
       let stat = document.getElementById('str-num').textContent;
@@ -453,9 +468,9 @@ function statCheck() {
       console.log("playerStat =", playerStat)
    }
    console.log("playerStat is", playerStat, "because check is", check);
-   console.log("enemy rolled", challengeRoll);
-   if (playerStat > challengeRoll) {
-      console.log("the check passed player's roll of", playerStat, "beat the encounter roll of", challengeRoll);
+   console.log("enemy rolled", encounterDiceRoll);
+   if (playerStat > encounterDiceRoll) {
+      console.log("the check passed player's roll of", playerStat, "beat the encounter roll of", encounterDiceRoll);
       victory()
    } else {
       deathMessage()
