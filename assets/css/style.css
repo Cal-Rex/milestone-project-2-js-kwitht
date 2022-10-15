@@ -161,6 +161,7 @@ header h2 {
 .you-outcome-css {
     position: absolute;
     top: 33vh;
+    width: 90vw;
     margin: 0 5vw;
     text-align: center;
     text-transform: uppercase;
