@@ -400,9 +400,32 @@ function winQuest() {
 /** activates if the player's playerStat beats the encounterDiceRoll against them */
 function victory() {
    document.getElementById('encounter-log').style.visibility = "visible";
+   let stepForward = document.getElementById('job-icon');
    let progressString = document.getElementById('encounter-counter').textContent;
    let progression = parseInt(progressString);
    progression++
+   if (progression === 1) {
+      stepForward.style.left = "25%"
+   } else if (progression === 2) {
+      stepForward.style.left = "35%"
+   } else if (progression === 3) {
+      stepForward.style.left = "40%"
+   } else if (progression === 4) {
+      stepForward.style.left = "45%"
+   } else if (progression === 5) {
+      stepForward.style.left = "50%"
+   } else if (progression === 6) {
+      stepForward.style.left = "55%"
+   } else if (progression === 7) {
+      stepForward.style.left = "60%"
+   } else if (progression === 8) {
+      stepForward.style.left = "65%"
+   } else if (progression === 9) {
+      stepForward.style.left = "70%"
+   } else if (progression === 10) {
+      stepForward.style.left = "75%"
+   };
+   
    document.getElementById('encounter-counter').textContent = progression;
    
    console.log("adventure progression should now be", progression,"0%");

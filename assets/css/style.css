@@ -171,6 +171,8 @@ header h2 {
     text-align: center;
     margin: 0 auto;
     padding: 100px 0 0 0;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
     z-index: 2;
 }
 
@@ -186,6 +188,7 @@ header h2 {
     text-shadow: #000000 2px 2px;
     background-color: #000000d6;
     box-shadow: #000000d6 0px 0px 15px 20px;
+    z-index: 5;
 }
 
 
