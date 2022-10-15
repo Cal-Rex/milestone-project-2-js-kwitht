@@ -35,17 +35,18 @@ body {
     padding: 0;
     border: none;
     display: grid;
+    overflow: hidden;
     margin: 0 auto;
     width: 100%;
     height: 90%;
     column-gap: 5%;
     grid-template-areas:
-        'header header header'
-        '. storybox .'
-        'strv dexv cunv'
-        'strn dexn cunn'
-        'kbtn tbtn mbtn'
-        'act ngp run';
+        'header header header header header header'
+        '. strn strv storybox storybox .'
+        '. dexn dexv storybox storybox .'
+        '. cunn cunv storybox storybox .'
+        'kbtn kbtn tbtn tbtn mbtn mbtn'
+        'act act ngp ngp run run';
 }
 
 #game > div {
@@ -60,6 +61,7 @@ header {
 
 #story-box {
     grid-area: storybox;
+    overflow: hidden;
     border: 1px #000000 solid;
     border-radius: 5px;
     text-align: center;
@@ -74,6 +76,8 @@ header {
 
 .stat-values {
     text-align: center;
+    font-weight: 700;
+    color: #ffffff;
 }
 
 .stat-titles {
@@ -83,26 +87,32 @@ header {
 
 #str-num {
     grid-area: strv;
+    margin: auto 0;
 }
 
 #dex-num {
     grid-area: dexv;
+    margin: auto 0;
 }
 
 #cun-num {
     grid-area: cunv;
+    margin: auto 0;
 }
 
 #strength {
     grid-area: strn;
+    margin: auto 0;
 }
 
 #dexterity {
     grid-area: dexn;
+    margin: auto 0;
 }
 
 #cunning {
     grid-area: cunn;
+    margin: auto 0;
 }
 
 #knight-choice {
@@ -135,6 +145,7 @@ header h2 {
 }
 
 /* story tile styling */
+
 .story {
     margin: 0 auto;
     background-repeat: no-repeat;
@@ -149,6 +160,9 @@ header h2 {
     background-image: none;
 }
 .job {
+    position: absolute;
+    bottom: 50px;
+    left: 20%;
     background-repeat: no-repeat;
     background-position: 50% 100%;
     background-size: contain;
@@ -157,6 +171,7 @@ header h2 {
     text-align: center;
     margin: 0 auto;
     padding: 100px 0 0 0;
+    z-index: 2;
 }
 
 .you-outcome-css {
@@ -230,6 +245,7 @@ header h2 {
     width: 100%;
     text-align: center;
     top: 80%;
+    z-index: 3;
 }
 
 .btn:hover {
@@ -271,3 +287,62 @@ footer {
         margin: 0 auto;
     }
 }
+
+/* animations triggered in js */
+.story-vis {
+    animation-name: story-vis;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+}
+@keyframes story-vis {
+    from {top: 250%;}
+    to {top: 0%;}
+}
+
+.encounter-bg-slide {
+    animation-name: encounter-bg-slide;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+@keyframes encounter-bg-slide{
+    from {left: 300%;}
+    to {left: 0%;}
+}
+
+.str-vis {
+    position: relative;
+    animation-name: vis;
+    animation-duration: 0.5s;
+    animation-delay: 0.1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+.dex-vis {
+    position: relative;
+    animation-name: vis;
+    animation-duration: 0.5s;
+    animation-delay: 0.3s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+.cun-vis {
+    position: relative;
+    animation-name: vis;
+    animation-duration: 0.5s;
+    animation-delay: 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes vis {
+    from {top: 400%;
+        color: #ffffff;}
+    to {top: 0%;
+        color: #000000;}
+}
+
+
+

@@ -56,7 +56,8 @@ function pageLoad() {
    restartButton.style.visibility = "hidden";
    document.getElementById('loading').style.display = "none";
    document.getElementById('game-loaded').style.display = "grid";
-   document.getElementById('encounter-log').style.visibility = "hidden"
+   document.getElementById('encounter-log').style.visibility = "hidden";
+   document.getElementById('story-box').style.visibility = "hidden";
 }
 
 window.addEventListener('load', pageLoad);
@@ -121,6 +122,14 @@ function startGame() {
    choices.forEach(choice => {
       choice.style.visibility = "hidden";
    });
+   document.getElementById('story-box').style.visibility = "visible";
+   document.getElementById('story-box').classList.add('story-vis');
+   document.getElementById('str-num').classList.add('str-vis');
+   document.getElementById('strength').classList.add('str-vis');
+   document.getElementById('dex-num').classList.add('dex-vis');
+   document.getElementById('dexterity').classList.add('dex-vis');
+   document.getElementById('cun-num').classList.add('cun-vis');
+   document.getElementById('cunning').classList.add('cun-vis');
 }
 
 /** generates a random storyline for the player's quest */
@@ -177,8 +186,13 @@ function backgroundRoller() {
       "url(assets/images/backgrounds/env-3.webp)",
       "url(assets/images/backgrounds/env-4.webp)",
       "url(assets/images/backgrounds/env-5.webp)",
-      "url(assets/images/backgrounds/env-6.webp)"]
+      "url(assets/images/backgrounds/env-6.webp)"];
+   document.getElementById("story-bg").classList.add('encounter-bg-slide');
    document.getElementById("story-bg").style.backgroundImage = bgArray[d6];
+}
+
+function resetBgSlide() {
+   document.getElementById("story-bg").classList.remove('encounter-bg-slide');
 }
 
 
@@ -454,6 +468,7 @@ function runAway() {
    }
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
+   resetBgSlide();
 }
 
 runAwayButton.addEventListener('click', runAway)
@@ -487,6 +502,7 @@ function statCheck() {
    }
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
+   resetBgSlide();
 }
 
 actionButton.addEventListener('click', statCheck)
