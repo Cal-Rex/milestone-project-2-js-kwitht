@@ -401,6 +401,7 @@ function winQuest() {
    document.getElementById('story-box').classList.add("story-box-completed")
    document.getElementById('dead').textContent = "You did it!"
    document.getElementById('death-text').textContent = winner;
+   document.getElementById('job-icon').classList.add('victory-anim');
 }
 
 /** activates if the player's playerStat beats the encounterDiceRoll against them */
