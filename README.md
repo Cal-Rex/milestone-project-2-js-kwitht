@@ -58,7 +58,8 @@ The Adventure generator beyond your wildest dreams, if your wildest dreams were 
 7. [Testing]()   
    i. [Go to TESTING.md]()  
 
-8. [Credits]()  
+8. [Credits](#credits)
+- [Troubleshooting Sources](#troubleshooting-sources) 
    i. [Code]()  
    ii. [Images]()  
    iii. [Sound Effects]()  
@@ -98,6 +99,11 @@ The aim of this project is to:
  - alter the way the site displays information to achieve a preferred user goal
  - The site should make use of HTML, CSS and Javascript to achieve the above aims
 
-credits:
-stack overflow
-https://bobbyhadz.com/blog/javascript-change-style-of-all-elements-with-class
+<hr>
+<br>
+
+# Credits
+## Troubleshooting sources
+- [stack overflow](https://stackoverflow.com/)
+- [Bobby Hadz](https://bobbyhadz.com/blog/javascript-change-style-of-all-elements-with-class)
+- [w3schools](https://www.w3schools.com/js/default.asp)
