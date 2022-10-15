@@ -306,8 +306,14 @@ function runSuccess() {
 
 }
 
-// launches when a run away roll or action roll is failed.
+/** animation trigger for job icon when the player dies */
+function deathAnim() {
+   document.getElementById('job-icon').classList.add('death-anim');
+}
+
+/** launches when a run away roll or action roll is failed. */
 function deathMessage() {
+   deathAnim()
    document.getElementById("you-died-js-target").style.display = "block";
    let fightDeath = [
       `You tried to jump it, but you got a leg cramp just as you lept. You fell to your death. You are dead.`,
@@ -425,7 +431,6 @@ function victory() {
    } else if (progression === 10) {
       stepForward.style.left = "75%"
    };
-   
    document.getElementById('encounter-counter').textContent = progression;
    
    console.log("adventure progression should now be", progression,"0%");

@@ -161,7 +161,7 @@ header h2 {
 }
 .job {
     position: absolute;
-    bottom: 50px;
+    bottom: 25px;
     left: 20%;
     background-repeat: no-repeat;
     background-position: 50% 100%;
@@ -172,7 +172,7 @@ header h2 {
     margin: 0 auto;
     padding: 100px 0 0 0;
     transition-duration: 0.5s;
-    transition-timing-function: ease-out;
+    transition-timing-function: ease-in;
     z-index: 2;
 }
 
@@ -292,6 +292,10 @@ footer {
 }
 
 /* animations triggered in js */
+.death-anim {
+    transform: rotate(90deg);
+    transform-origin: 45% 100%;
+}
 .story-vis {
     animation-name: story-vis;
     animation-duration: 0.5s;
