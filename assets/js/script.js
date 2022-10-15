@@ -103,9 +103,9 @@ function rollThief() {
 
 /** selects the Merchant Job, allocates necessary stats and begins the quest */
 function rollMerch() {
-   document.getElementById('str-num').textContent = "10";
-   document.getElementById('dex-num').textContent = "10";
-   document.getElementById('cun-num').textContent = "10";
+   document.getElementById('str-num').textContent = "3";
+   document.getElementById('dex-num').textContent = "3";
+   document.getElementById('cun-num').textContent = "6";
    document.getElementById('job-icon').style.backgroundImage = "url(assets/images/jobs/merchant.webp)";
    job = "Merchant"
    startGame()
