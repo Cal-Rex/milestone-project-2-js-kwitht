@@ -83,6 +83,7 @@ function rollKnight() {
    document.getElementById('str-num').textContent = "5";
    document.getElementById('dex-num').textContent = "4";
    document.getElementById('cun-num').textContent = "3";
+   document.getElementById('job-icon').style.backgroundImage = "url(assets/images/jobs/knight.webp)";
    job = "Knight"
    startGame()
    createQuest()
@@ -93,6 +94,7 @@ function rollThief() {
    document.getElementById('str-num').textContent = "2";
    document.getElementById('dex-num').textContent = "7";
    document.getElementById('cun-num').textContent = "3";
+   document.getElementById('job-icon').style.backgroundImage = "url(assets/images/jobs/thief.webp)";
    job = "Thief"
    startGame()
    createQuest()
@@ -103,6 +105,7 @@ function rollMerch() {
    document.getElementById('str-num').textContent = "10";
    document.getElementById('dex-num').textContent = "10";
    document.getElementById('cun-num').textContent = "10";
+   document.getElementById('job-icon').style.backgroundImage = "url(assets/images/jobs/merchant.webp)";
    job = "Merchant"
    startGame()
    createQuest()

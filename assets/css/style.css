@@ -62,7 +62,9 @@ header {
     grid-area: storybox;
     border: 1px #000000 solid;
     border-radius: 5px;
-
+    text-align: center;
+    position: relative;
+    top: 0px;
 }
 
 .story-box-completed {
@@ -146,13 +148,12 @@ header h2 {
 #story-bg {
     background-image: none;
 }
-
-#job-icon {
-    background: url(../images/placeholder.png) no-repeat;
-    background-size: 75px 75px;
-    background-position: 45% 90%;
-    width: 100%;
-    height: 200px;
+.job {
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+    background-size: contain;
+    width: 100px;
+    height: 150px;
     text-align: center;
     margin: 0 auto;
     padding: 100px 0 0 0;
@@ -224,6 +225,13 @@ header h2 {
     to {top: 0%;}
 }
 
+.keep-going-btn {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 80%;
+}
+
 .btn:hover {
     color:#000000;
     background-color: #ffffff;
@@ -244,4 +252,22 @@ footer {
     height: 10%;
     text-align: center;
     color: #ffffff;
+}
+
+/* media queries */
+@media screen and (max-width: 800px) {
+    .game {
+        grid-template-areas:
+        'header header header'
+        'storybox storybox storybox'
+        'strv dexv cunv'
+        'strn dexn cunn'
+        'kbtn tbtn mbtn'
+        'act ngp run';
+    }
+
+    #story-box {
+        width: 91.75%;
+        margin: 0 auto;
+    }
 }
