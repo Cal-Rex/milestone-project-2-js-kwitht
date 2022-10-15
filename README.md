@@ -22,12 +22,12 @@ The Adventure generator beyond your wildest dreams, if your wildest dreams were 
 
 # Table of Contents
 1. [Introduction](#introduction)  
-2. [UX Development Planes]()   
-   i. [Strategy Plane]()  
-   - [User Stories]()  
-   - [Online Research]()  
-   - [Project Goals, User Goals, and Developer Goals]()  
-   - [Strategy Table]()
+2. [UX](#user-experience-ux)   
+   i. Strategy Plane
+   - User Stories
+   - Online Research  
+   - Project Goals, User Goals, and Developer Goals  
+   - Strategy Table
 
    ii. [Scope Plane]()  
    iii. [Structure Plane]()  
@@ -89,7 +89,7 @@ font-weight: 700;
 letter-spacing: 1px;">
 Qwetht</span> is very much designed to be that of a [roguelike](https://en.wikipedia.org/wiki/Roguelike) game, where incorrect decisions or bad luck result in game over, and there is heavy emphasis on starting over fresh each time the game is played.
 
-## This Project was created as the second milestone project for the Diploma in Software Development
+## This project is the second of the five projects to be created for the Diploma in Full Stack Software Development (Common Curriculum).
 
 Project purpose: Presentation of interactive data
 
@@ -98,6 +98,30 @@ The aim of this project is to:
  - The site in question should respond to user's actions, allowing users to interact with data
  - alter the way the site displays information to achieve a preferred user goal
  - The site should make use of HTML, CSS and Javascript to achieve the above aims
+
+<hr>
+<br>
+
+# User Experience (UX)
+
+## <b>Strategy Plane</b>
+
+## <span style="text-decoration: underline;">User Stories</span>
+
+### <b>First-time Players</b>
+Play-testers were interviewed before playing the game to establish user stories:
+
+1. <em>"As a first-time player, i want to be able to understand the game mechanics with little study. The game UI needs to be intuitive."</em>
+2. <em>"As a first-time player, i want there to be a help or menu section that explains the finer intricacies of the game, with little-to-no redirection from the game."</em>
+3. <em>"As a first-time player, i want to have the element of choice when starting a game."</em>
+4. <em>"As a first time player, i want the game interface to be clear and consistent at each step of the core gameplay loop."</em>
+5. <em>"As a first-time player, i want to be able to track my progress during a playthrough."</em>
+
+### <b>Returning Players</b>
+After Playtesting the game, players were interviewed to establish their user stories as users who had played the game previously:
+
+1. <em>"As a returning player, I want to be able to pick up where i left off."</em>
+2. <em>"As a returning player, I want to be able to see a record of my past completions."</em>
 
 <hr>
 <br>
