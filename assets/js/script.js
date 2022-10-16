@@ -347,7 +347,7 @@ function deathMessage() {
    `You decided not to stay for the night, you died of hypothermia at 3AM. 
    Should have worn more layers.`,
 
-   `You tried to escape the ambushed but you were ambushed with in your ambush 
+   `You tried to escape the ambushed but you were ambushed within your ambush 
    and were subsequently ambushed to death by an ambush of ${encounterFoe}s.`,
 
    `You decide against reading the book. It is insulted that you ignored it's whispers. It places a curse on you.
