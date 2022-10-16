@@ -106,7 +106,7 @@ The aim of this project is to:
 
 # User Experience (UX)
 
-## <b>Strategy Plane</b>
+## <b><span style="text-decoration: underline;">Strategy Plane</span></b>
 
 ## <span style="text-decoration: underline;">User Stories</span>
 
@@ -171,17 +171,73 @@ The project goal is to create a simple adventure game that draws from text-based
   ### <b>Player goals</b>
   Based on user stories, user goals are defined as:
 
-    - A simple and easy to follow game
-    - A game that strikes a balance between choice and luck
-    - A game that can track and acknowledge the achievements of players
-    - A game that easy to "pick up" and "put down" as appropriate for a user
+   1. A simple and easy to follow game
+   2. A game that strikes a balance between choice and luck
+   3. A game that can track and acknowledge the achievements of players
+   4. A game that easy to "pick up" and "put down" as appropriate for a user
 
   ### <b>Developer Goals</b>   
   Based on project research, project goals are defined as:
 
-    - Create a random and humerous adventure game
-    - Create a game that adopts roguelike concepts, treating player death as part of the integral gameplay loop
-    - Create a game that effectively functions as a mini solo-play table-top RPG
+   1. Create a random and humerous adventure game
+   2. Create a game that adopts roguelike concepts, treating player death as part of the integral gameplay loop
+   3. Create a game that effectively functions as a mini solo-play table-top RPG
+
+<br>
+
+## <span style="text-decoration: underline;">Stretegy Table</span>
+
+## <b><span style="text-decoration: underline;">Scope Plane</span></b>
+
+Based on the results of the strategy plane the following features have been focused on to develop:
+ 1. Player jobs/classes
+    - at the start of the game, the player will be given the choice of 3 classes, each leaning more favourably into one of the 3 stats used for the game.
+
+    <br>
+
+ 2. Text that generates per each choice and action taken by the user
+    - The text will be the first element to be read after the page title, being a focal point of information for the user.
+    - This same text field will update every time a user takes an action, prompting them of the outcome of their choices.
+
+    <br>
+
+ 3. A box or viewport that gives visual representation of the adventure
+    - The box will be placed directly under the text, to give visualisation of the narrative generated.
+    - It will contain a backdrop and also an image representative of the player character.
+    - image representing player character will be different based on the class picked by the player.
+
+    <br>
+
+ 4. An element that highlights player progress
+    - a progress bar or counter will be places under all the main game controls, which tracks the players progress/how many encounters they have completed.
+
+    <br>
+
+ 5. Viewable and upgradable player stats
+    - player stats will display next or under the visualisation window, depending on viewport/device parameters.
+    - the stats will upgrade automatically depending on successful choices made by the user.
+
+    <br> 
+
+ 6. A Prompt that appears upon player death
+    - This will mimic the style of the death message that appears when players would die in the game [Dark Souls](https://www.youtube.com/watch?v=-ZGlaAxB7nI).
+
+    <br>
+
+ 7. A prompt that appears upon completing the game
+    - Adopt a similar style to the message that appears in Dark souls [when a player defeats a boss or lights a bonfire](https://youtube.com/shorts/CzY3jsotryg?feature=share) in order to keep in line with the game style.
+
+    <br>
+
+ 8. Options to take per encounter
+    - Have clear buttons that outline player options that appear right below the encounter visualisation.
+
+    <br>
+
+ 9. a "new Game" button
+    - Will appear when a user completes a game or dies, allowing more a more seamless replay and user experience. 
+
+
 
 
 
