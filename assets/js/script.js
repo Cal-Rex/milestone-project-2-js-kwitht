@@ -24,10 +24,10 @@ const nGButton = document.getElementById('new-game');
 // used for assigning the type of ability checks in each scenario
 let check = "";
 // used to prevent getting the same encounter type twice in a row
-let dupeStopper = "";
+let dupeStopper = 5;
 // logs the encounter type to ensure the correct system messages on action success or failure
 let encounterFoe = "";
-let encounterType = "";
+let encounterType = 5;
 let encounterDiceRoll = 0;
 let runRoll = false;
 
@@ -226,12 +226,16 @@ function keepGoing() {
       eCalc.push(d6)
    }
    if (eCalc[4] === dupeStopper) {
-      eCalc[4]++;
+      while (eCalc[4] === dupeStopper) {
+         console.log(`encounter roll (${eCalc[4]}) is the same as previous roll (${encounterType})`)
+         let i = 0;
+         eCalc[4] = (Math.round((Math.floor(Math.random() * 11)) / 100 * 50));
+         i++;
+         if (i === 2) {
+            break;
+         }
       }
-   if (eCalc[4] === 6) {
-      eCalc[4] = 1;
    }
-      console.log("dupeStopper was used!")
 
    let monsterResult = eCalc[2] + eCalc[3];
    let nameResult = eCalc[0] + eCalc[1];
