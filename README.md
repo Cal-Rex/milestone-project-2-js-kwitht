@@ -271,6 +271,41 @@ from left to right (reading like a storyboard), each image displays the followin
 
 <br>
 
+## <b><span style="text-decoration: underline;">Surface Plane</span></b>
+
+## Colour Scheme
+
+[Coolors](https://coolors.co/) was used to render the sample palette for the project. However, given the nature of the project, colours were very straightforward to discern. Black and white for the general aesthetic of the site was ideal, follow the ideal of the game being simplistic and low-fidelity in nature. Red and Orange colours were kept as simple as possible t try and stay in line with this style ethos. These brighter colours are to be used when a player gets a game over of completes the game.
+
+![Coolors palette](assets/images/readme-images/palette-qwetht.png)
+
+## Typography
+
+To continue with the project's "classic" text-based game origin, classical serif and monospace fonts were deliberately selected as they actively reflect the projects inspiration and reductive style.
+
+All main text is written in styles/decorations of the <span style="font-family: Courier New, Courier, Monospace;">Courier New</span> / <span style="font-family: Courier, Monospace;">Courier</span> / <span style="font-family: Monospace;">Monospace</span> font family.
+
+The outcome box, AKA, the "You died" notification, follows the style form the source is was inspired from, as such, it adopts the use of the <span style="font-family: 'Times New Roman', Times, serif;">Times New Roman</span> / <span style="font-family: Times, serif;">Times</span> / <span style="font-family: serif;">Serif</span> Font family.
+
+<br>
+
+## Imagery
+
+All imagery for the project was created in Microsoft PowerPoint. This was done deliberately to maintain a <em>doodle-like</em> design, but better that my actual doodles. because i can't draw.
+
+The page design allows for the users choices to essentially create the hero image of the page. Offering a very minor degree of personalisation/immersion - given the style of the game.
+
+|![Example Hero Image 1](assets/images/readme-images/example-hero.png)|![Example Hero Image 2](assets/images/readme-images/example-hero-2.png)|![Example Hero Image 3](assets/images/readme-images/example-hero-3.png)|
+| ------ | ------ | ------ |
+
+The site does not employ any other imagery, given that it is derived from a text-based idea.
+
+Buttons and interactive elements on the page follow suit with the monochrome/monospace design, but still have hoverable and active elements to give the user appropriate feedback to ensure they are using controls correctly.
+
+![demonstration of buttons and imagery working](assets/images/readme-images/walkthrough.gif)
+
+
+
 # Credits
 ## Troubleshooting sources
 - [stack overflow](https://stackoverflow.com/)
