@@ -416,25 +416,25 @@ function victory() {
    let progression = parseInt(progressString);
    progression++
    if (progression === 1) {
-      stepForward.style.left = "25%"
+      stepForward.style.left = "22%"
    } else if (progression === 2) {
-      stepForward.style.left = "35%"
+      stepForward.style.left = "25%"
    } else if (progression === 3) {
-      stepForward.style.left = "40%"
+      stepForward.style.left = "27%"
    } else if (progression === 4) {
-      stepForward.style.left = "45%"
+      stepForward.style.left = "30%"
    } else if (progression === 5) {
-      stepForward.style.left = "50%"
+      stepForward.style.left = "32%"
    } else if (progression === 6) {
-      stepForward.style.left = "55%"
+      stepForward.style.left = "35%"
    } else if (progression === 7) {
-      stepForward.style.left = "60%"
+      stepForward.style.left = "37%"
    } else if (progression === 8) {
-      stepForward.style.left = "65%"
+      stepForward.style.left = "40%"
    } else if (progression === 9) {
-      stepForward.style.left = "70%"
+      stepForward.style.left = "45%"
    } else if (progression === 10) {
-      stepForward.style.left = "75%"
+      stepForward.style.left = "50%"
    };
    document.getElementById('encounter-counter').textContent = progression;
    
