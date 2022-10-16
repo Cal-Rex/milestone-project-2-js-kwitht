@@ -123,8 +123,29 @@ After Playtesting the game, players were interviewed to establish their user sto
 1. <em>"As a returning player, I want to be able to pick up where i left off."</em>
 2. <em>"As a returning player, I want to be able to see a record of my past completions."</em>
 
-<hr>
 <br>
+
+## <span style="text-decoration: underline;">Research</span>
+
+As Mentioned in the [Introduction](#introduction), the game is inspired by original text-based adventure games, table-top games, roguelike games and webcomics. styling inspiration and mechanic ideas where derived from viewing the following sources:
+1. [MS Paint Adventures](http://www.mspaintadventures.com/newindex.php?viewpage=archive)
+    - As this site is now pretty old, it appears the site archive has not been maintained. However, when this comic series was active, the author would create the next pane of each comic solely from the input provided by fans and its community. This resulted in an element of chaos and randomness which made the comic humorous and enjoyable.
+    - with these elements in mind, peers were contacted for limitied input regarding encounters with no context, names, monsters and other aspects of the end product that are rendomly generated, to try and emulate a similar sense of chaos and randomness in this game.
+    - Style for the project was inspired by the original design of these webcomics
+2. [Colossal Cave Adventure](https://www.microsoft.com/en-gb/p/colossal-cave-adventure/9wzdncrdlv4h?activetab=pivot:overviewtab)
+    - The original test based game that proceduraly generates an adventure, offering users text to determine outcomes of scenarios.
+    - This mechanic is adopted with the use of the information collected by peers to create the concept of a randomly generated adventure.
+3. [Dark Souls](https://en.wikipedia.org/wiki/Dark_Souls)
+    - This video game employs the use of player death as a direct mechanic of the core gameplay loop
+    - This idea was adopted for use within this game, given the game's small nature, and the limited timeframe to build. the routine death mechanic ensures for regular cycling of player type and encounter type.
+4. [Munchkin](https://en.wikipedia.org/wiki/Munchkin_(card_game))
+    - The aim of the game in Munchkin is for players to reach level 10 by "kicking in the door" on each turn as if they are progressig through a dungeon. the game employs simple math to determine if players succeed in an encounter, and if they do, gain and increased stat each level they complete
+    - The game also employs elements that encourage other players to either work together or sabotage each other to prevent victory.
+    - Both of these concepts were utilised within the project. With the Idea that players must complete a journey (consisting of 10 stages, progress being represented in percentage) with a reward of an increase in player stats upon successful engagement in the randomly generated encounter. The game also employs a "run away" mechanic should a player not like their odds when presented with a given encounter, but can still be punished during the run away roll, much like the conflict that is presented when playing Munchkin.
+5. [Dungeons & Dragons 5E](https://en.wikipedia.org/wiki/Dungeons_%26_Dragons) 
+    - This table top game uses varying types of dice rolls to determine the outcome of adventures tailored to the players. 
+    - "Dice rolls" were employed as the base mechanics in this project to determine encounters, names, monesters and so forth. As well as performing stat checks, similar tot he way they are carried out in a standard game of Dungeons & Dragons.
+
 
 # Credits
 ## Troubleshooting sources
