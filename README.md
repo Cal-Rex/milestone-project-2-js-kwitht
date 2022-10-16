@@ -26,7 +26,9 @@ The Adventure generator beyond your wildest dreams, if your wildest dreams were 
    i. Strategy Plane
    - User Stories
    - Online Research  
-   - Project Goals, User Goals, and Developer Goals  
+   - Project Goals
+       - User Goals 
+       - Developer Goals  
    - Strategy Table
 
    ii. [Scope Plane]()  
@@ -131,20 +133,56 @@ As Mentioned in the [Introduction](#introduction), the game is inspired by origi
 1. [MS Paint Adventures](http://www.mspaintadventures.com/newindex.php?viewpage=archive)
     - As this site is now pretty old, it appears the site archive has not been maintained. However, when this comic series was active, the author would create the next pane of each comic solely from the input provided by fans and its community. This resulted in an element of chaos and randomness which made the comic humorous and enjoyable.
     - with these elements in mind, peers were contacted for limitied input regarding encounters with no context, names, monsters and other aspects of the end product that are rendomly generated, to try and emulate a similar sense of chaos and randomness in this game.
-    - Style for the project was inspired by the original design of these webcomics
+    - Style for the project was inspired by the original design of these webcomics.
+
+    <br>
+
 2. [Colossal Cave Adventure](https://www.microsoft.com/en-gb/p/colossal-cave-adventure/9wzdncrdlv4h?activetab=pivot:overviewtab)
     - The original test based game that proceduraly generates an adventure, offering users text to determine outcomes of scenarios.
     - This mechanic is adopted with the use of the information collected by peers to create the concept of a randomly generated adventure.
+
+    <br>
+
 3. [Dark Souls](https://en.wikipedia.org/wiki/Dark_Souls)
-    - This video game employs the use of player death as a direct mechanic of the core gameplay loop
+    - This video game employs the use of player death as a direct mechanic of the core gameplay loop.
     - This idea was adopted for use within this game, given the game's small nature, and the limited timeframe to build. the routine death mechanic ensures for regular cycling of player type and encounter type.
+
+    <br>
+
 4. [Munchkin](https://en.wikipedia.org/wiki/Munchkin_(card_game))
-    - The aim of the game in Munchkin is for players to reach level 10 by "kicking in the door" on each turn as if they are progressig through a dungeon. the game employs simple math to determine if players succeed in an encounter, and if they do, gain and increased stat each level they complete
+    - The aim of the game in Munchkin is for players to reach level 10 by "kicking in the door" on each turn as if they are progressig through a dungeon. the game employs simple math to determine if players succeed in an encounter, and if they do, gain and increased stat each level they complete.
     - The game also employs elements that encourage other players to either work together or sabotage each other to prevent victory.
     - Both of these concepts were utilised within the project. With the Idea that players must complete a journey (consisting of 10 stages, progress being represented in percentage) with a reward of an increase in player stats upon successful engagement in the randomly generated encounter. The game also employs a "run away" mechanic should a player not like their odds when presented with a given encounter, but can still be punished during the run away roll, much like the conflict that is presented when playing Munchkin.
+
+    <br>
+
 5. [Dungeons & Dragons 5E](https://en.wikipedia.org/wiki/Dungeons_%26_Dragons) 
     - This table top game uses varying types of dice rolls to determine the outcome of adventures tailored to the players. 
     - "Dice rolls" were employed as the base mechanics in this project to determine encounters, names, monesters and so forth. As well as performing stat checks, similar tot he way they are carried out in a standard game of Dungeons & Dragons.
+
+<br>
+
+## <span style="text-decoration: underline;">Project Goals</span>
+
+The project goal is to create a simple adventure game that draws from text-based and procedural adventure games that provides light humour and a challenge balanced equally by luck and choice.
+
+<br>
+
+  ### <b>Player goals</b>
+  Based on user stories, user goals are defined as:
+
+    - A simple and easy to follow game
+    - A game that strikes a balance between choice and luck
+    - A game that can track and acknowledge the achievements of players
+    - A game that easy to "pick up" and "put down" as appropriate for a user
+
+  ### <b>Developer Goals</b>   
+  Based on project research, project goals are defined as:
+
+    - Create a random and humerous adventure game
+    - Create a game that adopts roguelike concepts, treating player death as part of the integral gameplay loop
+    - Create a game that effectively functions as a mini solo-play table-top RPG
+
 
 
 # Credits
