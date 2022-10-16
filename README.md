@@ -31,15 +31,16 @@ The Adventure generator beyond your wildest dreams, if your wildest dreams were 
        - Developer Goals  
    - Strategy Table
 
-   ii. [Scope Plane]()  
-   iii. [Structure Plane]()  
-   iv. [Skeleton Plane / Wireframes](h)  
-   v. [Surface Plane / High Fidelity Mock Up]()  
-   - [Color Scheme]()  
-   - [Typography]()  
-   - [Imagery]()  
+   ii. Scope Plane 
+   iii. Structure Plane  
+   iv. Skeleton Plane
+   - Wireframes  
+   v. Surface Plane 
+   - Color Scheme
+   - Typography  
+   - Imagery  
 
-3. [Features]()  
+3. [Features](#features)  
    i. [General Design Features]()  
    ii. [Page Design Features]()   
    iii. [Features to be Implemented in The Future]()
@@ -304,7 +305,7 @@ Buttons and interactive elements on the page follow suit with the monochrome/mon
 
 ![demonstration of buttons and imagery working](assets/images/readme-images/walkthrough.gif)
 
-
+# Features
 
 # Credits
 ## Troubleshooting sources
