@@ -237,9 +237,39 @@ Based on the results of the strategy plane the following features have been focu
  9. a "new Game" button
     - Will appear when a user completes a game or dies, allowing more a more seamless replay and user experience. 
 
+<br>
 
+## <b><span style="text-decoration: underline;">Structure Plane</span></b>
+Given the simplistic nature of the game; and for it to be seemless, all elements will be housed on the one page.
 
+![Site Map](assets/images/readme-images/sitemap.webp)
 
+<br>
+
+## <b><span style="text-decoration: underline;">Skeleton Plane</span></b>
+Using the information this far, Wireframes were created using Balsamiq. Mock ups were created for both a mobile design and landscape design
+
+from left to right (reading like a storyboard), each image displays the following:
+ 1. The view of the page upon initial loading
+ 2. After the player has clicked to begin
+ 3. Afer the player has selected their class and received their prologue
+ 4. When a player is met with an encounter
+ 5. View upon encounter success
+ 6. View on encounter failure
+    
+    a. Same style will be used when user completes game. but text will be altered to reflect completion
+
+<h3 syle="text-align: center">Landscape/desktop view</h3>
+
+![Landscape wireframes](assets/images/readme-images/wireframe-landscape.png)
+
+<br>
+
+<h3 syle="text-align: center">Portrait/mobile view</h3>
+
+![Portrait Wireframes](assets/images/readme-images/wireframe-portrait.png)
+
+<br>
 
 # Credits
 ## Troubleshooting sources
