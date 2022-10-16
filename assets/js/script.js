@@ -31,6 +31,7 @@ let encounterType = 5;
 let encounterDiceRoll = 0;
 let runRoll = false;
 
+/** roles a "dice" to determine the difficulty check of any given encounter, difficulty check increases depending on game progress */
 function rollDice (){
    let diceRoll = 0;
    let encounterDocLog = document.getElementById('encounter-counter').textContent;
@@ -62,6 +63,7 @@ function pageLoad() {
 
 window.addEventListener('load', pageLoad);
 
+/** covers page with "loading" screen while the page reloads all elements */
 function pageReset() {
    document.getElementById('loading').style.display = "block";
    document.getElementById('game-loaded').style.display = "none";
@@ -191,6 +193,7 @@ function backgroundRoller() {
    document.getElementById("story-bg").style.backgroundImage = bgArray[d6];
 }
 
+/** removes the animation from the encounter background so that it can be added again on the next trigger */
 function resetBgSlide() {
    document.getElementById("story-bg").classList.remove('encounter-bg-slide');
 }
@@ -540,6 +543,7 @@ function statCheck() {
 
 actionButton.addEventListener('click', statCheck)
 
+/** if triggered, refreshes the page */
 function newGame() {
    document.getElementById('game-loaded').style.display = "none";
    document.getElementById('loading').style.display = "block";
