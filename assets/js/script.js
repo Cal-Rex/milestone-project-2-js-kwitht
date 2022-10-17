@@ -385,7 +385,7 @@ function winQuest() {
    Will any disciple ever hold a candle to the great flame of ${charName}?...`,
 
    `Thank goodness you managed to make your business lunch, just on time and only with a few scrapes. You eat heartily
-   and seal the deal. With your new business in ${job}ing you make lots of money and can never have to worry about 
+   and seal the deal. With your new business in ${job}ing you make lots of money and never have to worry about 
    doing another quest. Will anyone else ever get so lucky?...`,
 
    `unfortunately, your date didn't get so lucky in their quest. that, or you got stood up. 

@@ -35,7 +35,6 @@ body {
     display: grid;
     overflow: hidden;
     width: 100%;
-    grid-template-columns: 12.6%;
     grid-template-areas:
         'header header header header header header'
         '. strn strv storybox storybox .'
