@@ -60,6 +60,18 @@ function pageLoad() {
    document.getElementById('encounter-log').style.visibility = "hidden";
 }
 
+function instClick() {
+   let instAlts = ["Deductions", "Reductions", "Conductions",
+    "seductions", "Abductions", "Inductions", "Constructions",
+   "productions", "Liposuctions", "Destructions", "Introductions", 
+   "constructions", "Solifluctions"];
+   let altRoller = (Math.round((Math.floor(Math.random() * 11)) / 100 * 60)) + (Math.round((Math.floor(Math.random() * 11)) / 100 * 60));
+   document.getElementById('modal-button').innerHTML = instAlts[altRoller];
+} 
+function instReturn() {
+   document.getElementById('modal-button').innerHTML = "Instructions";
+}
+
 
 // choosing a job functions
 
@@ -95,6 +107,34 @@ function rollMerch() {
    startGame();
    createQuest();
 }
+
+// instruction modal box
+// code for modal box lifted from w3Schools
+// Get the modal
+let modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+let modalBtn = document.getElementById("modal-button");
+
+// Get the <span> element that closes the modal
+let span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+modalBtn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+} 
 
 //Beginning the game functions
 
@@ -550,6 +590,11 @@ function deathMessage() {
 // listners that trigger the "page loading" and start menu screens
 window.addEventListener('load', pageLoad);
 window.addEventListener('unload', pageReset);
+
+//
+document.getElementById('modal-button').onmousedown = function() {instClick()}; 
+document.getElementById('modal-button').onmouseup = function() {instReturn()};
+document.getElementById('modal-button').onmouseleave = function() {instReturn()};  
 
 // event listeners for the 3 job buttons that start the quests
 knightButton.addEventListener('click', rollKnight);
