@@ -81,6 +81,58 @@ The Adventure generator beyond your wildest dreams, if your wildest dreams were 
 9. [ACKNOWLEDGEMENTS](#acknowledgements)
 <br>
 
+1. [Introduction](#introduction)  
+2. [UX](#user-experience-ux)   
+   i. Strategy Plane
+   - User Stories
+   - Online Research  
+   - Project Goals
+       - User Goals 
+       - Developer Goals  
+   - Strategy Table
+
+   ii. Scope Plane 
+   iii. Structure Plane  
+   iv. Skeleton Plane
+   - Wireframes  
+   v. Surface Plane 
+   - Color Scheme
+   - Typography  
+   - Imagery  
+
+3. [Features](#features)  
+   i. [General Design Features]()  
+   ii. [Page Design Features]()   
+   iii. [Features to be Implemented in The Future]()
+
+4. [Technology Used]()  
+   i. [Main and Additional Languanges]()  
+   ii. [Frameworks, Libraries, & Programs Used]()  
+
+5. [Issues and Bugs]()  
+   i. [Solved Issues]()  
+   ii. [Known Issues & Unsolved Bugs]()  
+
+6. [Deployment]()  
+   i. [Deploy to Github]()  
+   ii. [Forking to Github Repository]()  
+   iii. [Making a Local Clone]()  
+
+7. [Testing]()   
+   i. [Go to TESTING.md]()  
+
+8. [Credits](#credits)
+- [Troubleshooting Sources](#troubleshooting-sources) 
+   i. [Code]()  
+   ii. [Images]()  
+   iii. [Sound Effects]()  
+   iii. [Contents]()   
+
+9. [Acknowledgements]()
+
+<hr>
+<br>
+
 # Introduction
 <span style="
 font-family: 'Courier New', Courier, monospace;
@@ -114,6 +166,27 @@ The aim of this project is to:
 <br>
 
 # User Experience (UX)
+
+## <b><span style="text-decoration: underline;">Strategy Plane</span></b>
+
+## <span style="text-decoration: underline;">User Stories</span>
+
+### <b>First-time Players</b>
+Play-testers were interviewed before playing the game to establish user stories:
+
+1. <em>"As a first-time player, i want to be able to understand the game mechanics with little study. The game UI needs to be intuitive."</em>
+2. <em>"As a first-time player, i want there to be a help or menu section that explains the finer intricacies of the game, with little-to-no redirection from the game."</em>
+3. <em>"As a first-time player, i want to have the element of choice when starting a game."</em>
+4. <em>"As a first time player, i want the game interface to be clear and consistent at each step of the core gameplay loop."</em>
+5. <em>"As a first-time player, i want to be able to track my progress during a playthrough."</em>
+
+### <b>Returning Players</b>
+After Playtesting the game, players were interviewed to establish their user stories as users who had played the game previously:
+
+1. <em>"As a returning player, I want to be able to pick up where i left off."</em>
+2. <em>"As a returning player, I want to be able to see a record of my past completions."</em>
+
+<br>
 
 ## <span style="text-decoration: underline;">Research</span>
 
@@ -150,29 +223,6 @@ As Mentioned in the [Introduction](#introduction), the game is inspired by origi
 
 <br>
 
-## Development Planes
-
-## <b><span style="text-decoration: underline;">Strategy Plane</span></b>
-
-## <span style="text-decoration: underline;">User Stories</span>
-
-### <b>First-time Players</b>
-Play-testers were interviewed before playing the game to establish user stories:
-
-1. <em>"As a first-time player, i want to be able to understand the game mechanics with little study. The game UI needs to be intuitive."</em>
-2. <em>"As a first-time player, i want there to be a help or menu section that explains the finer intricacies of the game, with little-to-no redirection from the game."</em>
-3. <em>"As a first-time player, i want to have the element of choice when starting a game."</em>
-4. <em>"As a first time player, i want the game interface to be clear and consistent at each step of the core gameplay loop."</em>
-5. <em>"As a first-time player, i want to be able to track my progress during a playthrough."</em>
-
-### <b>Returning Players</b>
-After Playtesting the game, players were interviewed to establish their user stories as users who had played the game previously:
-
-1. <em>"As a returning player, I want to be able to pick up where i left off."</em>
-2. <em>"As a returning player, I want to be able to see a record of my past completions."</em>
-
-<br>
-
 ## <span style="text-decoration: underline;">Project Goals</span>
 
 The project goal is to create a simple adventure game that draws from text-based and procedural adventure games that provides light humour and a challenge balanced equally by luck and choice.
@@ -195,6 +245,8 @@ The project goal is to create a simple adventure game that draws from text-based
    3. Create a game that effectively functions as a mini solo-play table-top RPG
 
 <br>
+
+## <span style="text-decoration: underline;">Stretegy Table</span>
 
 ## <b><span style="text-decoration: underline;">Scope Plane</span></b>
 
@@ -280,7 +332,7 @@ from left to right (reading like a storyboard), each image displays the followin
 
 <br>
 
-# design 
+## <b><span style="text-decoration: underline;">Surface Plane</span></b>
 
 ## Colour Scheme
 
@@ -312,3 +364,11 @@ The site does not employ any other imagery, given that it is derived from a text
 Buttons and interactive elements on the page follow suit with the monochrome/monospace design, but still have hoverable and active elements to give the user appropriate feedback to ensure they are using controls correctly.
 
 ![demonstration of buttons and imagery working](assets/images/readme-images/walkthrough.gif)
+
+# Features
+
+# Credits
+## Troubleshooting sources
+- [stack overflow](https://stackoverflow.com/)
+- [Bobby Hadz](https://bobbyhadz.com/blog/javascript-change-style-of-all-elements-with-class)
+- [w3schools](https://www.w3schools.com/js/default.asp)
