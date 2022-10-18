@@ -31,8 +31,8 @@ let encounterType = 5;
 let encounterDiceRoll = 0;
 let runRoll = false;
 
-/** roles a "dice" to determine the difficulty check of any given encounter, difficulty check increases depending on game progress */
-function rollDice (){
+/** "roles" a "dice" to determine the difficulty check of any given encounter, difficulty check increases depending on game progress */
+function rollDice() {
    let diceRoll = 0;
    let encounterDocLog = document.getElementById('encounter-counter').textContent;
    let encounterCounter = parseInt(encounterDocLog);
@@ -45,7 +45,6 @@ function rollDice (){
    }
    encounterDiceRoll = diceRoll;
 }
-
 
 /**removes game controls on page inital load so that users can only select options that start the game */
 function pageLoad() {
@@ -72,12 +71,8 @@ window.addEventListener('unload', pageReset);
 
 
 
-// explanatory text on how the game works
-document.getElementById('intro-text').innerHTML =
-   `Welcome to Qwetht. It's a game. The aim of the game is to complete the Qwetht by doing stuff.
-   Every Qwetht is different. Encounters are random, you are random, the reason for being on your qwetht is random.<br>
-   Qwethts can be pretty unforgiving, You can take action or run away from an encounter, but death can loom around the corner
-   of any choice you make. Take care in your choices and good luck!`;
+// explanatory text on how the game works, the targeted element changes to a statement of the selecter character once
+
 
 // 3 functions below allow player to pick their job before starting their quest using the 3 job buttons
 /** selects the Knight Job, allocates necessary stats and begins the quest */
@@ -166,16 +161,16 @@ function createQuest() {
    }
    document.getElementById('intro-text').textContent =
       `You are ${questLine.name[x]} the ${job} and you are travelling to ${questLine.endDestination[y]}, ${questLine.reason[z]}!`;
-      document.getElementById('actions').style.visibility = "hidden";
-      document.getElementById('run-actions').style.visibility = "hidden";
-   
+   document.getElementById('actions').style.visibility = "hidden";
+   document.getElementById('run-actions').style.visibility = "hidden";
+
    charName = questLine.name[x];
    destination = questLine.endDestination[y];
    destReason = z[0];
    console.log("character name:", charName);
    console.log("destination:", destination);
    console.log("reason:", destReason);
-   }
+}
 
 // event listeners for the 3 job buttons that start the quests
 knightButton.addEventListener('click', rollKnight);
@@ -191,7 +186,8 @@ function backgroundRoller() {
       "url(assets/images/backgrounds/env-3.webp)",
       "url(assets/images/backgrounds/env-4.webp)",
       "url(assets/images/backgrounds/env-5.webp)",
-      "url(assets/images/backgrounds/env-6.webp)"];
+      "url(assets/images/backgrounds/env-6.webp)"
+   ];
    document.getElementById("story-bg").classList.add('encounter-bg-slide');
    document.getElementById("story-bg").style.backgroundImage = bgArray[d6];
 }
@@ -253,7 +249,7 @@ function keepGoing() {
    } else if (eCalc[4] === 1) {
       document.getElementById('encounter-text').textContent = `You have crossed paths with ${names[nameResult]} the ${monsters[monsterResult]}. 
    They wont let you past unless you fight them to the death! Will you do it!?`;
-   encounterFoe = monsters[monsterResult];
+      encounterFoe = monsters[monsterResult];
       check = "strength";
    } else if (eCalc[4] === 2) {
       document.getElementById('encounter-text').textContent = `It's getting dark and you come across a camp. You meet ${names[nameResult]}, the ${npcs[monsterResult]}.
@@ -280,7 +276,7 @@ function keepGoing() {
    }
    dupeStopper = eCalc[4];
    encounterType = dupeStopper;
-   
+
 
    console.log("random name generator rolled a", nameResult, "and picked", names[nameResult]);
    console.log("encounter type", encounterType, "rolled");
@@ -341,28 +337,28 @@ function deathMessage() {
    ];
 
    let runDeath = [
-   `you decided to leave jumping the gorge but a bunch of jocks saw you wimp out 
+      `you decided to leave jumping the gorge but a bunch of jocks saw you wimp out 
    so they tried to throw you across against your will. You fell to your death.`,
-   
-   `when you tried to flee, but the ${encounterFoe} shot you with an well-aimed arrow to the back.
+
+      `when you tried to flee, but the ${encounterFoe} shot you with an well-aimed arrow to the back.
     You died a coward's death.`,
 
-   `You decided not to stay for the night, you died of hypothermia at 3AM. 
+      `You decided not to stay for the night, you died of hypothermia at 3AM. 
    Should have worn more layers.`,
 
-   `You tried to escape the ambushed but you were ambushed within your ambush 
+      `You tried to escape the ambushed but you were ambushed within your ambush 
    and were subsequently ambushed to death by an ambush of ${encounterFoe}s.`,
 
-   `You decide against reading the book. It is insulted that you ignored it's whispers. It places a curse on you.
+      `You decide against reading the book. It is insulted that you ignored it's whispers. It places a curse on you.
    You die from radiation poisoning.`,
 
-   `You decided to play it safe and not open the chest. But were then mauled by a bear 
+      `You decided to play it safe and not open the chest. But were then mauled by a bear 
    for interrupting it's monologue on the economic distribution of wealth.
    You are dead.`
    ];
 
    let death = "";
-   
+
    if (runRoll === true) {
       death = runDeath[encounterType]
    } else {
@@ -378,35 +374,35 @@ function winQuest() {
    wherever the horizon would be in ${destination}, and ponder, "Will the next adventurer's journey be as perilous as mine?"
    i guess you'll never know...`,
 
-   `Now that you have managed to move all of your assets safely. You can now retire knowing that you will 
+      `Now that you have managed to move all of your assets safely. You can now retire knowing that you will 
    never have to work another day in your life. Which makes you wonder, "what about the next life?". 
    If only there was some way to find out...`,
 
-   `As you look back on all your encounters - and down at your stats - you truly feel like you have really discovered the real you.
+      `As you look back on all your encounters - and down at your stats - you truly feel like you have really discovered the real you.
    The real ${charName} the enlightened ${job}. You regale the tales of your travels to anyone that would listen.
    Years from now, Divine ${job} ${charName} is the monarch of the ${charName}anism, the religeon of great adventurers. 
    Will any disciple ever hold a candle to the great flame of ${charName}?...`,
 
-   `Thank goodness you managed to make your business lunch, just on time and only with a few scrapes. You eat heartily
+      `Thank goodness you managed to make your business lunch, just on time and only with a few scrapes. You eat heartily
    and seal the deal. With your new business in ${job}ing you make lots of money and never have to worry about 
    doing another quest. Will anyone else ever get so lucky?...`,
 
-   `unfortunately, your date didn't get so lucky in their quest. that, or you got stood up. 
+      `unfortunately, your date didn't get so lucky in their quest. that, or you got stood up. 
    but let's not fuss over the small details. You enjoyed ${destination} to it's fullest as ${charName} the strong independent
    ${job} who don't need nobody. years later, you Look back on your adventures and ponder if things could have been different.
    If only there was a way to see...`,
 
-   `Now that you have got to ${destination} you can now officially spend all that money you'd been paid. 
+      `Now that you have got to ${destination} you can now officially spend all that money you'd been paid. 
    You blow it all on Funko Pops. You immediately regret your decision. They are utterly useless. 
    Surely no one else will ever make the same mistake...`
-]
+   ]
    let winner = `You did it ${charName}! You made it to ${destination}! ${epilogue[destReason]}`;
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
    document.getElementById('keep-going').style.visibility = "hidden";
    document.getElementById('new-game').style.visibility = "visible";
    document.getElementById("you-died-js-target").style.display = "block";
-   document.getElementById('you-died-js-target').classList.remove =("you-died-css");
+   document.getElementById('you-died-js-target').classList.remove = ("you-died-css");
    document.getElementById('you-died-js-target').classList.add("you-won-css");
    document.getElementById('story-box').classList.add("story-box-completed")
    document.getElementById('dead').textContent = "You did it!"
@@ -443,8 +439,8 @@ function victory() {
       stepForward.style.left = "50%"
    };
    document.getElementById('encounter-counter').textContent = progression;
-   
-   console.log("adventure progression should now be", progression,"0%");
+
+   console.log("adventure progression should now be", progression, "0%");
 
    if (check === "strength") {
       let skill = document.getElementById('str-num').textContent;
@@ -452,7 +448,7 @@ function victory() {
       strSkill++
       document.getElementById('str-num').textContent = strSkill;
       console.log("strength is now increased to", strSkill);
-   } else if (check === "cunning"){
+   } else if (check === "cunning") {
       let skill = document.getElementById('cun-num').textContent;
       cunSkill = parseInt(skill);
       cunSkill++
@@ -518,7 +514,7 @@ function statCheck() {
    if (check === "strength") {
       let stat = document.getElementById('str-num').textContent;
       playerStat = parseInt(stat);
-   } else if (check === "cunning"){
+   } else if (check === "cunning") {
       let stat = document.getElementById('cun-num').textContent;
       playerStat = parseInt(stat);
    } else if (check === "dexterity") {
