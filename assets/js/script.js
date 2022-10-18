@@ -144,7 +144,6 @@ function createQuest() {
       } else if (z.length === 0) {
          z.push(d6);
       } else {
-         console.log("no variables to assign dice roll, breaking loop!")
          break;
       }
    }
@@ -156,9 +155,6 @@ function createQuest() {
    charName = questLine.name[x];
    destination = questLine.endDestination[y];
    destReason = z[0];
-   console.log("character name:", charName);
-   console.log("destination:", destination);
-   console.log("reason:", destReason);
 }
 
 // Core Gameplay loop functions
@@ -198,7 +194,6 @@ function keepGoing() {
    }
    if (eCalc[4] === dupeStopper) {
       while (eCalc[4] === dupeStopper) {
-         console.log(`encounter roll (${eCalc[4]}) is the same as previous roll (${encounterType})`)
          let i = 0;
          eCalc[4] = (Math.round((Math.floor(Math.random() * 11)) / 100 * 50));
          i++;
@@ -247,17 +242,12 @@ function keepGoing() {
       check = "dexterity";
    } else {
       alert("invalid encounter type!")
-      console.log("Error! encounter number =", eCalc[4])
    }
 
    // with the encounter now selected, the value of the dupeStopper variable is now re-assigned, 
    // to prevent generating this same encounter on the next round should the player succeed this encounter
    dupeStopper = eCalc[4];
    encounterType = dupeStopper;
-
-   console.log("random name generator rolled a", nameResult, "and picked", names[nameResult]);
-   console.log("encounter type", encounterType, "rolled");
-   console.log("encounter number", eCalc[4], "selected");
 
    // the background is then randomly cycled
    backgroundRoller();
@@ -298,6 +288,7 @@ function rollDice() {
 }
 
 // "running away" functions
+
 /** activates if the player chooses to run away */
 function runAway() {
    // global variable set to true to determine the correct type of message to generate on failure
@@ -310,7 +301,6 @@ function runAway() {
       runRoll = false;
    } else {
       deathMessage()
-      console.log("game rolled", escapeRoll, "for escape challenge");
    }
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
@@ -345,6 +335,7 @@ function runSuccess() {
 }
 
 // fight "Do it!" functions
+
 /** triggered when "do it!" is clicked. assigns the correct stat to be checked based on value 
  * that is assigned to the "check" variable then decides what function to trigger depending 
  * on the compared values of the encounterDiceRoll global variable and player's respective stat */
@@ -362,14 +353,8 @@ function statCheck() {
       playerStat = parseInt(stat);
    } else {
       alert("invalid check type!")
-      console.log("Error! check was", check);
-      console.log("stat =", stat);
-      console.log("playerStat =", playerStat)
    }
-   console.log("playerStat is", playerStat, "because check is", check);
-   console.log("enemy rolled", encounterDiceRoll);
    if (playerStat > encounterDiceRoll) {
-      console.log("the check passed player's roll of", playerStat, "beat the encounter roll of", encounterDiceRoll);
       victory()
    } else {
       deathMessage()
@@ -378,6 +363,8 @@ function statCheck() {
    document.getElementById('run-actions').style.visibility = "hidden";
    resetBgSlide();
 }
+
+// WINNING
 
 /** activates if the player's playerStat beats the encounterDiceRoll against them. 
  * increases the stat that was checked against by 1 and generates a victory message depending
@@ -389,15 +376,12 @@ function victory() {
       strSkill = parseInt(skill);
       strSkill++
       document.getElementById('str-num').textContent = strSkill;
-      console.log("strength is now increased to", strSkill);
    } else if (check === "cunning") {
       let skill = document.getElementById('cun-num').textContent;
       cunSkill = parseInt(skill);
       cunSkill++
       document.getElementById('cun-num').textContent = cunSkill;
-      console.log("strength is now increased to", cunSkill);
    } else {
-      console.log(`check is "${check}" so no increment added`);
    }
    let vMessage = [
       "You managed to jump the gorge! Clearly you didn't skip leg day. Your strength increases by 1",
@@ -460,8 +444,50 @@ function progress() {
    if (progression === 10) {
       winQuest()
    };
+}
 
-   console.log("adventure progression should now be", progression, "0%");
+/** function that activates when player beats the game
+ * modifies the deathbox and turns it into a victory box, printing a custom epilogue
+ * depending on the quest generated at the start of the game */
+function winQuest() {
+   let epilogue = [`With the tradition been upheld for another 100 years. You look towards the horizon, or rather, 
+   wherever the horizon would be in ${destination}, and ponder, "Will the next adventurer's journey be as perilous as mine?"
+   i guess you'll never know...`,
+
+      `Now that you have managed to move all of your assets safely. You can now retire knowing that you will 
+   never have to work another day in your life. Which makes you wonder, "what about the next life?". 
+   If only there was some way to find out...`,
+
+      `As you look back on all your encounters - and down at your stats - you truly feel like you have really discovered the real you.
+   The real ${charName} the enlightened ${job}. You regale the tales of your travels to anyone that would listen.
+   Years from now, Divine ${job} ${charName} is the monarch of the ${charName}anism, the religeon of great adventurers. 
+   Will any disciple ever hold a candle to the great flame of ${charName}?...`,
+
+      `Thank goodness you managed to make your business lunch, just on time and only with a few scrapes. You eat heartily
+   and seal the deal. With your new business in ${job}ing you make lots of money and never have to worry about 
+   doing another quest. Will anyone else ever get so lucky?...`,
+
+      `unfortunately, your date didn't get so lucky in their quest. that, or you got stood up. 
+   but let's not fuss over the small details. You enjoyed ${destination} to it's fullest as ${charName} the strong independent
+   ${job} who don't need nobody. years later, you Look back on your adventures and ponder if things could have been different.
+   If only there was a way to see...`,
+
+      `Now that you have got to ${destination} you can now officially spend all that money you'd been paid. 
+   You blow it all on Funko Pops. You immediately regret your decision. They are utterly useless. 
+   Surely no one else will ever make the same mistake...`
+   ]
+   let winner = `You did it ${charName}! You made it to ${destination}! ${epilogue[destReason]}`;
+   document.getElementById('actions').style.visibility = "hidden";
+   document.getElementById('run-actions').style.visibility = "hidden";
+   document.getElementById('keep-going').style.visibility = "hidden";
+   document.getElementById('new-game').style.visibility = "visible";
+   document.getElementById("you-died-js-target").style.display = "block";
+   document.getElementById('you-died-js-target').classList.remove = ("you-died-css");
+   document.getElementById('you-died-js-target').classList.add("you-won-css");
+   document.getElementById('story-box').classList.add("story-box-completed")
+   document.getElementById('dead').textContent = "You did it!"
+   document.getElementById('death-text').textContent = winner;
+   document.getElementById('job-icon').classList.add('victory-anim');
 }
 
 // DEATH
@@ -471,7 +497,9 @@ function deathAnim() {
    document.getElementById('job-icon').classList.add('death-anim');
 }
 
-/** launches when a run away roll or action roll is failed. */
+/** launches when a run away roll or action roll is failed. 
+ * generates a deathbox message depending on encounter rolled. 
+ * triggers the death animation function. also replaces buttons to let user reset game*/
 function deathMessage() {
    deathAnim()
    document.getElementById("you-died-js-target").style.display = "block";
@@ -522,67 +550,7 @@ function deathMessage() {
    document.getElementById('new-game').style.visibility = "visible";
 }
 
-
-
-/** function that activates when player beats the game */
-function winQuest() {
-   let epilogue = [`With the tradition been upheld for another 100 years. You look towards the horizon, or rather, 
-   wherever the horizon would be in ${destination}, and ponder, "Will the next adventurer's journey be as perilous as mine?"
-   i guess you'll never know...`,
-
-      `Now that you have managed to move all of your assets safely. You can now retire knowing that you will 
-   never have to work another day in your life. Which makes you wonder, "what about the next life?". 
-   If only there was some way to find out...`,
-
-      `As you look back on all your encounters - and down at your stats - you truly feel like you have really discovered the real you.
-   The real ${charName} the enlightened ${job}. You regale the tales of your travels to anyone that would listen.
-   Years from now, Divine ${job} ${charName} is the monarch of the ${charName}anism, the religeon of great adventurers. 
-   Will any disciple ever hold a candle to the great flame of ${charName}?...`,
-
-      `Thank goodness you managed to make your business lunch, just on time and only with a few scrapes. You eat heartily
-   and seal the deal. With your new business in ${job}ing you make lots of money and never have to worry about 
-   doing another quest. Will anyone else ever get so lucky?...`,
-
-      `unfortunately, your date didn't get so lucky in their quest. that, or you got stood up. 
-   but let's not fuss over the small details. You enjoyed ${destination} to it's fullest as ${charName} the strong independent
-   ${job} who don't need nobody. years later, you Look back on your adventures and ponder if things could have been different.
-   If only there was a way to see...`,
-
-      `Now that you have got to ${destination} you can now officially spend all that money you'd been paid. 
-   You blow it all on Funko Pops. You immediately regret your decision. They are utterly useless. 
-   Surely no one else will ever make the same mistake...`
-   ]
-   let winner = `You did it ${charName}! You made it to ${destination}! ${epilogue[destReason]}`;
-   document.getElementById('actions').style.visibility = "hidden";
-   document.getElementById('run-actions').style.visibility = "hidden";
-   document.getElementById('keep-going').style.visibility = "hidden";
-   document.getElementById('new-game').style.visibility = "visible";
-   document.getElementById("you-died-js-target").style.display = "block";
-   document.getElementById('you-died-js-target').classList.remove = ("you-died-css");
-   document.getElementById('you-died-js-target').classList.add("you-won-css");
-   document.getElementById('story-box').classList.add("story-box-completed")
-   document.getElementById('dead').textContent = "You did it!"
-   document.getElementById('death-text').textContent = winner;
-   document.getElementById('job-icon').classList.add('victory-anim');
-}
-
-/** activates if the player chooses to run away */
-function runAway() {
-   runRoll = true;
-   let stat = document.getElementById('dex-num').textContent;
-   rollDice()
-   let escapeRoll = encounterDiceRoll;
-   if (stat >= escapeRoll) {
-      runSuccess();
-      runRoll = false;
-   } else {
-      deathMessage()
-      console.log("game rolled", escapeRoll, "for escape challenge");
-   }
-   document.getElementById('actions').style.visibility = "hidden";
-   document.getElementById('run-actions').style.visibility = "hidden";
-   resetBgSlide();
-}
+// event listeners for all game functions
 
 // listners that trigger the "page loading" and start menu screens
 window.addEventListener('load', pageLoad);
