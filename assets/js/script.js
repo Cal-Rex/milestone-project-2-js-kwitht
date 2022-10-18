@@ -49,7 +49,7 @@ function pageReset() {
 
 /**removes game controls on page inital load so that users can only select options that start the game */
 function pageLoad() {
-   let stats = document.querySelectorAll('.load')
+   let stats = document.querySelectorAll('.load');
    stats.forEach(stat => {
       stat.style.visibility = "hidden";
    });
@@ -69,9 +69,9 @@ function rollKnight() {
    document.getElementById('dex-num').textContent = "4";
    document.getElementById('cun-num').textContent = "3";
    document.getElementById('job-icon').style.backgroundImage = "url(assets/images/jobs/knight.webp)";
-   job = "Knight"
-   startGame()
-   createQuest()
+   job = "Knight";
+   startGame();
+   createQuest();
 }
 
 /** selects the Thief Job, allocates necessary stats and begins the quest */
@@ -80,9 +80,9 @@ function rollThief() {
    document.getElementById('dex-num').textContent = "7";
    document.getElementById('cun-num').textContent = "3";
    document.getElementById('job-icon').style.backgroundImage = "url(assets/images/jobs/thief.webp)";
-   job = "Thief"
-   startGame()
-   createQuest()
+   job = "Thief";
+   startGame();
+   createQuest();
 }
 
 /** selects the Merchant Job, allocates necessary stats and begins the quest */
@@ -91,20 +91,20 @@ function rollMerch() {
    document.getElementById('dex-num').textContent = "3";
    document.getElementById('cun-num').textContent = "6";
    document.getElementById('job-icon').style.backgroundImage = "url(assets/images/jobs/merchant.webp)";
-   job = "Merchant"
-   startGame()
-   createQuest()
+   job = "Merchant";
+   startGame();
+   createQuest();
 }
 
 //Beginning the game functions
 
 /** removes job selector buttons and replaces with game controls */
 function startGame() {
-   let stats = document.querySelectorAll('.load')
+   let stats = document.querySelectorAll('.load');
    stats.forEach(stat => {
       stat.style.visibility = "visible";
    });
-   let choices = document.querySelectorAll('.start')
+   let choices = document.querySelectorAll('.start');
    choices.forEach(choice => {
       choice.style.visibility = "hidden";
    });
@@ -131,10 +131,10 @@ function createQuest() {
       reason: ["as is tradition", "for tax purposes", "on a spiritual journey of self-discovery",
          "for an important business lunch", "for a romantic long weekend", "because you have been paid a lot of money to do so"
       ]
-   }
-   let x = []
-   let y = []
-   let z = []
+   };
+   let x = [];
+   let y = [];
+   let z = [];
    for (let i = 0; i < 3; i++) {
       let d6 = (Math.round((Math.floor(Math.random() * 11)) / 100 * 50));
       if (x.length === 0) {
@@ -171,15 +171,15 @@ function keepGoing() {
    let names = ["Unfortunate Greg", "Deuce", "Snake-Eyes Pete", "Daunchy",
       "The Artist formerly known as", "Doris", "Boblin", "Majestic Michael",
       "Flothers", "Dangerous Daniel", "Crit McGee"
-   ]
+   ];
    let monsters = ["crab-person", "slime", "goblin", "steam-powered debt collector",
       "talking bear", "highwayman", "hoodlum", "land pirate", "outlaw", "Nestle executive", "splitter of realms"
-   ]
+   ];
 
    let npcs = ["last old lady alive who still plays bridge", "magician", "casino dealer",
       "amateur Blackjack addict", 'kid who loves playing "Go Fish"', "cowboy", "noble",
       "ol' timey gangster", "chain-smoking stock broker", "professional russian roullette player", "bounty hunter"
-   ]
+   ];
 
    // Encounter calculating array, the for loop pushes 6 random numbers into the array, 
    // which are used to generate the encounter data
@@ -188,7 +188,7 @@ function keepGoing() {
    let eCalc = [];
    for (let i = 0; i < 6; i++) {
       let d6 = (Math.round((Math.floor(Math.random() * 11)) / 100 * 50));
-      eCalc.push(d6)
+      eCalc.push(d6);
    }
    if (eCalc[4] === dupeStopper) {
       while (eCalc[4] === dupeStopper) {
@@ -207,9 +207,6 @@ function keepGoing() {
    // for each encounter as appropriate
    let monsterResult = eCalc[2] + eCalc[3];
    let nameResult = eCalc[0] + eCalc[1];
-   console.log(`eCalc[0] = ${eCalc[0]}`)
-   console.log(`eCalc[1] = ${eCalc[1]}`)
-   console.log(`which means that nameResult should be ${nameResult}`)
    // the final number in the encounter calculation array determines the encounter selected by cycling through
    // the if and if else statements below, it also a value to the "check" global variable
    if (eCalc[4] === 0) {
@@ -233,15 +230,15 @@ function keepGoing() {
       check = "strength";
    } else if (eCalc[4] === 4) {
       document.getElementById('encounter-text').textContent = `You are travelling through a forest and you come across a big dusty book sitting on a tree stump. 
-      It's giving off real spooky vibes and you think you can hear it whispering at you to read it... Will you do it!?`
+      It's giving off real spooky vibes and you think you can hear it whispering at you to read it... Will you do it!?`;
       encounterFoe = names[nameResult];
       check = "cunning";
    } else if (eCalc[4] === 5) {
       document.getElementById('encounter-text').textContent = `You find a big ol' chest abandoned on the side of the road. 
-      Looks like it might have something valuable in it. You could try an open it... Will you do it!?`
+      Looks like it might have something valuable in it. You could try an open it... Will you do it!?`;
       check = "dexterity";
    } else {
-      alert("invalid encounter type!")
+      alert("invalid encounter type!");
    }
 
    // with the encounter now selected, the value of the dupeStopper variable is now re-assigned, 
@@ -251,7 +248,7 @@ function keepGoing() {
 
    // the background is then randomly cycled
    backgroundRoller();
-};
+}
 
 /** cycles random backgrounds per encounter*/
 function backgroundRoller() {
@@ -294,13 +291,13 @@ function runAway() {
    // global variable set to true to determine the correct type of message to generate on failure
    runRoll = true;
    let stat = document.getElementById('dex-num').textContent;
-   rollDice()
+   rollDice();
    let escapeRoll = encounterDiceRoll;
    if (stat >= escapeRoll) {
       runSuccess();
       runRoll = false;
    } else {
-      deathMessage()
+      deathMessage();
    }
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
@@ -327,7 +324,7 @@ function runSuccess() {
    ];
 
    // switches buttons out to prompt the user to progress
-   document.getElementById('encounter-text').textContent = flee[encounterType]
+   document.getElementById('encounter-text').textContent = flee[encounterType];
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
    document.getElementById('keep-going').style.visibility = "visible";
@@ -339,7 +336,7 @@ function runSuccess() {
  * that is assigned to the "check" variable then decides what function to trigger depending 
  * on the compared values of the encounterDiceRoll global variable and player's respective stat */
 function statCheck() {
-   rollDice()
+   rollDice();
    let playerStat = 0;
    if (check === "strength") {
       let stat = document.getElementById('str-num').textContent;
@@ -351,12 +348,12 @@ function statCheck() {
       let stat = document.getElementById('dex-num').textContent;
       playerStat = parseInt(stat);
    } else {
-      alert("invalid check type!")
+      alert("invalid check type!");
    }
    if (playerStat > encounterDiceRoll) {
-      victory()
+      victory();
    } else {
-      deathMessage()
+      deathMessage();
    }
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
@@ -371,13 +368,13 @@ function victory() {
   
    if (check === "strength") {
       let skill = document.getElementById('str-num').textContent;
-      strSkill = parseInt(skill);
-      strSkill++
+      let strSkill = parseInt(skill);
+      strSkill++;
       document.getElementById('str-num').textContent = strSkill;
    } else if (check === "cunning") {
       let skill = document.getElementById('cun-num').textContent;
-      cunSkill = parseInt(skill);
-      cunSkill++
+      let cunSkill = parseInt(skill);
+      cunSkill++;
       document.getElementById('cun-num').textContent = cunSkill;
    } else {
    }
@@ -399,7 +396,7 @@ function victory() {
 
       `Ah! the chest was a mimic! As it opens its big chest mouth you manage to jump out the way just in time. 
       You burn it and head onwards.`
-   ]
+   ];
    document.getElementById('encounter-text').textContent = vMessage[encounterType];
 
    document.getElementById('actions').style.visibility = "hidden";
@@ -415,33 +412,33 @@ function progress() {
    let stepForward = document.getElementById('job-icon');
    let progressString = document.getElementById('encounter-counter').textContent;
    let progression = parseInt(progressString);
-   progression++
+   progression++;
    if (progression === 1) {
-      stepForward.style.left = "22%"
+      stepForward.style.left = "22%";
    } else if (progression === 2) {
-      stepForward.style.left = "25%"
+      stepForward.style.left = "25%";
    } else if (progression === 3) {
-      stepForward.style.left = "27%"
+      stepForward.style.left = "27%";
    } else if (progression === 4) {
-      stepForward.style.left = "30%"
+      stepForward.style.left = "30%";
    } else if (progression === 5) {
-      stepForward.style.left = "32%"
+      stepForward.style.left = "32%";
    } else if (progression === 6) {
-      stepForward.style.left = "35%"
+      stepForward.style.left = "35%";
    } else if (progression === 7) {
-      stepForward.style.left = "37%"
+      stepForward.style.left = "37%";
    } else if (progression === 8) {
-      stepForward.style.left = "40%"
+      stepForward.style.left = "40%";
    } else if (progression === 9) {
-      stepForward.style.left = "45%"
+      stepForward.style.left = "45%";
    } else if (progression === 10) {
-      stepForward.style.left = "50%"
-   };
+      stepForward.style.left = "50%";
+   }
    document.getElementById('encounter-counter').textContent = progression;
 
    if (progression === 10) {
-      winQuest()
-   };
+      winQuest();
+   }
 }
 
 /** function that activates when player beats the game
@@ -473,7 +470,7 @@ function winQuest() {
       `Now that you have got to ${destination} you can now officially spend all that money you'd been paid. 
    You blow it all on Funko Pops. You immediately regret your decision. They are utterly useless. 
    Surely no one else will ever make the same mistake...`
-   ]
+   ];
    let winner = `You did it ${charName}! You made it to ${destination}! ${epilogue[destReason]}`;
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
@@ -482,8 +479,8 @@ function winQuest() {
    document.getElementById("you-died-js-target").style.display = "block";
    document.getElementById('you-died-js-target').classList.remove = ("you-died-css");
    document.getElementById('you-died-js-target').classList.add("you-won-css");
-   document.getElementById('story-box').classList.add("story-box-completed")
-   document.getElementById('dead').textContent = "You did it!"
+   document.getElementById('story-box').classList.add("story-box-completed");
+   document.getElementById('dead').textContent = "You did it!";
    document.getElementById('death-text').textContent = winner;
    document.getElementById('job-icon').classList.add('victory-anim');
 }
@@ -499,7 +496,7 @@ function deathAnim() {
  * generates a deathbox message depending on encounter rolled. 
  * triggers the death animation function. also replaces buttons to let user reset game*/
 function deathMessage() {
-   deathAnim()
+   deathAnim();
    document.getElementById("you-died-js-target").style.display = "block";
    let fightDeath = [
       `You tried to jump it, but you got a leg cramp just as you lept. You fell to your death. You are dead.`,
@@ -540,9 +537,9 @@ function deathMessage() {
    let death = "";
 
    if (runRoll === true) {
-      death = runDeath[encounterType]
+      death = runDeath[encounterType];
    } else {
-      death = fightDeath[encounterType]
+      death = fightDeath[encounterType];
    }
    document.getElementById('death-text').textContent = death;
    document.getElementById('new-game').style.visibility = "visible";
@@ -564,4 +561,4 @@ merchButton.addEventListener('click', rollMerch);
 runAwayButton.addEventListener('click', runAway);
 actionButton.addEventListener('click', statCheck);
 nGButton.addEventListener('click', newGame);
-adventureButton.addEventListener('click', keepGoing)
+adventureButton.addEventListener('click', keepGoing);
