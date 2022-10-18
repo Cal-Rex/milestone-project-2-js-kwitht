@@ -341,6 +341,7 @@ function runAway() {
    }
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
+   document.getElementById("story-bg").classList.remove('encounter-bg-slide');
 }
 
 /** launches when a run away roll is successfull, generates the correct message based off of the encounterType global variable */ 
@@ -397,6 +398,7 @@ function statCheck() {
    }
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
+   document.getElementById("story-bg").classList.remove('encounter-bg-slide');
 }
 
 // WINNING

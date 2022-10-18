@@ -37,7 +37,7 @@ body {
     left: 0;
     top: 0;
     width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    height: 87vh;
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -51,6 +51,10 @@ body {
     border: 1px solid #888;
     border-radius: 15px;
     width: 80%;
+  }
+
+  .modal-content > h2 {
+    text-align: center;
   }
   
   /* The Close Button */
@@ -347,6 +351,7 @@ footer > p {
     margin: 5px auto;
 }
 
+
 #modal-button {
     position: absolute;
     right: 5px;
@@ -375,6 +380,24 @@ footer > p {
     box-shadow: #ffffff 0px 0px 3px;
     padding: 4px 6px;
     margin-top: 1px;
+}
+
+.die-mention {
+    color: #c00000;
+    font-weight: 700;
+}
+
+.do-it-mention {
+    padding: 2px 4px;
+    background-color: #000000;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    color: #ffffff;
+
+}
+
+li {
+    padding-top: 7px;
 }
 
 
