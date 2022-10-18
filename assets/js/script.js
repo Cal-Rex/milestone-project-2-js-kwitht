@@ -3,6 +3,7 @@
 const knightButton = document.getElementById('choose-knight');
 const thiefButton = document.getElementById('choose-thief');
 const merchButton = document.getElementById('choose-merchant');
+const mobDiv = document.getElementById('modal-button-holder');
 // selected Job
 let job = "";
 // generated characteristics
@@ -109,7 +110,10 @@ function rollMerch() {
 }
 
 // instruction modal box
-// code for modal box lifted from w3Schools
+const modDiv = document.getElementById('modal-button-holder');
+
+// code for modal box lifted from w3Schools, 
+//but functions changed to accomodate touchscreen users
 // Get the modal
 let modal = document.getElementById("myModal");
 
@@ -123,6 +127,9 @@ let span = document.getElementsByClassName("close")[0];
 modalBtn.onclick = function() {
   modal.style.display = "block";
 }
+modalBtn.onclick.innerHTML = function() {
+   modal.style.display = "block";
+ }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
@@ -594,6 +601,7 @@ window.addEventListener('load', pageLoad);
 window.addEventListener('unload', pageReset);
 
 //
+
 document.getElementById('modal-button').onmousedown = function() {instClick()}; 
 document.getElementById('modal-button').onmouseup = function() {instReturn()};
 document.getElementById('modal-button').onmouseleave = function() {instReturn()};  

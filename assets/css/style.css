@@ -345,12 +345,21 @@ footer {
     height: 50px;
     text-align: center;
     color: #ffffff;
+    z-index: 1;
 }
 
 footer > p {
     margin: 5px auto;
+    pointer-events: none;
 }
 
+#modal-button-holder {
+    position: absolute;
+    width: 170px;
+    height: 50px;
+    bottom: 0;
+    right: 0;
+}
 
 #modal-button {
     position: absolute;
@@ -364,10 +373,16 @@ footer > p {
     font-weight: 700;
     padding: 5px 7px;
     border-radius: 5px;
-    animation-name: visible;
+    animation-name: modal-button-opener;
     animation-duration: 0.5s;
     animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
     z-index: 6;
+    pointer-events: auto;
+}
+@keyframes modal-button-opener {
+    from {bottom: 100vh;}
+    to {bottom: 7.5px;}
 }
 
 #modal-button:hover {
