@@ -31,19 +31,20 @@ let encounterType = 5;
 let encounterDiceRoll = 0;
 let runRoll = false;
 
-/** "roles" a "dice" to determine the difficulty check of any given encounter, difficulty check increases depending on game progress */
-function rollDice() {
-   let diceRoll = 0;
-   let encounterDocLog = document.getElementById('encounter-counter').textContent;
-   let encounterCounter = parseInt(encounterDocLog);
-   if (encounterCounter <= 4) {
-      diceRoll = (Math.round((Math.floor(Math.random() * 11)) / 100 * 40));
-   } else if (encounterCounter <= 7) {
-      diceRoll = (Math.round((Math.floor(Math.random() * 11)) / 100 * 60));
-   } else {
-      diceRoll = (Math.round((Math.floor(Math.random() * 11)) / 100 * 90));
-   }
-   encounterDiceRoll = diceRoll;
+
+// initial page functions
+
+/** if triggered, refreshes the page */
+function newGame() {
+   document.getElementById('game-loaded').style.display = "none";
+   document.getElementById('loading').style.display = "block";
+   location.reload();
+}
+
+/** covers page with "loading" screen while the page reloads all elements */
+function pageReset() {
+   document.getElementById('loading').style.display = "block";
+   document.getElementById('game-loaded').style.display = "none";
 }
 
 /**removes game controls on page inital load so that users can only select options that start the game */
@@ -59,22 +60,9 @@ function pageLoad() {
    document.getElementById('encounter-log').style.visibility = "hidden";
 }
 
-window.addEventListener('load', pageLoad);
 
-/** covers page with "loading" screen while the page reloads all elements */
-function pageReset() {
-   document.getElementById('loading').style.display = "block";
-   document.getElementById('game-loaded').style.display = "none";
-}
+// choosing a job functions
 
-window.addEventListener('unload', pageReset);
-
-
-
-// explanatory text on how the game works, the targeted element changes to a statement of the selecter character once
-
-
-// 3 functions below allow player to pick their job before starting their quest using the 3 job buttons
 /** selects the Knight Job, allocates necessary stats and begins the quest */
 function rollKnight() {
    document.getElementById('str-num').textContent = "5";
@@ -108,6 +96,8 @@ function rollMerch() {
    createQuest()
 }
 
+//Beginning the game functions
+
 /** removes job selector buttons and replaces with game controls */
 function startGame() {
    let stats = document.querySelectorAll('.load')
@@ -129,13 +119,12 @@ function startGame() {
    document.getElementById('game-loaded').classList.add('game');
    document.getElementById('story-box').classList.remove('story-box-start-bg');
    document.getElementById('story-box').classList.add('story-box-questing');
-
 }
 
-/** generates a random storyline for the player's quest */
+/** generates a random storyline for the player's quest and replaces the intro text on the html*/
 function createQuest() {
    let questLine = {
-      name: ["Harrison", "Brick", "Engelbert", "Constance", "Inga", "Gertrude"],
+      name: ["Harrison", "Brick", "Laurence", "Constance", "Shirley", "Hyacinth"],
       endDestination: ["the Grand ol' Opry", "the Bahamas", "your Gran's house",
          "Greggs", "an Amish Lowrider Motor Show", "your scheduled audience with the king"
       ],
@@ -172,42 +161,17 @@ function createQuest() {
    console.log("reason:", destReason);
 }
 
-// event listeners for the 3 job buttons that start the quests
-knightButton.addEventListener('click', rollKnight);
-thiefButton.addEventListener('click', rollThief);
-merchButton.addEventListener('click', rollMerch);
-
-/** cycles random backgrounds */
-function backgroundRoller() {
-   let d6 = (Math.round((Math.floor(Math.random() * 11)) / 100 * 50));
-   let bgArray = [
-      "url(assets/images/backgrounds/env-1.webp)",
-      "url(assets/images/backgrounds/env-2.webp)",
-      "url(assets/images/backgrounds/env-3.webp)",
-      "url(assets/images/backgrounds/env-4.webp)",
-      "url(assets/images/backgrounds/env-5.webp)",
-      "url(assets/images/backgrounds/env-6.webp)"
-   ];
-   document.getElementById("story-bg").classList.add('encounter-bg-slide');
-   document.getElementById("story-bg").style.backgroundImage = bgArray[d6];
-}
-
-/** removes the animation from the encounter background so that it can be added again on the next trigger */
-function resetBgSlide() {
-   document.getElementById("story-bg").classList.remove('encounter-bg-slide');
-}
-
+// Core Gameplay loop functions
 
 /** generates a new encounter */
 function keepGoing() {
+   //first part of the function switches the game buttons out to show the "do it!" and "Run away!" buttons"
    document.getElementById('keep-going').style.visibility = "hidden";
    document.getElementById('keep-going').textContent = "Keep Going!";
    document.getElementById('actions').style.visibility = "visible";
    document.getElementById('run-actions').style.visibility = "visible";
 
-
    // this is the selection of names that can be chosen for encounter "monsters"
-   // the choice is determined by generating 2 numbers between 0 and 6, then adding them together
    let names = ["Unfortunate Greg", "Deuce", "Snake-Eyes Pete", "Daunchy",
       "The Artist formerly known as", "Doris", "Boblin", "Majestic Michael",
       "Flothers", "Dangerous Daniel", "Bruce", "Alexander", "Crit McGee"
@@ -222,6 +186,11 @@ function keepGoing() {
       "ol' timey gangster", "chain-smoking stock broker", "professional russian roullette player", "bounty hunter",
       'self-proclaimed "betting man"', "card-counting robot"
    ]
+
+   // Encounter calculating array, the for loop pushes 6 random numbers into the array, 
+   // which are used to generate the encounter data
+   // Global variable "dupeStopper" is compared to and then updated at this point to 
+   // prevent back-to-back duplications of scenarios
    let eCalc = [];
    for (let i = 0; i < 6; i++) {
       let d6 = (Math.round((Math.floor(Math.random() * 11)) / 100 * 50));
@@ -239,9 +208,15 @@ function keepGoing() {
       }
    }
 
+   // using the first 4 values of the encounter calculation array, 
+   // a value is establised to pick a random name from the "names" array
+   // the same is done for the monsters and npcs array, which are swapped out in the template literal content
+   // for each encounter as appropriate
    let monsterResult = eCalc[2] + eCalc[3];
    let nameResult = eCalc[0] + eCalc[1];
-   // let encounterText = document.getElementById('encounter-text').textContent;
+
+   // the final number in the encounter calculation array determines the encounter selected by cycling through
+   // the if and if else statements below, it also a value to the "check" global variable
    if (eCalc[4] === 0) {
       document.getElementById('encounter-text').textContent = `You come across a large gorge. 
       to walk around it would take a really long time. or, you could just jump it... Will you do it!?`;
@@ -274,19 +249,75 @@ function keepGoing() {
       alert("invalid encounter type!")
       console.log("Error! encounter number =", eCalc[4])
    }
+
+   // with the encounter now selected, the value of the dupeStopper variable is now re-assigned, 
+   // to prevent generating this same encounter on the next round should the player succeed this encounter
    dupeStopper = eCalc[4];
    encounterType = dupeStopper;
-
 
    console.log("random name generator rolled a", nameResult, "and picked", names[nameResult]);
    console.log("encounter type", encounterType, "rolled");
    console.log("encounter number", eCalc[4], "selected");
+
+   // the background is then randomly cycled
    backgroundRoller();
 };
 
-adventureButton.addEventListener('click', keepGoing)
+/** cycles random backgrounds per encounter*/
+function backgroundRoller() {
+   let d6 = (Math.round((Math.floor(Math.random() * 11)) / 100 * 50));
+   let bgArray = [
+      "url(assets/images/backgrounds/env-1.webp)",
+      "url(assets/images/backgrounds/env-2.webp)",
+      "url(assets/images/backgrounds/env-3.webp)",
+      "url(assets/images/backgrounds/env-4.webp)",
+      "url(assets/images/backgrounds/env-5.webp)",
+      "url(assets/images/backgrounds/env-6.webp)"
+   ];
+   // The class that contained the animation for the background is now re-added
+   document.getElementById("story-bg").classList.add('encounter-bg-slide');
+   document.getElementById("story-bg").style.backgroundImage = bgArray[d6];
+}
 
-// launches when a run away roll is successfull
+// triggered when the player chooses to "do it!" or "run away!", assigning a value to chack the player's stat against
+/** "roles" a "dice" to determine the difficulty check of any given encounter, 
+ * difficulty check increases depending on game progress
+ * the end result of the function is pushed into the ancounterDiceRoll global variable */
+function rollDice() {
+   let diceRoll = 0;
+   let encounterDocLog = document.getElementById('encounter-counter').textContent;
+   let encounterCounter = parseInt(encounterDocLog);
+   if (encounterCounter <= 4) {
+      diceRoll = (Math.round((Math.floor(Math.random() * 11)) / 100 * 40));
+   } else if (encounterCounter <= 7) {
+      diceRoll = (Math.round((Math.floor(Math.random() * 11)) / 100 * 60));
+   } else {
+      diceRoll = (Math.round((Math.floor(Math.random() * 11)) / 100 * 90));
+   }
+   encounterDiceRoll = diceRoll;
+}
+
+// "running away" functions
+/** activates if the player chooses to run away */
+function runAway() {
+   // global variable set to true to determine the correct type of message to generate on failure
+   runRoll = true;
+   let stat = document.getElementById('dex-num').textContent;
+   rollDice()
+   let escapeRoll = encounterDiceRoll;
+   if (stat >= escapeRoll) {
+      runSuccess();
+      runRoll = false;
+   } else {
+      deathMessage()
+      console.log("game rolled", escapeRoll, "for escape challenge");
+   }
+   document.getElementById('actions').style.visibility = "hidden";
+   document.getElementById('run-actions').style.visibility = "hidden";
+   resetBgSlide();
+}
+
+/** launches when a run away roll is successfull, generates the correct message based off of the encounterType global variable */ 
 function runSuccess() {
    let flee = [
       `You decide against making the jump, a bunch of kids see you backing down. 
@@ -305,12 +336,135 @@ function runSuccess() {
       `Ah! the chest was a mimic! As it opens its big chest mouth you stumble and fall back, it eats your weapons, 
       but at least you're alive. You double back to the nearest town to make an insurance claim on your lost weapons.`
    ];
+
+   // switches buttons out to prompt the user to progress
    document.getElementById('encounter-text').textContent = flee[encounterType]
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
    document.getElementById('keep-going').style.visibility = "visible";
-
 }
+
+// fight "Do it!" functions
+/** triggered when "do it!" is clicked. assigns the correct stat to be checked based on value 
+ * that is assigned to the "check" variable then decides what function to trigger depending 
+ * on the compared values of the encounterDiceRoll global variable and player's respective stat */
+function statCheck() {
+   rollDice()
+   let playerStat = 0;
+   if (check === "strength") {
+      let stat = document.getElementById('str-num').textContent;
+      playerStat = parseInt(stat);
+   } else if (check === "cunning") {
+      let stat = document.getElementById('cun-num').textContent;
+      playerStat = parseInt(stat);
+   } else if (check === "dexterity") {
+      let stat = document.getElementById('dex-num').textContent;
+      playerStat = parseInt(stat);
+   } else {
+      alert("invalid check type!")
+      console.log("Error! check was", check);
+      console.log("stat =", stat);
+      console.log("playerStat =", playerStat)
+   }
+   console.log("playerStat is", playerStat, "because check is", check);
+   console.log("enemy rolled", encounterDiceRoll);
+   if (playerStat > encounterDiceRoll) {
+      console.log("the check passed player's roll of", playerStat, "beat the encounter roll of", encounterDiceRoll);
+      victory()
+   } else {
+      deathMessage()
+   }
+   document.getElementById('actions').style.visibility = "hidden";
+   document.getElementById('run-actions').style.visibility = "hidden";
+   resetBgSlide();
+}
+
+/** activates if the player's playerStat beats the encounterDiceRoll against them. 
+ * increases the stat that was checked against by 1 and generates a victory message depending
+ * encounter type. Triggers the "progress" function. */
+function victory() {
+  
+   if (check === "strength") {
+      let skill = document.getElementById('str-num').textContent;
+      strSkill = parseInt(skill);
+      strSkill++
+      document.getElementById('str-num').textContent = strSkill;
+      console.log("strength is now increased to", strSkill);
+   } else if (check === "cunning") {
+      let skill = document.getElementById('cun-num').textContent;
+      cunSkill = parseInt(skill);
+      cunSkill++
+      document.getElementById('cun-num').textContent = cunSkill;
+      console.log("strength is now increased to", cunSkill);
+   } else {
+      console.log(`check is "${check}" so no increment added`);
+   }
+   let vMessage = [
+      "You managed to jump the gorge! Clearly you didn't skip leg day. Your strength increases by 1",
+
+      `You fought the ${encounterFoe} to the death, and they died! what's even better than that is that you didn't die! 
+      Your strength has increases by 1`,
+
+      `you decide to stay and try your luck. The ${encounterFoe} keeps accidentally showing you their hand. 
+      You absolutely clean them out. Your Cunning has increases by 1`,
+
+      `The ambush was a bust, you absolutely battered them and took their lunch money.
+      Your strength increases by 1`,
+
+      `You recite a verse from the book and you are teleported 50 miles up the road 
+      and you your acid reflux from eating that squirrel earlier is gone. Jackpot.
+      Your cunning increases by 1`,
+
+      `Ah! the chest was a mimic! As it opens its big chest mouth you manage to jump out the way just in time. 
+      You burn it and head onwards.`
+   ]
+   document.getElementById('encounter-text').textContent = vMessage[encounterType];
+
+   document.getElementById('actions').style.visibility = "hidden";
+   document.getElementById('run-actions').style.visibility = "hidden";
+   document.getElementById('keep-going').style.visibility = "visible";
+   progress();
+}
+
+/** increases the adventure completion percentage in addition to moving the job avatar
+ * accross the screen. when the progression value hits 10, it will trigger the game winning function */
+function progress() {
+   document.getElementById('encounter-log').style.visibility = "visible";
+   let stepForward = document.getElementById('job-icon');
+   let progressString = document.getElementById('encounter-counter').textContent;
+   let progression = parseInt(progressString);
+   progression++
+   if (progression === 1) {
+      stepForward.style.left = "22%"
+   } else if (progression === 2) {
+      stepForward.style.left = "25%"
+   } else if (progression === 3) {
+      stepForward.style.left = "27%"
+   } else if (progression === 4) {
+      stepForward.style.left = "30%"
+   } else if (progression === 5) {
+      stepForward.style.left = "32%"
+   } else if (progression === 6) {
+      stepForward.style.left = "35%"
+   } else if (progression === 7) {
+      stepForward.style.left = "37%"
+   } else if (progression === 8) {
+      stepForward.style.left = "40%"
+   } else if (progression === 9) {
+      stepForward.style.left = "45%"
+   } else if (progression === 10) {
+      stepForward.style.left = "50%"
+   };
+   document.getElementById('encounter-counter').textContent = progression;
+
+   if (progression === 10) {
+      winQuest()
+   };
+
+   console.log("adventure progression should now be", progression, "0%");
+}
+
+// DEATH
 
 /** animation trigger for job icon when the player dies */
 function deathAnim() {
@@ -368,6 +522,8 @@ function deathMessage() {
    document.getElementById('new-game').style.visibility = "visible";
 }
 
+
+
 /** function that activates when player beats the game */
 function winQuest() {
    let epilogue = [`With the tradition been upheld for another 100 years. You look towards the horizon, or rather, 
@@ -410,83 +566,6 @@ function winQuest() {
    document.getElementById('job-icon').classList.add('victory-anim');
 }
 
-/** activates if the player's playerStat beats the encounterDiceRoll against them */
-function victory() {
-   document.getElementById('encounter-log').style.visibility = "visible";
-   let stepForward = document.getElementById('job-icon');
-   let progressString = document.getElementById('encounter-counter').textContent;
-   let progression = parseInt(progressString);
-   progression++
-   if (progression === 1) {
-      stepForward.style.left = "22%"
-   } else if (progression === 2) {
-      stepForward.style.left = "25%"
-   } else if (progression === 3) {
-      stepForward.style.left = "27%"
-   } else if (progression === 4) {
-      stepForward.style.left = "30%"
-   } else if (progression === 5) {
-      stepForward.style.left = "32%"
-   } else if (progression === 6) {
-      stepForward.style.left = "35%"
-   } else if (progression === 7) {
-      stepForward.style.left = "37%"
-   } else if (progression === 8) {
-      stepForward.style.left = "40%"
-   } else if (progression === 9) {
-      stepForward.style.left = "45%"
-   } else if (progression === 10) {
-      stepForward.style.left = "50%"
-   };
-   document.getElementById('encounter-counter').textContent = progression;
-
-   console.log("adventure progression should now be", progression, "0%");
-
-   if (check === "strength") {
-      let skill = document.getElementById('str-num').textContent;
-      strSkill = parseInt(skill);
-      strSkill++
-      document.getElementById('str-num').textContent = strSkill;
-      console.log("strength is now increased to", strSkill);
-   } else if (check === "cunning") {
-      let skill = document.getElementById('cun-num').textContent;
-      cunSkill = parseInt(skill);
-      cunSkill++
-      document.getElementById('cun-num').textContent = cunSkill;
-      console.log("strength is now increased to", cunSkill);
-   } else {
-      console.log(`check is "${check}" so no increment added`);
-   }
-   let vMessage = [
-      "You managed to jump the gorge! Clearly you didn't skip leg day. Your strength increases by 1",
-
-      `You fought the ${encounterFoe} to the death, and they died! what's even better than that is that you didn't die! 
-      Your strength has increases by 1`,
-
-      `you decide to stay and try your luck. The ${encounterFoe} keeps accidentally showing you their hand. 
-      You absolutely clean them out. Your Cunning has increases by 1`,
-
-      `The ambush was a bust, you absolutely battered them and took their lunch money.
-      Your strength increases by 1`,
-
-      `You recite a verse from the book and you are teleported 50 miles up the road 
-      and you your acid reflux from eating that squirrel earlier is gone. Jackpot.
-      Your cunning increases by 1`,
-
-      `Ah! the chest was a mimic! As it opens its big chest mouth you manage to jump out the way just in time. 
-      You burn it and head onwards.`
-   ]
-   document.getElementById('encounter-text').textContent = vMessage[encounterType];
-
-   document.getElementById('actions').style.visibility = "hidden";
-   document.getElementById('run-actions').style.visibility = "hidden";
-   document.getElementById('keep-going').style.visibility = "visible";
-
-   if (progression === 10) {
-      winQuest()
-   }
-}
-
 /** activates if the player chooses to run away */
 function runAway() {
    runRoll = true;
@@ -505,47 +584,18 @@ function runAway() {
    resetBgSlide();
 }
 
-runAwayButton.addEventListener('click', runAway)
+// listners that trigger the "page loading" and start menu screens
+window.addEventListener('load', pageLoad);
+window.addEventListener('unload', pageReset);
 
-/** assigns the correct stat to be checked based on the type of encounter that is rolled */
-function statCheck() {
-   rollDice()
-   let playerStat = 0;
-   if (check === "strength") {
-      let stat = document.getElementById('str-num').textContent;
-      playerStat = parseInt(stat);
-   } else if (check === "cunning") {
-      let stat = document.getElementById('cun-num').textContent;
-      playerStat = parseInt(stat);
-   } else if (check === "dexterity") {
-      let stat = document.getElementById('dex-num').textContent;
-      playerStat = parseInt(stat);
-   } else {
-      alert("invalid check type!")
-      console.log("Error! check was", check);
-      console.log("stat =", stat);
-      console.log("playerStat =", playerStat)
-   }
-   console.log("playerStat is", playerStat, "because check is", check);
-   console.log("enemy rolled", encounterDiceRoll);
-   if (playerStat > encounterDiceRoll) {
-      console.log("the check passed player's roll of", playerStat, "beat the encounter roll of", encounterDiceRoll);
-      victory()
-   } else {
-      deathMessage()
-   }
-   document.getElementById('actions').style.visibility = "hidden";
-   document.getElementById('run-actions').style.visibility = "hidden";
-   resetBgSlide();
-}
+// event listeners for the 3 job buttons that start the quests
+knightButton.addEventListener('click', rollKnight);
+thiefButton.addEventListener('click', rollThief);
+merchButton.addEventListener('click', rollMerch);
 
-actionButton.addEventListener('click', statCheck)
-
-/** if triggered, refreshes the page */
-function newGame() {
-   document.getElementById('game-loaded').style.display = "none";
-   document.getElementById('loading').style.display = "block";
-   location.reload();
-}
-
-nGButton.addEventListener('click', newGame)
+// event listeners for in-game functions and actions, like running away, 
+// choosing to do an action and then the functions that are triggered in response to those actions
+runAwayButton.addEventListener('click', runAway);
+actionButton.addEventListener('click', statCheck);
+nGButton.addEventListener('click', newGame);
+adventureButton.addEventListener('click', keepGoing)
