@@ -170,17 +170,15 @@ function keepGoing() {
    // this is the selection of names that can be chosen for encounter "monsters"
    let names = ["Unfortunate Greg", "Deuce", "Snake-Eyes Pete", "Daunchy",
       "The Artist formerly known as", "Doris", "Boblin", "Majestic Michael",
-      "Flothers", "Dangerous Daniel", "Bruce", "Alexander", "Crit McGee"
+      "Flothers", "Dangerous Daniel", "Crit McGee"
    ]
    let monsters = ["crab-person", "slime", "goblin", "steam-powered debt collector",
-      "talking bear", "highwayman", "hoodlum", "land pirate", "outlaw", "rabid hobbit",
-      "handstanding mermaid", "Nestle executive", "splitter of realms"
+      "talking bear", "highwayman", "hoodlum", "land pirate", "outlaw", "Nestle executive", "splitter of realms"
    ]
 
    let npcs = ["last old lady alive who still plays bridge", "magician", "casino dealer",
       "amateur Blackjack addict", 'kid who loves playing "Go Fish"', "cowboy", "noble",
-      "ol' timey gangster", "chain-smoking stock broker", "professional russian roullette player", "bounty hunter",
-      'self-proclaimed "betting man"', "card-counting robot"
+      "ol' timey gangster", "chain-smoking stock broker", "professional russian roullette player", "bounty hunter"
    ]
 
    // Encounter calculating array, the for loop pushes 6 random numbers into the array, 
@@ -209,7 +207,9 @@ function keepGoing() {
    // for each encounter as appropriate
    let monsterResult = eCalc[2] + eCalc[3];
    let nameResult = eCalc[0] + eCalc[1];
-
+   console.log(`eCalc[0] = ${eCalc[0]}`)
+   console.log(`eCalc[1] = ${eCalc[1]}`)
+   console.log(`which means that nameResult should be ${nameResult}`)
    // the final number in the encounter calculation array determines the encounter selected by cycling through
    // the if and if else statements below, it also a value to the "check" global variable
    if (eCalc[4] === 0) {
@@ -304,7 +304,6 @@ function runAway() {
    }
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
-   resetBgSlide();
 }
 
 /** launches when a run away roll is successfull, generates the correct message based off of the encounterType global variable */ 
@@ -361,7 +360,6 @@ function statCheck() {
    }
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
-   resetBgSlide();
 }
 
 // WINNING
