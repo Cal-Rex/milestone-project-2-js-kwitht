@@ -1,0 +1,70 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+p {font-size: 1em;}
+
+body {
+    display: grid;
+    grid-template-areas: 
+    'header'
+    'merchant'
+    'footer';
+    width: 90%;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 5%;
+}
+
+header {
+    grid-area: header;
+}
+
+#merhcant {
+    height: 300px;
+    grid-area: merchant;
+    background-image: url(../images/404-500/merchant-bad-gateway.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+footer {
+    grid-area: footer;
+}
+
+.btn {
+    position: relative;
+    color: #ffffff;
+    background-color: #000000;
+    border: #000000 solid 2px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+    font-weight: 400;
+    padding: 5px 7px;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    color: #000000;
+    background-color: #ffffff;
+    font-weight: 700;
+}
+
+.btn:active {
+    box-shadow: 0px 0px 3px;
+    padding: 4px 6px;
+    margin-top: 1px;
+}
+
+button {
+    margin-top: 10px;
+}

@@ -58,7 +58,6 @@ function pageLoad() {
    document.getElementById('loading').style.display = "none";
    document.getElementById('game-loaded').style.display = "grid";
    document.getElementById('encounter-log').style.visibility = "hidden";
-   document.getElementById('story-box').style.visibility = "hidden";
 }
 
 window.addEventListener('load', pageLoad);
@@ -124,7 +123,6 @@ function startGame() {
    choices.forEach(choice => {
       choice.style.visibility = "hidden";
    });
-   document.getElementById('story-box').style.visibility = "visible";
    document.getElementById('story-box').classList.add('story-vis');
    document.getElementById('str-num').classList.add('str-vis');
    document.getElementById('strength').classList.add('str-vis');
@@ -132,6 +130,11 @@ function startGame() {
    document.getElementById('dexterity').classList.add('dex-vis');
    document.getElementById('cun-num').classList.add('cun-vis');
    document.getElementById('cunning').classList.add('cun-vis');
+   document.getElementById('game-loaded').classList.remove('game-start-menu');
+   document.getElementById('game-loaded').classList.add('game');
+   document.getElementById('story-box').classList.remove('story-box-start-bg');
+   document.getElementById('story-box').classList.add('story-box-questing');
+
 }
 
 /** generates a random storyline for the player's quest */
@@ -499,7 +502,6 @@ function runAway() {
       runRoll = false;
    } else {
       deathMessage()
-      alert(`system rolled ${escapeRoll} and beat your Dexterity of ${stat}`);
       console.log("game rolled", escapeRoll, "for escape challenge");
    }
    document.getElementById('actions').style.visibility = "hidden";

@@ -28,6 +28,22 @@ body {
 }
 
 /* alignment for the game page and game functions */
+.game-start-menu {
+    background-color: #ffffff;
+    padding: 0;
+    border: none;
+    display: grid;
+    overflow: hidden;
+    width: 100%;
+    grid-template-areas:
+    'header header header header header header'
+    'storybox storybox storybox storybox storybox storybox'
+    'strv strv dexv dexv cunv cunv'
+    'strn strn dexn dexn cunn cunn'
+    'kbtn kbtn tbtn tbtn mbtn mbtn'
+    'act act ngp ngp run run';
+}
+
 .game {
     background-color: #ffffff;
     padding: 0;
@@ -57,8 +73,6 @@ header {
 #story-box {
     grid-area: storybox;
     overflow: hidden;
-    border: 1px #000000 solid;
-    border-radius: 5px;
     text-align: center;
     position: relative;
     top: 0px;
@@ -145,6 +159,17 @@ header h2 {
 }
 
 /* story tile styling */
+.story-box-start-bg {
+    background-image: url(../images/qwetht-title.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+}
+
+.story-box-questing {
+    border: 1px #000000 solid;
+    border-radius: 5px;
+}
 
 .story {
     margin: 0 auto;
@@ -156,9 +181,6 @@ header h2 {
     position: relative;
 }
 
-#story-bg {
-    background-image: none;
-}
 .job {
     position: absolute;
     bottom: 25px;
@@ -380,6 +402,7 @@ footer {
     to {top: 0%;
         color: #000000;}
 }
+
 
 
 
