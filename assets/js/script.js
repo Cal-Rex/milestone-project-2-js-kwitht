@@ -61,6 +61,8 @@ function pageLoad() {
    document.getElementById('encounter-log').style.visibility = "hidden";
 }
 
+/** changes the "instructions" text on the instructions button to a different 
+ * random "uctions" word on click, while the button is clicked */
 function instClick() {
    let instAlts = ["Deductions", "Reductions", "Conductions",
     "seductions", "Abductions", "Inductions", "Constructions",
@@ -211,6 +213,9 @@ function keepGoing() {
    document.getElementById('keep-going').textContent = "Keep Going!";
    document.getElementById('actions').style.visibility = "visible";
    document.getElementById('run-actions').style.visibility = "visible";
+   adventureButton.classList.remove('btn-anim');
+   actionButton.classList.add('btn-anim');
+   runAwayButton.classList.add('btn-anim');
 
    // this is the selection of names that can be chosen for encounter "monsters"
    let names = ["Unfortunate Greg", "Deuce", "Snake-Eyes Pete", "Daunchy",
@@ -347,6 +352,7 @@ function runAway() {
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
    document.getElementById("story-bg").classList.remove('encounter-bg-slide');
+   btnAnimReset();
 }
 
 /** launches when a run away roll is successfull, generates the correct message based off of the encounterType global variable */ 
@@ -404,6 +410,7 @@ function statCheck() {
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
    document.getElementById("story-bg").classList.remove('encounter-bg-slide');
+   btnAnimReset();
 }
 
 // WINNING
@@ -590,8 +597,14 @@ function deathMessage() {
    }
    document.getElementById('death-text').textContent = death;
    document.getElementById('new-game').style.visibility = "visible";
+   nGButton.classList.add('btn-anim');
 }
 
+function btnAnimReset() {
+   document.getElementById('keep-going').classList.add('btn-anim');
+   actionButton.classList.remove('btn-anim');
+   runAwayButton.classList.remove('btn-anim');
+}
 // event listeners for all game functions
 
 // listners that trigger the "page loading" and start menu screens

@@ -376,3 +376,11 @@ buttons
 - job choosing buttons
 
 
+
+
+bugs:
+modal box button not clickable on touchscreens
+404/500 doing immediate redirect
+"keep going" button not triggering with animation
+
+
