@@ -409,23 +409,68 @@ gameplay loop:
 
 ![flowchart of the game design](assets/images/readme-images/flowchart.webp)
 
-1. Game Loaded
-2. Choose Class
-    a. Knight
-    b. Thief
-    c. Merchant
-3. Generate Encounter
-    a. Run away!
-    b. Do it!
+1. Game Loaded: <br>
+When the page first loads, the grid that houses the structure of the game is targeted in the css with a style rule to remain not display. instead a div with "loading" is displayed. Once the JS has been fully loaded an event listener targets the loading screen and makes it no longer display, instead, the grid housing the game is now displayed.<br>
+2. Choose Class: <br>
+Now that the game is loaded, the grid area that houses the storybox displays a hero image that is on a infinite rotation animation loop through use of a css class. The javascript targets the 3 following buttons and makes them visible:<br>
+   - Choose to play as a Knight: Strength 5, Agility 4, Cunning 3.
+   - Choose to play as a Thief: Strength 2, Agility 7, Cunning 3.
+   - Choose to play as a Merchant: Strength 3, Agility 3, Cunning 6.
+   <br>
+
+   Each button triggers a function in JS to allocate strings of stat values to allocated divs in the HTML. Then an avatar unique to that class is set to a smaller div inside the story box. This diplays the Players character over a randomly generated backdrop when the next step in the phase launches.
+   <br>
+
+    Now that there is a character model and stats, the JS creates 3 empty variables, then populates each one with a random integer between 0 and 5, essentially acting like rolling a 6 sided dice 3 times.
+
+   - One variable is used for picking a character name from a pre-established array in the function.
+   - The second picks a destination from a different array.
+   - Lastly, the 3rd "roll" determines a reason for the adventure to take place.
+   <br>
+
+   These values are then printed in a template literal string into the div the introductory text was housed and replaces it.<br>
+
+   Another function is then triggered to remove the choose class buttons and instead display the game controls. The "let's go!" button is now visible too.<br>
+
+3. Generate Encounter: <br>
+   Now that the game has now been set up toplay. the player can hit "Lets go!" to begin.<br>
+   Upon Clicking, a function will trigger to "roll" 5 random numbers between 0 and 5 and push them into an array <br>
+    - The first 2 numbers in the array are added together, and allocated as the value of a variable that determines what random name should be selected for the monster/npc in the generated encounter if there is one.
+    - the the 3rd and 4th array values are allocated to a second variable which is used to determine what type of monster/npc will be in the encounter
+    - the last value in the array is used to determine what encounter is "rolled"
+       - There is also a function that checks the value of this array number. if it is the same as the last encounter, it "re-rolls" the number until it is a different value. this prevents getting the same encounter back-to-back.
+   Players can now decide to do one of the following:
+    - Run away!
+       - a global variable called RunRoll is declared as "true"
+       - Another number is rolled in the JS. This new value is compared to the player's Agility stat.
+       - If the number is less than or equal to the player's agility stat, it is regarded as a success.
+       - If the rolled number is greater than the player's agility stat, it is deemed a failure.
+       
+    - Do it!
+       - Another number is rolled in the JS. This new value is compared to the player's Strength or Cunning stat depending on what type of encounter was generated (Agility can also be checked, but there are no scenarios that target it for this action).
+       - If the number is lesser than the players Allocated stat, the action is regarded as a success
+       - If the number is greater than or equal to the player's allocated stat, the action is regarded as a failure
+
 4. fail check
-    a. failing run away! roll
-    b. failing a Do it! roll
+    - failing run away! roll
+       - The game buttons are removed from view, along with the let's go button. instead they are replaced with a large opaque box that tells the player "THEY DIED".
+       - if the RunRoll variable is declared as true, it prints the death outcome for the scenario allocated to that encounter number if you fail the run away roll.
+       - a button appears under this box with the phrase "Start a new Qwetht!" which refreshes the page when clicked. This restarts the game. 
+    
+    - failing a Do it! roll
+       - The game buttons are removed from view, along with the let's go button. instead they are replaced with a large opaque box that tells the player "THEY DIED".
+       - if the RunRoll variable is declared as false, it prints the death outcome for the scenario allocated to that encounter number if you fail the "Do it!" roll.
+       
 5. Death 
-    a. Run away! death
-    b. Do it! death
+    - Run away! death
+    - Do it! death
 6. Pass check
-    a. Run away! pass
-    b. Do it! pass
+    - Run away! pass
+       
+          - If the check is regarded as a success, a string of text pertaining to that encounter is generated.
+          - the "Do it!" and "Run away!" buttons are swapped out and replaced with the "Let's go!" button, which has now had its text content changed to "Keep Going!". This cycles the game back to generating a new encounter, but does not award progession.
+    - Do it! pass
+       
 7. Increasing Progress
 8. Beating the game
 
