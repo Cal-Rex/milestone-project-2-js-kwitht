@@ -470,14 +470,16 @@ li {
 
 .victory-anim {
     animation-name: victory-anim;
-    animation-duration: 0.3s;
+    animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: both;
     animation-iteration-count: infinite;
 }
 @keyframes victory-anim {
-    from {bottom: 40px;}
-    to {bottom: 25px;}
+    from {transform: rotate(0deg);
+        transform-origin: 90% 0%;}
+    to {transform: rotate(-360deg);
+        transform-origin: 90% 100%;}
 }
 
 .story-vis {
