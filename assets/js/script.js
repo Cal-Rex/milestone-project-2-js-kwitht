@@ -600,8 +600,11 @@ function deathMessage() {
 }
 
 function btnAnimReset() {
+   console.log(document.getElementById('keep-going'));
+   console.log(document.getElementById('keep-going').classList, "first class list");
    document.getElementById('keep-going').classList.add('btn-anim');
    actionButton.classList.remove('btn-anim');
+   console.log(document.getElementById('keep-going').classList, "second class list");
    runAwayButton.classList.remove('btn-anim');
 }
 // event listeners for all game functions
