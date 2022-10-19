@@ -328,7 +328,8 @@ loading screen
 introductory text
 
 - When the game is first loaded, this text gives a general welcome to the game. It tells the visitor that the site is a game and what kind of game it is
-- when a game is started - once a use has picked a job, a random name, destination and reason for adventure are generated. they are then insterted into a string of text to make sense of the information, and this then replaces the initial introductory text 
+- when a game is started - once a use has picked a job, a random name, destination and reason for adventure are generated. they are then insterted into a string of text to make sense of the information, and this then replaces the initial introductory text
+- has a white background with white dispered shadow border so that the rotating background image does not obstruct text 
 
 Backgrounds
 
@@ -374,6 +375,37 @@ buttons
     - the mouse cursor also changes to "pointer"
   - When clicked, the padding in the button reduces by 1 pixel and a box shadow is employed, to simulate the button being clicked-down-on
 - job choosing buttons
+  - animated to drop down into view when page loads
+  - vanishes once a player picks a class
+  - only appear when at the starting phase of the game
+- action buttons
+  - Do it! buttons and Run away! buttons
+    - appears once an encounter is generated
+    - shares the same appearance animation to the job buttons when they become visible
+    - dissapears when clicked
+    - triggers javascript functions to progress game (more on that in the next subsection below)
+- Let's go! and Keep going! buttons
+  - appears once a player has selected a job or successfully passed or ran from an encounter
+  - is actually the same button, but the text changes to Keep going! after first use
+- new game button
+  - appears when a user either dies or completes the game
+  - when clicked, it reloads the page and triggers the loading screen to come up while the page is unloading.
+
+Modal box with instructions
+
+- has it's own seperate button in the footer
+  - has the same style as regular page buttons but all colours are inverted as it sits on a black background
+  - when the button is active (on mouse down) the button replaces its text with another randum "uction" word
+  - when clicked, a modal window appears over the top of the game
+    - it consists of an outer box, which acts as an opaque backdrop
+    - and an inner box with a white background, displaying instructions text
+  - any time a button is mentioned in the instructions, the style is changed with a span so that it looks like
+   the button it represents in game
+  - the same styling rhetoric is applied to any time the word "die" is mentioned. to match the styling of the death message
+
+
+
+
 
 
 
