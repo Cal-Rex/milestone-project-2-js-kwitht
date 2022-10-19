@@ -110,8 +110,6 @@ function rollMerch() {
 }
 
 // instruction modal box
-const modDiv = document.getElementById('modal-button-holder');
-
 // code for modal box lifted from w3Schools, 
 //but functions changed to accomodate touchscreen users
 // Get the modal

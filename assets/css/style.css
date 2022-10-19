@@ -399,7 +399,12 @@ footer > p {
 
 .die-mention {
     color: #c00000;
-    font-weight: 700;
+    font-weight: 400;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: #000000 0px 0px 2px;
+
 }
 
 .do-it-mention {
