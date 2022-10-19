@@ -403,7 +403,9 @@ Modal box with instructions
    the button it represents in game
   - the same styling rhetoric is applied to any time the word "die" is mentioned. to match the styling of the death message
 
+Gameplay features
 
+![flowchart of the game design](assets/images/readme-images/flowchart.webp)
 
 
 
