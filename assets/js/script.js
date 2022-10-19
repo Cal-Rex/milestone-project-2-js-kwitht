@@ -3,7 +3,6 @@
 const knightButton = document.getElementById('choose-knight');
 const thiefButton = document.getElementById('choose-thief');
 const merchButton = document.getElementById('choose-merchant');
-const mobDiv = document.getElementById('modal-button-holder');
 // selected Job
 let job = "";
 // generated characteristics
@@ -613,9 +612,9 @@ window.addEventListener('unload', pageReset);
 
 //
 
-document.getElementById('modal-button').onmousedown = function() {instClick()}; 
-document.getElementById('modal-button').onmouseup = function() {instReturn()};
-document.getElementById('modal-button').onmouseleave = function() {instReturn()};  
+document.getElementById('modal-button').onmousedown = function() {instClick();}; 
+document.getElementById('modal-button').onmouseup = function() {instReturn();};
+document.getElementById('modal-button').onmouseleave = function() {instReturn();};  
 
 // event listeners for the 3 job buttons that start the quests
 knightButton.addEventListener('click', rollKnight);

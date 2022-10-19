@@ -405,7 +405,32 @@ Modal box with instructions
 
 Gameplay features
 
+gameplay loop:
+
 ![flowchart of the game design](assets/images/readme-images/flowchart.webp)
+
+1. Game Loaded
+2. Choose Class
+    a. Knight
+    b. Thief
+    c. Merchant
+3. Generate Encounter
+    a. Run away!
+    b. Do it!
+4. fail check
+    a. failing run away! roll
+    b. failing a Do it! roll
+5. Death 
+    a. Run away! death
+    b. Do it! death
+6. Pass check
+    a. Run away! pass
+    b. Do it! pass
+7. Increasing Progress
+8. Beating the game
+
+
+
 
 
 

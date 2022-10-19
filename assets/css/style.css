@@ -8,12 +8,13 @@ body {
 a {
     color:#ffffff;
     text-decoration: underline;
+    font-weight: 700;
 }
 
 a:hover {
     color:#c00000;
-    text-decoration: underline;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .loading-screen {
@@ -380,7 +381,7 @@ header h2 {
 }
 
 #encounter-log {
-    margin: 0 auto;
+    margin: 10px auto 0px auto;
 }
 
 /* footer styling */
