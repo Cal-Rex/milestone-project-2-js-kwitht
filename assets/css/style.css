@@ -124,6 +124,11 @@ header {
     top: 0px;
 }
 
+#intro-text {
+    position: relative;
+    z-index: 1;
+}
+
 .story-box-completed {
     width: 91.75%;
     height: 50vh;
@@ -210,6 +215,17 @@ header h2 {
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: contain;
+    pointer-events: none;
+    animation-name: title-rotation;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    position: relative;
+    z-index: 0;
+}
+@keyframes title-rotation {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
 }
 
 .story-box-questing {
