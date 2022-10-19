@@ -1,3 +1,4 @@
+/* initial loading styling and basic universal formatting */
 body {
     background-color: #000000;
     margin: 0 auto;
@@ -11,7 +12,7 @@ body {
     background-color: #ffffff;
 }
 
-.loading-screen > p {
+.loading-screen>p {
     margin: 25% 0;
     text-align: center;
     vertical-align: middle;
@@ -27,52 +28,78 @@ body {
     display: none;
 }
 
-/* intructions modal, code taken from w3Schools */
-/* The Modal (background) */
+li {
+    padding-bottom: 8px;
+}
+
+
+/* intructions modal */
+/* class code taken from w3Schools */
 .modal-box {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 7; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    display: none;
+    position: fixed;
+    z-index: 7;
+    padding-top: 100px;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
+    width: 100%;
     height: 87vh;
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content */
-  .modal-content {
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* class code taken from w3Schools */
+.modal-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
     border-radius: 15px;
     width: 80%;
-  }
+}
 
-  .modal-content > h2 {
+.modal-content>h2 {
     text-align: center;
-  }
-  
-  /* The Close Button */
-  .close {
+}
+
+/* class code taken from w3Schools */
+.close {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
+}
+
+.close:hover,
+.close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  }
+}
+
+.die-mention {
+    color: #c00000;
+    font-weight: 400;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: #000000 0px 0px 2px;
+
+}
+
+.do-it-mention {
+    padding: 2px 4px;
+    background-color: #000000;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    color: #ffffff;
+
+}
 
 /* alignment for the game page and game functions */
+
+/* Layout before job is picked */
 .game-start-menu {
     background-color: #ffffff;
     padding: 0;
@@ -81,14 +108,15 @@ body {
     overflow: hidden;
     width: 100%;
     grid-template-areas:
-    'header header header header header header'
-    'storybox storybox storybox storybox storybox storybox'
-    'strv strv dexv dexv cunv cunv'
-    'strn strn dexn dexn cunn cunn'
-    'kbtn kbtn tbtn tbtn mbtn mbtn'
-    'act act ngp ngp run run';
+        'header header header header header header'
+        'storybox storybox storybox storybox storybox storybox'
+        'strv strv dexv dexv cunv cunv'
+        'strn strn dexn dexn cunn cunn'
+        'kbtn kbtn tbtn tbtn mbtn mbtn'
+        'act act ngp ngp run run';
 }
 
+/* layout for when game has begun */
 .game {
     background-color: #ffffff;
     padding: 0;
@@ -110,6 +138,7 @@ body {
     padding: 5px;
 }
 
+/* grid areas */
 header {
     text-align: center;
     margin: 5px 5%;
@@ -206,7 +235,8 @@ header {
     width: 33vw;
 }
 
-/* header styling */
+/* page styling */
+
 header h2 {
     font-size: 1em;
 }
@@ -224,10 +254,6 @@ header h2 {
     animation-iteration-count: infinite;
     position: relative;
     z-index: 0;
-}
-@keyframes title-rotation {
-    from {transform: rotate(0deg);}
-    to {transform: rotate(360deg);}
 }
 
 .story-box-questing {
@@ -262,6 +288,7 @@ header h2 {
     z-index: 2;
 }
 
+/* events: death and victory styling */
 .you-outcome-css {
     position: absolute;
     top: 30vh;
@@ -276,7 +303,6 @@ header h2 {
     box-shadow: #000000d6 0px 0px 15px 20px;
     z-index: 5;
 }
-
 
 .you-died-css {
     color: #c00000;
@@ -301,7 +327,7 @@ header h2 {
 
 #death-text {
     text-align: center;
-   
+
 }
 
 /* controls styling */
@@ -325,10 +351,6 @@ header h2 {
     animation-timing-function: ease-out;
     z-index: 6;
 }
-@keyframes visible {
-    from {top: -400%;}
-    to {top: 0%;}
-}
 
 .keep-going-btn {
     position: absolute;
@@ -339,7 +361,7 @@ header h2 {
 }
 
 .btn:hover {
-    color:#000000;
+    color: #000000;
     background-color: #ffffff;
     font-weight: 700;
 }
@@ -355,6 +377,7 @@ header h2 {
 }
 
 /* footer styling */
+
 footer {
     position: relative;
     bottom: 0;
@@ -398,10 +421,6 @@ footer > p {
     z-index: 6;
     pointer-events: auto;
 }
-@keyframes modal-button-opener {
-    from {bottom: 100vh;}
-    to {bottom: 7.5px;}
-}
 
 #modal-button:hover {
     color: #ffffff;
@@ -415,40 +434,17 @@ footer > p {
     margin-top: 1px;
 }
 
-.die-mention {
-    color: #c00000;
-    font-weight: 400;
-    font-family: 'Times New Roman', Times, serif;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-shadow: #000000 0px 0px 2px;
-
-}
-
-.do-it-mention {
-    padding: 2px 4px;
-    background-color: #000000;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    color: #ffffff;
-
-}
-
-li {
-    padding-top: 7px;
-}
-
-
 /* media queries */
+/* for desktops, larger tablets and large screens */
 @media screen and (min-width: 1001px) {
     #str-num {
         width: 4em;
     }
-    
+
     #dex-num {
         width: 4em;
     }
-    
+
     #cun-num {
         width: 4em;
     }
@@ -458,16 +454,29 @@ li {
     }
 }
 
+/* for tablets, phones and smaller screens */
 @media screen and (max-width: 1000px) {
     .game {
         grid-template-areas:
-        'header header header header header header'
-        'storybox storybox storybox storybox storybox storybox'
-        'strv strv dexv dexv cunv cunv'
-        'strn strn dexn dexn cunn cunn'
-        'kbtn kbtn tbtn tbtn mbtn mbtn'
-        'act act ngp ngp run run';
+            'header header header header header header'
+            'storybox storybox storybox storybox storybox storybox'
+            'strv strv dexv dexv cunv cunv'
+            'strn strn dexn dexn cunn cunn'
+            'kbtn kbtn tbtn tbtn mbtn mbtn'
+            'act act ngp ngp run run';
     }
+    #str-num {
+        padding-top: 10px;
+    }
+
+    #dex-num {
+        padding-top: 10px;
+    }
+
+    #cun-num {
+        padding-top: 10px;
+    }
+
     #story-box {
         width: 91.75%;
         margin: 0 auto;
@@ -487,7 +496,7 @@ li {
         bottom: -20px;
         margin: 0 auto;
     }
-    
+
     footer {
         padding-top: 20px;
     }
@@ -495,50 +504,33 @@ li {
 
 /* animations */
 
+/* title animation */
+@keyframes title-rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* modal button animation on page opening */
 @keyframes modal-button-opener {
-    from {bottom: 100vh;}
-    to {bottom: 7.5px;}
+    from {
+        bottom: 100vh;
+    }
+
+    to {
+        bottom: 7.5px;
+    }
 }
 
 /* animations triggered in js */
-.death-anim {
-    transform: rotate(90deg);
-    transform-origin: 45% 100%;
-}
-
-.victory-anim {
-    animation-name: victory-anim;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: both;
-    animation-iteration-count: infinite;
-}
-@keyframes victory-anim {
-    from {transform: rotate(0deg);
-        transform-origin: 90% 0%;}
-    to {transform: rotate(-360deg);
-        transform-origin: 90% 100%;}
-}
-
 .story-vis {
     animation-name: story-vis;
     animation-duration: 0.5s;
     animation-timing-function: ease-out;
-}
-@keyframes story-vis {
-    from {top: 250%;}
-    to {top: 0%;}
-}
-
-.encounter-bg-slide {
-    animation-name: encounter-bg-slide;
-    animation-duration: 0.5s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
-}
-@keyframes encounter-bg-slide{
-    from {left: 300%;}
-    to {left: 0%;}
 }
 
 .str-vis {
@@ -568,12 +560,94 @@ li {
     animation-fill-mode: forwards;
 }
 
-@keyframes vis {
-    from {top: 400%;
-        color: #ffffff;}
-    to {top: 0%;
-        color: #000000;}
+.encounter-bg-slide {
+    animation-name: encounter-bg-slide;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
 }
+
+.victory-anim {
+    animation-name: victory-anim;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+
+.death-anim {
+    transform: rotate(90deg);
+    transform-origin: 45% 100%;
+}
+
+/* keyframes for js triggered animations */
+@keyframes story-vis {
+    from {
+        top: 250%;
+    }
+
+    to {
+        top: 0%;
+    }
+}
+
+@keyframes vis {
+    from {
+        top: 400%;
+        color: #ffffff;
+    }
+
+    to {
+        top: 0%;
+        color: #000000;
+    }
+}
+
+@keyframes encounter-bg-slide {
+    from {
+        left: 300%;
+    }
+
+    to {
+        left: 0%;
+    }
+}
+
+@keyframes victory-anim {
+    from {
+        transform: rotate(0deg);
+        transform-origin: 90% 0%;
+    }
+
+    to {
+        transform: rotate(-360deg);
+        transform-origin: 90% 100%;
+    }
+}
+
+@keyframes visible {
+    from {
+        top: -400%;
+    }
+
+    to {
+        top: 0%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
