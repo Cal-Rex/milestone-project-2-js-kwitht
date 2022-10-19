@@ -5,6 +5,17 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
+a {
+    color:#ffffff;
+    text-decoration: underline;
+}
+
+a:hover {
+    color:#c00000;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .loading-screen {
     width: 100vw;
     height: 100vh;
@@ -391,7 +402,6 @@ footer {
 
 footer > p {
     margin: 5px auto;
-    pointer-events: none;
 }
 
 #modal-button-holder {
