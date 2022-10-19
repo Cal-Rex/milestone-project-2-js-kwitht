@@ -302,6 +302,8 @@ The outcome box, AKA, the "You died" notification, follows the style form the so
 
 All imagery for the project was created in Microsoft PowerPoint. This was done deliberately to maintain a <em>doodle-like</em> design, but better that my actual doodles. because i can't draw.
 
+High res images were taken from google and then traced over or replaced with rudimentary shapes on microsoft powerpoint. the super imposed drawing was then lifted and converted to an image to give a doodle like feel, but because of the tracing, background environments are more discernable as oppoesed to drawing them from nothing.
+
 The page design allows for the users choices to essentially create the hero image of the page. Offering a very minor degree of personalisation/immersion - given the style of the game.
 
 |![Example Hero Image 1](assets/images/readme-images/example-hero.png)|![Example Hero Image 2](assets/images/readme-images/example-hero-2.png)|![Example Hero Image 3](assets/images/readme-images/example-hero-3.png)|
@@ -309,6 +311,68 @@ The page design allows for the users choices to essentially create the hero imag
 
 The site does not employ any other imagery, given that it is derived from a text-based idea.
 
-Buttons and interactive elements on the page follow suit with the monochrome/monospace design, but still have hoverable and active elements to give the user appropriate feedback to ensure they are using controls correctly.
+Buttons and interactive elements on the page follow suit with the monochrome/monospace design, but still have hoverable and active elements to give the user appropriate feedback to ensure they are using controls correctly. more of this will be covered in the next section
 
-![demonstration of buttons and imagery working](assets/images/readme-images/walkthrough.gif)
+## Features
+
+### Design Features
+
+Visual features
+
+loading screen
+
+- When a user visits the page, while the page is loading they will only see a white screen with "loading...".
+- this dissapears once all javascript has been loaded.
+- this prevents any players with slower connections from playing with partially read code, preventing any errors that could be caused by this
+
+introductory text
+
+- When the game is first loaded, this text gives a general welcome to the game. It tells the visitor that the site is a game and what kind of game it is
+- when a game is started - once a use has picked a job, a random name, destination and reason for adventure are generated. they are then insterted into a string of text to make sense of the information, and this then replaces the initial introductory text 
+
+Backgrounds
+
+- Opening page: There is an animated hero image, showing some of the basic cartoon design elements in the game. the background rotates on an infinite 20-second loop. giving a small amount of interaction, without being too overbaring in comparison to the minimalistic style. This feature helps give more context to the initial introduction text.
+
+- Game backgrounds: upon starting the adventure, or moving to the next encounter. The background in the story box cycles randomly to give a different background each encounter. backgrounds are also animated to slide in from the right to imply movement into another area.
+
+Character
+
+- Character Icon: the character model that players can see depends on what job they pick. 
+  - The icon will also move across a small percentage of the window upon each encounter beaten.
+  - The icon has an animation where it will "fall over" if a player fails an encoutner and dies.
+  - The icon does continous backflips on a loop if the player completed the game.
+
+stats
+
+- there are 3 stats:
+  - Strength
+  - Agility
+  - Cunning
+- Each job has a unique allocation of points for each stat from a total of 12 points
+- when a job is selected, the stats and their values slide up from the bottom of the screen in a cascading fashion
+- These stats are used to determine wether each encounter is successful or not
+- when a player is successful in an encounter, the stat that was used to check if they succeeded increases by 1
+
+Encounter text
+
+- whenever an encounter is generated, a string of text with a randomly generated name and monster/npc type is printed above the story box
+- If a user succeds in an encounter, a victory message replaces the text here, it also prompts the user to et them know the certain stat that was checked against is raised by 1
+- the information will then cycle upon further progression
+
+Death/Victory box
+
+- Upon death, a shadowed opaque box appears with red shadowed text telling the user that they DIED
+- This box will also contain a unique death message depending on the encounter type, monster type, and monster name
+- If the user completes the game, this box changes to orange with yellow shadowed text, with a completion message tailored to their chosen job, destination and reason for advanture
+
+buttons
+
+- Features applied to all buttons:
+  - Button buttons are styled black with shite writing to contrast with the mainly white with black text design of the page
+  - when hovered over, button text turns bold, the color changes black and the background colour changes white
+    - the mouse cursor also changes to "pointer"
+  - When clicked, the padding in the button reduces by 1 pixel and a box shadow is employed, to simulate the button being clicked-down-on
+- job choosing buttons
+
+
