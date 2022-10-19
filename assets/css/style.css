@@ -478,6 +478,26 @@ li {
     }
 }
 
+@media screen and (max-width: 580px) {
+    #modal-button {
+        position: relative;
+        right: 0px;
+        bottom: -20px;
+        margin: 0 auto;
+    }
+    
+    footer {
+        padding-top: 20px;
+    }
+}
+
+/* animations */
+
+@keyframes modal-button-opener {
+    from {bottom: 100vh;}
+    to {bottom: 7.5px;}
+}
+
 /* animations triggered in js */
 .death-anim {
     transform: rotate(90deg);
