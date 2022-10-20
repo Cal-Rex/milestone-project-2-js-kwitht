@@ -460,19 +460,29 @@ Now that the game is loaded, the grid area that houses the storybox displays a h
     - failing a Do it! roll
        - The game buttons are removed from view, along with the let's go button. instead they are replaced with a large opaque box that tells the player "THEY DIED".
        - if the RunRoll variable is declared as false, it prints the death outcome for the scenario allocated to that encounter number if you fail the "Do it!" roll.
+       - a button appears under this box with the phrase "Start a new Qwetht!" which refreshes the page when clicked. This restarts the game. 
        
-5. Death 
-    - Run away! death
-    - Do it! death
 6. Pass check
-    - Run away! pass
-       
-          - If the check is regarded as a success, a string of text pertaining to that encounter is generated.
-          - the "Do it!" and "Run away!" buttons are swapped out and replaced with the "Let's go!" button, which has now had its text content changed to "Keep Going!". This cycles the game back to generating a new encounter, but does not award progession.
-    - Do it! pass
-       
+    - Succeeding a Run away! roll 
+       - If the check is regarded as a success, a string of text pertaining to that encounter is generated.
+       - the "Do it!" and "Run away!" buttons are swapped out and replaced with the "Let's go!" button, which has now had its text content changed to "Keep Going!". This cycles the game back to generating a new encounter, but does not award progession.
+    - Succeeding a Do it! roll
+       - If the check is regarded as a success, a string of text pertaining to that encounter is generated.
+       - The type of check used for the encounter is called, and increased incrementally by 1.
+       - The journey progression counter at the bottom of the screen is targeted and incrementally increased too (more on this in the next list item)
+       - the "Do it!" and "Run away!" buttons are swapped out and replaced with the "Let's go!" button, which has now had its text content changed to "Keep Going!". This cycles the game back to generating a new encounter.
+
 7. Increasing Progress
+    - As stated in the pass check section, any time an encounter is succeeded by a "Do it!" roll, the game progess counter increases. The function that carries this out has an IF statement attached to it that if it reaches "10" a function will be triggered to launch the win game conditions
+    - If statements are also appended to the encounter generating function. which adjusts how high the number a check roll can generate
+       - If the the player's progress is less than or equal to 40%, the random number generated can be no higher than 4.
+       - If the the player's progress is less than or equal to 70%, the random number generated can be no higher than 6.
+       - If the the player's progress is greater than or equal to 80%, the random number generated can be up to 9.
+      This creates a sliding increase in difficulty, but still allows players a chance of progression without a high chance of outright murder at the start of the game.
 8. Beating the game
+    - When game completion function is triggered. The death box elements are repurposed to display game winning text, the style is changed from red to orange with a yellow shadow.
+    - the box then displays the same way a deathbox would, but will contain unique text depending on the player's randomly generated name, job, destination and reason for adventure.
+    
 
 
 
