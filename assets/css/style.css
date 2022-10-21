@@ -59,7 +59,7 @@ li {
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
-    pointer-events: none;
+    pointer-events: fill;
 }
 
 /* class code taken from w3Schools */
@@ -81,7 +81,7 @@ li {
 .close {
     color: #aaaaaa;
     float: right;
-    font-size: 28px;
+    font-size: 40px;
     font-weight: bold;
 }
 
