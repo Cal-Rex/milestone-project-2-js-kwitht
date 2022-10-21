@@ -521,6 +521,7 @@ After hearing feedback from testers, the following features have been considered
 Other back-of-house features:
 - changing how the JS stores information so that users cannot cheat by using dev tools to change their stat numbers.
 - partition the JS into more manageable sized code blocks. perhaps seperate certain functions where possible and crete 3 JS scripts of roughly 200 line of code each, as opposed to one big script file.
+- The Agility Stat was originally referred to as "dexterity", but given the nature in which it is used int he game narrative it was changed to the former. Ideally, in the future the naming of variables and functions should be changed to reflect this.
 
 
 
