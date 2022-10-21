@@ -45,14 +45,12 @@ The Adventure generator beyond your wildest dreams, if your wildest dreams were 
 
 4. [FEATURES](#features)
    - Design Features
-   - Index Page
-   - About Page
-   - Portfolio page
-   - FAQ Page
-   - Contact Page
-   - 404 Page
-   - 500 Page
+       - Visual Features
+       - Gameplay Features
    - Features to Implement in Future
+     - Post-deadline Patching
+     - User Feedback features
+     - Script features
   <br><br>
 
  5. [BUGS](#bugs)
@@ -170,6 +168,8 @@ After Playtesting the game, players were interviewed to establish their user sto
 
 1. <em>"As a returning player, I want to be able to pick up where i left off."</em>
 2. <em>"As a returning player, I want to be able to see a record of my past completions."</em>
+3. <em>"As a returning player, I want to see fresh encounters when i play the game."</em>
+
 
 <br>
 
@@ -486,13 +486,41 @@ Now that the game is loaded, the grid area that houses the storybox displays a h
     - When game completion function is triggered. The death box elements are repurposed to display game winning text, the style is changed from red to orange with a yellow shadow.
     - the box then displays the same way a deathbox would, but will contain unique text depending on the player's randomly generated name, job, destination and reason for adventure.
     
+404 and 500 error pages
 
+both pages chare the same css style and design with the exception to minor changes to text content on the HTML - which displays the type of error, and a picture of one of the characters from the game.
+ - in the 404, the thief character appears, looking as if he attempting to mug you with a butter knife
+ - For the 500, the merchant character is standing infront of what is supposed to look like an ominous doorway.
 
+At the bottom of the image in each page there is a button that launches a function that returns users to the index.
 
+Features to Implement in Future
 
+This project was constrained mainly by a very short time budget. The following features were planned to be implemented, but instead, will be implemented int he future:
 
+- Making use of localStorage object in Javascript to save a users game.
+- Making use of localStorgae object in Javascript to keep a record of past completions.
+- A higher variety of backgrounds and character models.
+- A higher variety of encounters
+- Sound effects
+  - A Sound that plays on death. Either similar to the [death noise in Dark Souls](https://www.youtube.com/watch?v=-ZGlaAxB7nI) or the [noise you make when you take damage in Minecraft](https://www.youtube.com/watch?v=0T_NR2KY8uI).
+  - A sound effect for button clicks. Something light and not too invasive.
+  - A sound that plays when an adventure is completed (some sort of incredibly dumb trumpet noise would be ideal).
+- A More advanced death animation for the whole page. A telescopic zoom fade-in of the death box and the screen fading to black was an initial idea.
+- A More advanced completion animation.
+- smoother class add/remove transitions from the background elements of the story box, instead of just having one slide in, the existing one should also slide out.
 
+After hearing feedback from testers, the following features have been considered to be implemented in the future:
+- Forking adventures, where certain decisions would shift the cycle, and backgrounds of adventures entirely depending on choices. like, for example: going out to sea and having sea-only encounters.
+- Choosing your own character model
+- completing certain encounters would give you items or options which could change the outcome of other encounters
+  - like an item that lets you skip one roll or specific encounter
+  - An extra life
+  - temporary skill boosts
 
+Other back-of-house features:
+- changing how the JS stores information so that users cannot cheat by using dev tools to change their stat numbers.
+- partition the JS into more manageable sized code blocks. perhaps seperate certain functions where possible and crete 3 JS scripts of roughly 200 line of code each, as opposed to one big script file.
 
 
 
