@@ -648,6 +648,7 @@ The site is deployed on GitHub Pages, the following steps can be replicated to a
 - [Bobby Hadz](https://bobbyhadz.com/blog/javascript-change-style-of-all-elements-with-class)
 - [w3schools](https://www.w3schools.com/js/default.asp)
 - [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Touch_events?fbclid=IwAR2w2PfZG7e7IHm1pGNPlkc-Nz0eJEo1P6i27eAJ4_4DYdS0LLzCD4nHbSc)
+- [Web.dev](https://web.dev/)
 - Seun Owonikoko: Project Mentor
 
 # Acknowledgements
