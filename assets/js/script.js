@@ -142,6 +142,12 @@ window.onclick = function(event) {
   }
 } 
 
+// Own code added to accomodate touchscreens for modal box
+function touchScreenModalHandler() {
+   modal.style.display = "block";
+}
+
+
 //Beginning the game functions
 
 /** removes job selector buttons and replaces with game controls */
@@ -613,11 +619,13 @@ function btnAnimReset() {
 window.addEventListener('load', pageLoad);
 window.addEventListener('unload', pageReset);
 
-//
-
-document.getElementById('modal-button').onmousedown = function() {instClick();}; 
+// event listeners for the instructions button
+document.getElementById('modal-button').ontouchstart = function() {instClick();}; 
+document.getElementById('modal-button').ontouchend = function() {touchScreenModalHandler(), instReturn();};
+document.getElementById('modal-button').onmousedown = function() {instClick();};
 document.getElementById('modal-button').onmouseup = function() {instReturn();};
 document.getElementById('modal-button').onmouseleave = function() {instReturn();};  
+
 
 // event listeners for the 3 job buttons that start the quests
 knightButton.addEventListener('click', rollKnight);

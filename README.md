@@ -525,6 +525,17 @@ Other back-of-house features:
 
 
 bugs:
+
+Resolved Bugs:
+- 404 and 500 pages performing an immediate re-direct when loaded.
+  - An error in the JS was found where the function that was the target of the buttons was not listed correctly.
+- Progress counter being pushed behind the footer on certain encounters.
+  - This was a sizing issue within the CSS, the .game grid has been adjust to not account for a section the vieport, which, while this allows for scrolling, allows for full view of all necessary content. 
+
+Unresolved Bugs
+- The Modal box button is bugged on touchscreens. users must click on the outside of the button multiple times for it to work.
+  -  
+
 modal box button not clickable on touchscreens
 404/500 doing immediate redirect
 "keep going" button not triggering with animation
