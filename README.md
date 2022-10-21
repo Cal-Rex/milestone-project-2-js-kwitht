@@ -403,6 +403,9 @@ Modal box with instructions
    the button it represents in game
   - the same styling rhetoric is applied to any time the word "die" is mentioned. to match the styling of the death message
 
+footer
+ - Houses a link to the author's GitHub and provides a space for the instructions button.
+
 Gameplay features
 
 gameplay loop:
@@ -483,6 +486,7 @@ Now that the game is loaded, the grid area that houses the storybox displays a h
     - When game completion function is triggered. The death box elements are repurposed to display game winning text, the style is changed from red to orange with a yellow shadow.
     - the box then displays the same way a deathbox would, but will contain unique text depending on the player's randomly generated name, job, destination and reason for adventure.
     
+
 
 
 
