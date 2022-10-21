@@ -59,6 +59,7 @@ li {
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
+    pointer-events: none;
 }
 
 /* class code taken from w3Schools */
@@ -69,6 +70,7 @@ li {
     border: 1px solid #888;
     border-radius: 15px;
     width: 80%;
+    pointer-events: auto;
 }
 
 .modal-content>h2 {
