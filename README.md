@@ -640,3 +640,15 @@ The site is deployed on GitHub Pages, the following steps can be replicated to a
 7. Once the page has been deployed you will be able to see it on the right-hand side of the main repo page.
 8. You can click into the deployment page and then click "view deployment" to get the deployed link.
 ![Gif demonstrating the above steps](assets/images/readme-images/GitHub-deployment.gif)
+
+
+# Credits
+## Troubleshooting sources
+- [stack overflow](https://stackoverflow.com/)
+- [Bobby Hadz](https://bobbyhadz.com/blog/javascript-change-style-of-all-elements-with-class)
+- [w3schools](https://www.w3schools.com/js/default.asp)
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Touch_events?fbclid=IwAR2w2PfZG7e7IHm1pGNPlkc-Nz0eJEo1P6i27eAJ4_4DYdS0LLzCD4nHbSc)
+- Seun Owonikoko: Project Mentor
+
+# Acknowledgements
+
