@@ -144,7 +144,7 @@ As Mentioned in the [Introduction](#introduction), the game is inspired by origi
 
 5. [Dungeons & Dragons 5E](https://en.wikipedia.org/wiki/Dungeons_%26_Dragons) 
     - This table top game uses varying types of dice rolls to determine the outcome of adventures tailored to the players. 
-    - "Dice rolls" were employed as the base mechanics in this project to determine encounters, names, monesters and so forth. As well as performing stat checks, similar tot he way they are carried out in a standard game of Dungeons & Dragons.
+    - "Dice rolls" were employed as the base mechanics in this project to determine encounters, names, monesters and so forth. As well as performing stat checks, similar to the way they are carried out in a standard game of Dungeons & Dragons.
 
 <br>
 
@@ -620,3 +620,23 @@ Frameworks | Libraries | Programs
 - Used to convert screen captures into gifs to reduce file size in repo and [testing.md](testing.md).
 <br><br>
 
+
+# [TESTING](testing.md)
+  - Contained as a seperate document [here](testing.md)
+  <br>
+  <hr>
+<br>
+
+# [DEPLOYMENT](#deployment)
+This Site was created, developed, managed and stored on GitHub and GitPod.
+
+The site is deployed on GitHub Pages, the following steps can be replicated to achieve the same result:
+1. Sign up/create an account with GitHub (or log in with existing details).
+2. Locate this repository (repo) by using the _search_ function.
+3. Once clicked into the repo, click the settings cogwheel at the top right of the project.
+4. Navigate to the pages section.
+5. Navigate to source, select `main` from the dropdown menu to designate what branch to deploy.
+6. Once this has been selected, the page will refresh, and the site will begin to deploy. This could take some time.
+7. Once the page has been deployed you will be able to see it on the right-hand side of the main repo page.
+8. You can click into the deployment page and then click "view deployment" to get the deployed link.
+![Gif demonstrating the above steps](assets/images/readme-images/GitHub-deployment.gif)
