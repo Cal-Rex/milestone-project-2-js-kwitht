@@ -531,13 +531,92 @@ Resolved Bugs:
   - An error in the JS was found where the function that was the target of the buttons was not listed correctly.
 - Progress counter being pushed behind the footer on certain encounters.
   - This was a sizing issue within the CSS, the .game grid has been adjust to not account for a section the vieport, which, while this allows for scrolling, allows for full view of all necessary content. 
-
-Unresolved Bugs
 - The Modal box button is bugged on touchscreens. users must click on the outside of the button multiple times for it to work.
-  -  
+  - Discovered [touch events](https://developer.mozilla.org/en-US/docs/Web/API/Touch_events?fbclid=IwAR2w2PfZG7e7IHm1pGNPlkc-Nz0eJEo1P6i27eAJ4_4DYdS0LLzCD4nHbSc) and implemented them to simulate the same functions as 'click' event listeners.
 
-modal box button not clickable on touchscreens
-404/500 doing immediate redirect
-"keep going" button not triggering with animation
+Unresolved Bugs:
+-  "let's go!"/"Keep Going!" button not removing class animation.
+   - somehow the css that adds and removes animations to buttons is being added twice or more to this button. This is probably a case of siftin throught he code and altering the line that is cuasing this. However, there was not enough time tosearch for this before the deadline.
+  - Buttons moving on click on the 404/500 pages.
+    - while clicked on, the buttons on the 404 and 500 pages jump. CSS needs to be altered to prevent this.
 
+# Technologies:
+
+Languages Used
+
+- HTML
+- CSS
+- Javascript
+- Markdown
+
+
+Frameworks | Libraries | Programs
+
+**[GitHub](https://github.com/)**
+- Used to store, deploy and publish site.
+<br><br>
+
+**[GitPod](https://gitpod.io/)**
+- Used to write and preview code, commit and push to GitHub.
+<br><br>
+
+**[Google Chrome](https://www.google.co.uk/chrome)**
+- Used developer tools to check site responsiveness, preview site outside of GitPod, preview and make minor tweaks in real time to code without messing up original code during development.
+<br><br>
+
+**[W3C Markup Validation Service](https://validator.w3.org/)**
+- Used to validate and format code.
+
+**[GIMP - GNU Image Manipulation Program](https://www.gimp.org/)**
+- Used to convert images to .WEBP format.
+
+**[MS Word](https://www.microsoft.com/en-us/microsoft-365/word)**
+- Used to spellcheck and format text.
+<br><br>
+
+**[MS Paint3D](https://apps.microsoft.com/store/detail/paint/9PCFS5B6T72H?hl=en-us&gl=us)**
+- Used to crop and consolidate imagery created in MS PowerPoint.
+<br><br>
+
+**[MS PowerPoint](https://www.microsoft.com/en-us/microsoft-365/powerpoint)**
+- Used to make Imagery on site
+<br><br>
+
+**[Balsamiq](https://balsamiq.com/)**
+- Used to create site wireframes.
+<br><br>
+
+**[amiresponsive](https://ui.dev/amiresponsive)**
+- Used to create Example image at top of the [readme.md](#contents)
+
+**[Faviconer](http://faviconer.com/icon/index)**
+- Used to create site favicon
+
+**[Opera](https://www.opera.com/)**
+- Used to test UX.
+<br><br>
+
+**[Firefox](https://www.mozilla.org/en-GB/firefox/new/)**
+- Used to test UX.
+<br><br>
+
+**[Microsoft Edge](https://www.microsoft.com/en-us/edge?form=MA13FJ)**
+- Used to test UX.
+<br><br>
+
+**[Google Chrome on Android](https://support.google.com/chrome/answer/95346?hl=en&co=GENIE.Platform%3DAndroid)**
+- Used to test UX.
+<br><br>
+
+**[Safari on Mac and iOS](https://www.apple.com/uk/safari/)**
+- Used to test UX.
+<br><br>
+
+**[ScreenRec](https://screenrec.com/)**
+- Used to capture screen recordings of live site testing for testing.md.
+<br><br>
+
+**[Cloud Converter](https://cloudconvert.com/mp4-to-gif)**
+- Used to convert screen captures into gifs to reduce file size in repo and [testing.md](testing.md).
+<br><br>
 
