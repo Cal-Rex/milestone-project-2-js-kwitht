@@ -65,12 +65,14 @@ function pageLoad() {
  * random "uctions" word on click, while the button is clicked */
 function instClick() {
    let instAlts = ["Deductions", "Reductions", "Conductions",
-    "seductions", "Abductions", "Inductions", "Constructions",
-   "productions", "Liposuctions", "Destructions", "Introductions", 
-   "constructions", "Solifluctions"];
+      "seductions", "Abductions", "Inductions", "Constructions",
+      "productions", "Liposuctions", "Destructions", "Introductions",
+      "constructions", "Solifluctions"
+   ];
    let altRoller = (Math.round((Math.floor(Math.random() * 11)) / 100 * 60)) + (Math.round((Math.floor(Math.random() * 11)) / 100 * 60));
    document.getElementById('modal-button').innerHTML = instAlts[altRoller];
-} 
+}
+
 function instReturn() {
    document.getElementById('modal-button').innerHTML = "Instructions";
 }
@@ -124,23 +126,23 @@ let modalBtn = document.getElementById("modal-button");
 let span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
-modalBtn.onclick = function() {
-  modal.style.display = "block";
-};
-modalBtn.onclick.innerHTML = function() {
+modalBtn.onclick = function () {
    modal.style.display = "block";
- };
+};
+modalBtn.onclick.innerHTML = function () {
+   modal.style.display = "block";
+};
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+span.onclick = function () {
+   modal.style.display = "none";
 };
 
 // Own code added to accomodate touchscreens for modal box
+/** makes modal instruction button respond to touchscreen presses */
 function touchScreenModalHandler() {
    modal.style.display = "block";
 }
-
 
 //Beginning the game functions
 
@@ -260,7 +262,7 @@ function keepGoing() {
    // the if and if else statements below, it also a value to the "check" global variable
    if (eCalc[4] === 0) {
       document.getElementById('encounter-text').textContent = `You come across a large gorge. 
-      to walk around it would take a really long time. or, you could just jump it... Will you do it!?`;
+      To walk around it would take a really long time. Although, you could just jump it... Will you do it!?`;
       check = "strength";
    } else if (eCalc[4] === 1) {
       document.getElementById('encounter-text').textContent = `You have crossed paths with ${names[nameResult]} the ${monsters[monsterResult]}. 
@@ -268,17 +270,17 @@ function keepGoing() {
       encounterFoe = monsters[monsterResult];
       check = "strength";
    } else if (eCalc[4] === 2) {
-      document.getElementById('encounter-text').textContent = `It's getting dark and you come across a camp. You meet ${names[nameResult]}, the ${npcs[monsterResult]}.
+      document.getElementById('encounter-text').textContent = `It's getting dark and you come across a camp. You meet ${names[nameResult]} the ${npcs[monsterResult]}.
       They extend an offer to stay at their cozy camp for the night, provided you play a game of cards with them... Will you do it!?`;
       encounterFoe = npcs[monsterResult];
       check = "cunning";
    } else if (eCalc[4] === 3) {
       document.getElementById('encounter-text').textContent = `You have been ambushed by ${names[nameResult]} the notorious ${monsters[monsterResult]}! 
-      they try to mug you! you'll need to fight back if you want to press forward... Will you do it!?`;
+      They try to mug you! You'll need to fight back if you want to press forward... Will you do it!?`;
       encounterFoe = monsters[monsterResult];
       check = "strength";
    } else if (eCalc[4] === 4) {
-      document.getElementById('encounter-text').textContent = `You are travelling through a forest and you come across a big dusty book sitting on a tree stump. 
+      document.getElementById('encounter-text').textContent = `On your travels you come across a big dusty book sitting on a tree stump. 
       It's giving off real spooky vibes and you think you can hear it whispering at you to read it... Will you do it!?`;
       encounterFoe = names[nameResult];
       check = "cunning";
@@ -354,21 +356,21 @@ function runAway() {
    btnAnimReset();
 }
 
-/** launches when a run away roll is successfull, generates the correct message based off of the encounterType global variable */ 
+/** launches when a run away roll is successfull, generates the correct message based off of the encounterType global variable */
 function runSuccess() {
    let flee = [
       `You decide against making the jump, a bunch of kids see you backing down. 
-      They mock you. You go and have a wee cry before taking the long way round`,
+      They mock you furiously about your weak legs. You go and have a wee cry before taking the long way round.`,
 
-      `The ${encounterFoe} tries to make chase, but you outrun them, 
-      you have no idea where you are now though`,
+      `The ${encounterFoe} tries to make chase, but you outrun them. 
+      You have no idea where you are now though.`,
 
       `You decide against it, the ${encounterFoe} seems sketchy AF. You backtrack the way you came to the nearest inn.`,
 
       `You manage to successfully escape the ambush and hide in some nearby woods for a day, 
       just to be on the safe side.`,
 
-      `You decide against it. Way too spooky. so spooky in fact, you run back the way you came...`,
+      `You decide against it, way too spooky. So spooky in fact, you run back the way you came...`,
 
       `Ah! the chest was a mimic! As it opens its big chest mouth you stumble and fall back, it eats your weapons, 
       but at least you're alive. You double back to the nearest town to make an insurance claim on your lost weapons.`
@@ -418,7 +420,7 @@ function statCheck() {
  * increases the stat that was checked against by 1 and generates a victory message depending
  * encounter type. Triggers the "progress" function. */
 function victory() {
-  
+
    if (check === "strength") {
       let skill = document.getElementById('str-num').textContent;
       let strSkill = parseInt(skill);
@@ -429,23 +431,22 @@ function victory() {
       let cunSkill = parseInt(skill);
       cunSkill++;
       document.getElementById('cun-num').textContent = cunSkill;
-   } else {
-   }
+   } else {}
    let vMessage = [
-      "You managed to jump the gorge! Clearly you didn't skip leg day. Your strength increases by 1",
+      "You managed to jump the gorge! Clearly you didn't skip leg day. Your strength increases by 1.",
 
-      `You fought the ${encounterFoe} to the death, and they died! what's even better than that is that you didn't die! 
-      Your strength has increases by 1`,
+      `You fought the ${encounterFoe} to the death, and they died! What's even better than that is that you didn't die! 
+      Your strength has increases by 1.`,
 
-      `you decide to stay and try your luck. The ${encounterFoe} keeps accidentally showing you their hand. 
-      You absolutely clean them out. Your Cunning has increases by 1`,
+      `You decide to stay and try your luck. The ${encounterFoe} keeps accidentally showing you their hand. 
+      You absolutely clean them out. Your Cunning has increases by 1.`,
 
       `The ambush was a bust, you absolutely battered them and took their lunch money.
-      Your strength increases by 1`,
+      Your strength increases by 1.`,
 
       `You recite a verse from the book and you are teleported 50 miles up the road 
-      and you your acid reflux from eating that squirrel earlier is gone. Jackpot.
-      Your cunning increases by 1`,
+      and you your acid reflux from eating that squirrel earlier is gone, Jackpot.
+      Your cunning increases by 1.`,
 
       `Ah! the chest was a mimic! As it opens its big chest mouth you manage to jump out the way just in time. 
       You burn it and head onwards.`
@@ -498,8 +499,8 @@ function progress() {
  * modifies the deathbox and turns it into a victory box, printing a custom epilogue
  * depending on the quest generated at the start of the game */
 function winQuest() {
-   let epilogue = [`With the tradition been upheld for another 100 years. You look towards the horizon, or rather, 
-   wherever the horizon would be in ${destination}, and ponder, "Will the next adventurer's journey be as perilous as mine?"
+   let epilogue = [`With the tradition been upheld for another 100 years. You look towards the horizon 
+   (wherever the horizon would be in ${destination}) and ponder, "Will the next adventurer's journey be as perilous as mine?"
    i guess you'll never know...`,
 
       `Now that you have managed to move all of your assets safely. You can now retire knowing that you will 
@@ -511,17 +512,17 @@ function winQuest() {
    Years from now, Divine ${job} ${charName} is the monarch of the ${charName}anism, the religeon of great adventurers. 
    Will any disciple ever hold a candle to the great flame of ${charName}?...`,
 
-      `Thank goodness you managed to make your business lunch, just on time and only with a few scrapes. You eat heartily
+      `Thank goodness you managed to make your business lunch. Just on time and only with a few scrapes. You eat heartily
    and seal the deal. With your new business in ${job}ing you make lots of money and never have to worry about 
    doing another quest. Will anyone else ever get so lucky?...`,
 
-      `unfortunately, your date didn't get so lucky in their quest. that, or you got stood up. 
+      `Unfortunately, your date didn't get so lucky in their quest. That, or you got stood up. 
    but let's not fuss over the small details. You enjoyed ${destination} to it's fullest as ${charName} the strong independent
-   ${job} who don't need nobody. years later, you Look back on your adventures and ponder if things could have been different.
+   ${job} who don't need nobody. Years later, you Look back on your adventures and ponder if things could have been different.
    If only there was a way to see...`,
 
       `Now that you have got to ${destination} you can now officially spend all that money you'd been paid. 
-   You blow it all on Funko Pops. You immediately regret your decision. They are utterly useless. 
+   You blow it all on Funko Pops. You immediately regret your decision, They are utterly useless. 
    Surely no one else will ever make the same mistake...`
    ];
    let winner = `You did it ${charName}! You made it to ${destination}! ${epilogue[destReason]}`;
@@ -561,22 +562,22 @@ function deathMessage() {
       `You tried to stand your ground but the ground was actually a bunch of ${encounterFoe}s in ghillie suits.
       They severely outnumber you and overpower you. You are dead.`,
 
-      `You accidentally summon ${encounterFoe} the demon. they eat you. You are dead.`,
+      `You accidentally summon ${encounterFoe} the demon. They eat you. You are dead.`,
 
       `The chest was a mimic, it snapped open and gobbled you up. You are dead.`
    ];
 
    let runDeath = [
-      `you decided to leave jumping the gorge but a bunch of jocks saw you wimp out 
+      `You decided to leave jumping the gorge but a bunch of jocks saw you wimp out 
    so they tried to throw you across against your will. You fell to your death.`,
 
-      `when you tried to flee, but the ${encounterFoe} shot you with an well-aimed arrow to the back.
+      `You tried to flee, but the ${encounterFoe} shot you with an well-aimed arrow to the back.
     You died a coward's death.`,
 
-      `You decided not to stay for the night, you died of hypothermia at 3AM. 
+      `You decided not to stay for the night, but couldn't find anywhere else to rest. You died of hypothermia at 3AM. 
    Should have worn more layers.`,
 
-      `You tried to escape the ambushed but you were ambushed within your ambush 
+      `You tried to escape the ambush but you were ambushed within your ambush 
    and were subsequently ambushed to death by an ambush of ${encounterFoe}s.`,
 
       `You decide against reading the book. It is insulted that you ignored it's whispers. It places a curse on you.
@@ -614,11 +615,22 @@ window.addEventListener('load', pageLoad);
 window.addEventListener('unload', pageReset);
 
 // event listeners for the instructions button
-document.getElementById('modal-button').ontouchstart = function() {instClick();}; 
-document.getElementById('modal-button').ontouchend = function() {touchScreenModalHandler(); instReturn();};
-document.getElementById('modal-button').onmousedown = function() {instClick();};
-document.getElementById('modal-button').onmouseup = function() {instReturn();};
-document.getElementById('modal-button').onmouseleave = function() {instReturn();};  
+document.getElementById('modal-button').ontouchstart = function () {
+   instClick();
+};
+document.getElementById('modal-button').ontouchend = function () {
+   touchScreenModalHandler();
+   instReturn();
+};
+document.getElementById('modal-button').onmousedown = function () {
+   instClick();
+};
+document.getElementById('modal-button').onmouseup = function () {
+   instReturn();
+};
+document.getElementById('modal-button').onmouseleave = function () {
+   instReturn();
+};
 
 
 // event listeners for the 3 job buttons that start the quests
