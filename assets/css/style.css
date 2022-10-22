@@ -6,13 +6,13 @@ body {
 }
 
 a {
-    color:#ffffff;
+    color: #ffffff;
     text-decoration: underline;
     font-weight: 700;
 }
 
 a:hover {
-    color:#c00000;
+    color: #c00000;
     cursor: pointer;
     text-decoration: none;
 }
@@ -148,10 +148,6 @@ li {
     padding-bottom: 10px;
 }
 
-#game > div {
-    padding: 5px;
-}
-
 /* grid areas */
 header {
     text-align: center;
@@ -250,6 +246,10 @@ header {
 }
 
 /* page styling */
+
+#game>div {
+    padding: 5px;
+}
 
 header h2 {
     font-size: 1em;
@@ -399,7 +399,7 @@ footer {
     z-index: 1;
 }
 
-footer > p {
+footer>p {
     margin: 5px auto;
 }
 
@@ -466,6 +466,7 @@ footer > p {
             'kbtn kbtn tbtn tbtn mbtn mbtn'
             'act act ngp ngp run run';
     }
+
     #str-num {
         padding-top: 10px;
     }
@@ -643,21 +644,3 @@ footer > p {
         top: 0%;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
