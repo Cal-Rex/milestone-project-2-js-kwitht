@@ -28,7 +28,7 @@ header {
     grid-area: header;
 }
 
-#merhcant {
+#merchant {
     height: 300px;
     grid-area: merchant;
     background-image: url(../images/404-500/merchant-bad-gateway.png);
