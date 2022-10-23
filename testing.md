@@ -190,9 +190,19 @@ Below are demonstrations of the elements and functions on the site (including 40
   - The Player's will do continous backflips
   - The button to start a new qwetht will appear with the same functions described in the death point. 
 
+![GIF of Javascript testing](assets/images/readme-images/testing/js-testing.gif)
+
 #### _links_:
 
 - The only `anchor` on the page is to the author's Github.
 - The colour changes red on hover and the underline is removed.
 - The cursor changes to a pointer on hover.
 - The link opens in a separate tab.
+
+#### **404/500**
+
+#### _Site Responsiveness_
+
+Both pages share the same code with the exception of one image. so for the sake of not repeating, the 404 will be demonstrated in all resolutions:
+
+

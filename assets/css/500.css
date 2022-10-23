@@ -19,7 +19,7 @@ body {
     'merchant'
     'footer';
     width: 90%;
-    overflow: hidden;
+    overflow: auto;
     text-align: center;
     margin: 0 5%;
 }
