@@ -209,7 +209,8 @@ Both pages share the same code with the exception of one image. so for the sake 
 
 #### _Testing of page load and elements_
 
-- The 500 will be used as the focus of this test. as seen abovem the 404 is displaying nominally.
+- The 500 will be used as example this test. As seen above, the 404 is displaying nominally.
 - When hovered over, the button linking to the index adopts the standard hovered button style for the game.
 - When clicked, the button takes the user back tot he index. 
 
+![GIF of 500 css test](assets/images/readme-images/testing/500-css-test.gif)
