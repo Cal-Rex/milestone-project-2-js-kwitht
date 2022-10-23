@@ -209,3 +209,14 @@ Both pages share the same code with the exception of one image. so for the sake 
 - When clicked, the button takes the user back tot he index. 
 
 ![GIF of 500 css test](assets/images/readme-images/testing/500-css-test.gif)
+
+---
+
+## Automated Testing
+
+#### **Lighthouse Testing**
+
+Lighthouse, in google chrome dev tools was used to primarily check accessibility of each page:
+
+![Lighthouse report](assets/images/readme-images/testing/lighthouse.png)
+
