@@ -203,6 +203,13 @@ Below are demonstrations of the elements and functions on the site (including 40
 
 #### _Site Responsiveness_
 
-Both pages share the same code with the exception of one image. so for the sake of not repeating, the 404 will be demonstrated in all resolutions:
+Both pages share the same code with the exception of one image. so for the sake of not repeating, the 404 will be demonstrated in all resolutions on Chrom Dev tools:
 
+![GIF of 404 resolution testing](assets/images/readme-images/testing/404-responsive-test.gif)
+
+#### _Testing of page load and elements_
+
+- The 500 will be used as the focus of this test. as seen abovem the 404 is displaying nominally.
+- When hovered over, the button linking to the index adopts the standard hovered button style for the game.
+- When clicked, the button takes the user back tot he index. 
 
