@@ -14,14 +14,9 @@
    - Page load
    - Game Elements
    - Links
- - 404 page
-   - HTML
-   - CSS
-   - Javascript
- - 500 page
-   - HTML
-   - CSS
-   - Javascript 
+ - 404 page | 500 Page
+   - Responsiveness
+   - Page Load
 3. [Automated Testing](#automated-testing)
  - Lighthouse Testing
  - Code Validation
