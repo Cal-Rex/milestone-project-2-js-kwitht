@@ -129,8 +129,8 @@ Play-testers were interviewed before playing the game to establish user stories:
 
 A bare-bones text-only version of the game was created and then distributed to Playtesters. After playing, players were interviewed to establish their user stories as users who had played the game previously:
 
+- _"As a returning player, I want some options that would allow further augmentation of encounter chances"_
 - _"As a returning player, I want to be able to pick up where i left off."_
-- _"As a returning player, I want to be able to see a record of my past completions."_
 - _"As a returning player, I want to see fresh encounters when i play the game."_
 
 ##### ___Project Goals:___
@@ -441,8 +441,8 @@ At the bottom of the image in each page there is a `button` that launches a func
 
 This project was constrained mainly by a very short time budget. The following features were planned to be implemented, but instead, will be implemented in the future:
 
-- Making use of localStorage object in Javascript to save a users game.
-- Making use of localStorgae object in Javascript to keep a record of past completions.
+- Making use of `localStorage` object in Javascript to save a users game.
+- Making use of `localStorgae` object in Javascript to keep a record of past completions.
 - A higher variety of backgrounds and character models which would be randomly selected for each class.
 - A higher variety of encounters.
 - Sound effects:
@@ -463,6 +463,7 @@ After hearing feedback from testers, the following features have been considered
   - Temporary skill boosts.
 
 Other back-of-house features:
+
 - Changing how the JS stores information so that users cannot cheat by using dev tools to change their stat numbers.
 - Partition the JS into more manageable sized code blocks. perhaps seperate certain `functions` where possible and create 3 JS scripts of roughly 200 lines of code each, as opposed to one big script file.
 - The **Agility** Stat was originally referred to as "dexterity", but given the nature in which it is used in the game narrative it was changed to the former. Ideally, in the future the naming of variables and functions should be changed to reflect this.
@@ -555,6 +556,9 @@ Other back-of-house features:
 **[Safari on Mac and iOS](https://www.apple.com/uk/safari/)**
 - Used to test UX.
 
+**[Python Tutor](https://pythontutor.com/)**
+- Used to troubleshoot code steps + build code functions and visuaise their mechanics in an isolated environment.
+
 **[ScreenRec](https://screenrec.com/)**
 - Used to capture screen recordings of live site testing for testing.md.
 
@@ -588,9 +592,9 @@ The site is deployed on GitHub Pages, the following steps can be replicated to a
 
 ## Credits
 #### **Troubleshooting sources**
-- [stack overflow](https://stackoverflow.com/)
+- [Stack Overflow](https://stackoverflow.com/)
 - [Bobby Hadz](https://bobbyhadz.com/blog/javascript-change-style-of-all-elements-with-class)
-- [w3schools](https://www.w3schools.com/js/default.asp)
+- [W3Schools](https://www.w3schools.com/js/default.asp)
 - [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Touch_events?fbclid=IwAR2w2PfZG7e7IHm1pGNPlkc-Nz0eJEo1P6i27eAJ4_4DYdS0LLzCD4nHbSc)
 - [Web.dev](https://web.dev/)
 - Seun Owonikoko: Project Mentor
