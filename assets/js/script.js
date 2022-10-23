@@ -32,7 +32,6 @@ let encounterType = 5;
 let encounterDiceRoll = 0;
 let runRoll = false;
 
-
 // initial page functions
 
 /** if triggered, refreshes the page */
@@ -77,7 +76,6 @@ function instClick() {
 function instReturn() {
    document.getElementById('modal-button').innerHTML = "Instructions";
 }
-
 
 // choosing a job functions
 
@@ -200,7 +198,7 @@ function createQuest() {
       `You are ${questLine.name[x]} the ${job} and you are travelling to ${questLine.endDestination[y]}, ${questLine.reason[z]}!`;
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
-   
+
    charName = questLine.name[x];
    destination = questLine.endDestination[y];
    destReason = z[0];
