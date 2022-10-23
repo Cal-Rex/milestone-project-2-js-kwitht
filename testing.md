@@ -214,9 +214,82 @@ Both pages share the same code with the exception of one image. so for the sake 
 
 ## Automated Testing
 
-#### **Lighthouse Testing**
+### Lighthouse Testing
 
 Lighthouse, in google chrome dev tools was used to primarily check accessibility of each page:
 
 ![Lighthouse report](assets/images/readme-images/testing/lighthouse.png)
+
+---
+
+### Code Validation
+
+All page HTML and CSS was validated using the [W3C Markup Validation Service]() and [Jigsaw]() by input of URI in the final testing stages. It is worth noting at this point that the final validation for the index revealed this level 0 warning. It pertains to the use of `pointer-events: auto`, which is used to override a bug issue with the modal instructions box. This code will be refactored in the future.
+
+Javascript for the index was also reviewed and validated within [JSHint](), showing no errors.
+
+#### _Index_
+
+| HTML Check |
+| ---------- |
+| ![HTML check in W3C markup Validation Service](assets/images/readme-images/testing/index-html-check.png) |
+
+| CSS and HTML Validation in Jigsaw |
+| ---------- |
+| ![CSS and HTML Validation in Jigsaw](assets/images/readme-images/testing/jigsaw-validation-index.png)  |
+|![Jigsaw Warning about pointer events](assets/images/readme-images/testing/jigsaw-index-warnings.png) |
+
+| Javascript Validation in JSHint |
+| ---------- |
+| ![Javascript Validation in JSHint](assets/images/readme-images/testing/jshint-code-review.png) |
+
+
+#### _404_
+
+| HTML Check |
+| ---------- |
+| ![HTML check in W3C markup Validation Service](assets/images/readme-images/testing/404-html-check.png) |
+
+| CSS and HTML Validation in Jigsaw |
+| ---------- |
+| ![CSS and HTML Validation in Jigsaw](assets/images/readme-images/testing//jigsaw-404-validation.png)  |
+
+
+#### _500_
+
+| HTML Check |
+| ---------- |
+| ![HTML check in W3C markup Validation Service](assets/images/readme-images/testing/500-html-check.png) |
+
+| CSS and HTML Validation in Jigsaw |
+| ---------- |
+| ![CSS and HTML Validation in Jigsaw](assets/images/readme-images/testing/jigsaw-500-validation.png)  |
+
+---
+
+### Browser Validation
+
+#### Google Chrome
+[Chrome Desktop screenshot](assets/images/readme-images/testing/chrome-desktop-sc.png)
+
+#### Mozilla Firefox
+[Firefox Desktop screenshot](assets/images/readme-images/testing/firefox-desktop%3Dsc.png)
+
+#### Opera
+[Opera Desktop screenshot](assets/images/readme-images/testing/opera-desktop-sc.png)
+
+#### Microsoft Edge
+[Edge Desktop screenshot](assets/images/readme-images/testing/edge-desktop-sc.png)
+
+#### Safari on Mac
+[Safari on desktop screenshot]()
+
+#### Safari on iPad
+[iPad Safari screenshot]()
+
+#### Google Chrome on Android
+[Chrome android screenshot](assets/images/readme-images/testing/chrom-mob-sc.jpg)
+
+#### Safari on iOS
+[Safari on iOS phone]()
 
