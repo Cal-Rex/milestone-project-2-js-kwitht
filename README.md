@@ -1,7 +1,10 @@
 # QWETHT
 
-## amiresponsive img
+![amiresponsive](assets/images/readme-images/amiresponsive.png)
 
+### The adventure game that goes beyond your wildest dreams. If your dreams were relatively unimaginative
+
+---
 
 ## Table of Contents
 1. [INTRODUCTION](#introduction)
@@ -34,9 +37,9 @@
 - [Libraries](#frameworks--libraries--programs)
 - [Programs](#frameworks--libraries--programs)
 
-6. [TESTING](#testing)
+6. [TESTING](testing.md)
 
-Contained as a seperate document here
+Contained as a seperate document [here](testing.md)
 
 7. [DEPLOYMENT](#deployment)
 
@@ -599,6 +602,20 @@ The site is deployed on GitHub Pages, the following steps can be replicated to a
 - [Web.dev](https://web.dev/)
 - Seun Owonikoko: Project Mentor
 
+#### **Inspiration**
+- [Colossal Cave Adventure](https://en.wikipedia.org/wiki/Colossal_Cave_Adventure)
+- [Problem Sleuth](http://www.mspaintadventures.com/newindex.php?viewmap=4)
+- [Munchkin](https://en.wikipedia.org/wiki/Munchkin_(card_game))
+- [Dark Souls](https://en.wikipedia.org/wiki/Dark_Souls)
+- [Dungeons & Dragons 5E](https://en.wikipedia.org/wiki/Dungeons_%26_Dragons)
+- [BarfQuestion Comics](http://barfquestion.blogspot.com/2020/01/barfquestion-postmortem.html)
+
 ---
 
-## Acknolwedgments
+## Acknolwedgements
+- Many thanks to every individual on slack who gave the game a go.
+- Thank you to Roger Pfäffli, who helped tackle the Modal box bug.
+- Thank you to Omercan Cirit, Christina Myrvold and Sarah Breen for their discussions on ideas.
+- Thank you to Sarah Breen, Gemma Hammil and Matthew Franklin, who tested the site rigorously on iOS devices.
+- Thank you to my partner for her patience with my obsessiveness over this project.
+- Many thanks to My mentor Seun, for her guidance throughout this project.

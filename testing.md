@@ -6,20 +6,22 @@
 ## Contents
 
 1. [User Stories](#user-stories)
- - User Stories: Answered
- - Project Goals: Achieved
+ - [User Stories: Answered](#user-stories-answered)
+ - [Project Goals: Achieved](#project-goals)
+ - [Player Goals: Achieved](#player-goals)
+ - [Developer Goals: Achieved](#developer-goals)
 2. [Manual Testing](#manual-testing)
- - Index page
+ - [Index page](#index)
    - Responsiveness
    - Page load
    - Game Elements
    - Links
- - 404 page | 500 Page
+ - [404 page | 500 Page](#404500)
    - Responsiveness
    - Page Load
 3. [Automated Testing](#automated-testing)
- - Lighthouse Testing
- - Code Validation
+ - [Lighthouse Testing](#lighthouse-testing)
+ - [Code Validation](#code-validation)
    - Index page
      - HTML/CSS
      - Javascript
@@ -222,9 +224,9 @@ Lighthouse, in google chrome dev tools was used to primarily check accessibility
 
 ### Code Validation
 
-All page HTML and CSS was validated using the [W3C Markup Validation Service]() and [Jigsaw]() by input of URI in the final testing stages. It is worth noting at this point that the final validation for the index revealed this level 0 warning. It pertains to the use of `pointer-events: auto`, which is used to override a bug issue with the modal instructions box. This code will be refactored in the future.
+All page HTML and CSS was validated using the [W3C Markup Validation Service](https://validator.w3.org/) and [Jigsaw](https://jigsaw.w3.org/css-validator/) by input of URI in the final testing stages. It is worth noting at this point that the final validation for the index revealed this level 0 warning. It pertains to the use of `pointer-events: auto`, which is used to override a bug issue with the modal instructions box. This code will be refactored in the future.
 
-Javascript for the index was also reviewed and validated within [JSHint](), showing no errors.
+Javascript for the index was also reviewed and validated within [JSHint](https://jshint.com/), showing no errors.
 
 #### _Index_
 
@@ -294,4 +296,24 @@ Javascript for the index was also reviewed and validated within [JSHint](), show
 [Safari on iOS iphone 13 Mini](assets/images/readme-images/testing/iphone13-mini-gh-sc.jpeg)
 [Safari on iOS iphone 14 Pro Max](assets/images/readme-images/testing/iphone14promax-safari-mob-sb-sc.jpg)
 
+---
 
+## User Testing
+
+Special thanks to the following individuals took the time to meticulously go through the site and and give me excellent feedback:
+
+- Sarah Breen: tested on iOS Mobile (iPhone 14 Pro Max) + iPad + Macbook Pro - Safari
+- Suzie Lii: tested on PC - Chrome
+- Gemma Hamill: tested on iOS Mobile (iPhone 13 Mini) - Safari
+- Matthew Franklin: tested on iOS Mobile (iPhone 12) - Safari
+- Daniel Cahill: tested on Android Mobile (Google Pixel 7 Pro) - Chrome
+- Kelan Simpson: tested on Android Mobile (Google pixel 6) - Chrome
+- Lily Elakha: tested on Android Mobile (Google pixel 6) - Chrome
+- Omercan Cirit: tested on PC - Firefox, and Android Mobile (device unknown)
+- Seun Owonikoko: Mentor, tested on unknown
+- Christina Myrvold: Tested on PC - Browser unknown
+- Roger Pfäffli: Device unknown, Browser unknown
+- Members of the DREAM Discord server (various devices)
+
+Also, a big thank you to Everyone In the Code Institute Slack who took the time to have a look at my project.
+---
