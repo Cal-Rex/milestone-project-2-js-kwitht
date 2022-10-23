@@ -327,7 +327,7 @@ function keepGoing() {
    dupeStopper = eCalc[4];
    encounterType = dupeStopper;
    console.log(`the encounter value has now been pushed to "dupeStopper" to prevent repeat next turn.`);
-   console.log(`dupeStopper is now ${dupestopper}`);
+   console.log(`dupeStopper is now ${dupeStopper}`);
 
    // the background is then randomly cycled
    backgroundRoller();
