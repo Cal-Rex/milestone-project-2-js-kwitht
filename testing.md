@@ -282,14 +282,18 @@ Javascript for the index was also reviewed and validated within [JSHint](), show
 [Edge Desktop screenshot](assets/images/readme-images/testing/edge-desktop-sc.png)
 
 #### Safari on Mac
-[Safari on desktop screenshot]()
+[Safari on desktop screenshot](assets/images/readme-images/testing/mac-desktop-sb-sc.png)
 
 #### Safari on iPad
 [iPad Safari screenshot]()
 
 #### Google Chrome on Android
-[Chrome android screenshot](assets/images/readme-images/testing/chrom-mob-sc.jpg)
+[Chrome on Android OnePlus 7T](assets/images/readme-images/testing/chrom-mob-sc.jpg)
+[Chrome on Android Google Pixel 6](assets/images/readme-images/testing/)
 
 #### Safari on iOS
-[Safari on iOS phone]()
+[Safari on iOS iphone 12](assets/images/readme-images/testing/iphone12-mf-sc.jpeg)
+[Safari on iOS iphone 13 Mini](assets/images/readme-images/testing/iphone13-mini-gh-sc.jpeg)
+[Safari on iOS iphone 14 Pro Max](assets/images/readme-images/testing/iphone14promax-safari-mob-sb-sc.jpg)
+
 
