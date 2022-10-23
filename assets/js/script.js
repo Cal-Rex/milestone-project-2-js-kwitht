@@ -199,7 +199,9 @@ function createQuest() {
       ]
    };
    console.log(`all possible outcomes for character name, destniation and reson are stored in the "questLine" object.`);
-   console.log(`questLine object = ${questLine}`);
+   console.log(`questLine names = ${questLine.name}`);
+   console.log(`questLine destinations = ${questLine.endDestination}`);
+   console.log(`questLine reasons = ${questLine.reason}`);
    let x = [];
    let y = [];
    let z = [];
@@ -256,6 +258,9 @@ function keepGoing() {
       "amateur Blackjack addict", 'kid who loves playing "Go Fish"', "cowboy", "noble",
       "ol' timey gangster", "chain-smoking stock broker", "professional russian roullette player", "bounty hunter"
    ];
+   console.log(`names: ${names}`);
+   console.log(`monsters: ${monsters}`);
+   console.log(`npcs: ${npcs}`);
 
    // Encounter calculating array, the for loop pushes 6 random numbers into the array, 
    // which are used to generate the encounter data
