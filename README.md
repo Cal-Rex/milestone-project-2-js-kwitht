@@ -563,7 +563,10 @@ Other back-of-house features:
 - Used to troubleshoot code steps + build code functions and visuaise their mechanics in an isolated environment.
 
 **[ScreenRec](https://screenrec.com/)**
-- Used to capture screen recordings of live site testing for testing.md.
+- Used to capture screen recordings of live site testing for [testing.md](testing.md).
+
+**[Zoom](https://zoom.us/)
+- Used to capture screen recordings of live site testing for [testing.md](testing.md).
 
 **[Cloud Converter](https://cloudconvert.com/mp4-to-gif)**
 - Used to convert screen captures into gifs to reduce file size in repo and [testing.md](testing.md).
@@ -574,6 +577,8 @@ Other back-of-house features:
 ---
 
 ## Testing
+
+[The testing section is appedned to a second document, click here to open.](testing.md)
 
 ---
 
