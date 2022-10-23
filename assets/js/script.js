@@ -73,6 +73,7 @@ function instClick() {
    document.getElementById('modal-button').innerHTML = instAlts[altRoller];
 }
 
+/** returns instruction button's text to "instructions" upon on the mouse leaving the button */
 function instReturn() {
    document.getElementById('modal-button').innerHTML = "Instructions";
 }
@@ -599,6 +600,7 @@ function deathMessage() {
    nGButton.classList.add('btn-anim');
 }
 
+/** removes the class containing the animation for buttons, so that it can then be re-applied to repeat the animation the next trigger */
 function btnAnimReset() {
    document.getElementById('keep-going').classList.add('btn-anim');
    actionButton.classList.remove('btn-anim');
@@ -627,7 +629,6 @@ document.getElementById('modal-button').onmouseup = function () {
 document.getElementById('modal-button').onmouseleave = function () {
    instReturn();
 };
-
 
 // event listeners for the 3 job buttons that start the quests
 knightButton.addEventListener('click', rollKnight);
