@@ -120,12 +120,16 @@ Below are demonstrations of the elements and functions on the site (including 40
  - The page was tested in all dimensions on Google Chrome Dev Tools. `grid` layout of game content changes forscreens below a 1000 pixels width.
  - The instructions button moves to the center of the footer if device width is below 580 pixels.
 
+![GIF of testing site responsiveness](assets/images/readme-images/testing/resolution-response.gif)
+
 
 #### _Testing of page load:_
 - all animations load accordingly. The instructions button falls down into view from the top of the screen. The game buttons "fold" out of there positions when triggered.
 - The Javascript for when the page is unloading and reloading triggers a "loading" screen while the script of the page is being reloaded.
 - Hover elements trigger correctly. Buttons change colour when hovered over.
 - When clicked, buttons adopt the relevant `:active` styles appended to them in their style rules.
+
+
 
 #### _Testing of game elements:_
 - instructions:
