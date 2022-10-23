@@ -25,10 +25,8 @@
      - Javascript
    - 404 page
      - HTML/CSS
-     - Javascript
    - 500 page
      - HTML/CSS
-     - Javascript
  - [Browser Validation](#browser-validation)
 4. [User Testing](#user-testing)
 
@@ -285,7 +283,7 @@ Javascript for the index was also reviewed and validated within [JSHint](), show
 [Safari on desktop screenshot](assets/images/readme-images/testing/mac-desktop-sb-sc.png)
 
 #### Safari on iPad
-[iPad Safari screenshot]()
+[iPad Safari screenshot](assets/images/readme-images/testing/ipad-sb-sc.jpg)
 
 #### Google Chrome on Android
 [Chrome on Android OnePlus 7T](assets/images/readme-images/testing/chrom-mob-sc.jpg)
