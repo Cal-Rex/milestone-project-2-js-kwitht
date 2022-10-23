@@ -129,9 +129,12 @@ Below are demonstrations of the elements and functions on the site (including 40
 - Hover elements trigger correctly. Buttons change colour when hovered over.
 - When clicked, buttons adopt the relevant `:active` styles appended to them in their style rules.
 
-
+![GIF of testing HTML and CSS Elements loading correctly](assets/images/readme-images/testing/html-css-response.gif)
 
 #### _Testing of game elements:_
+
+**note: `console.log` commands were temporarily implemented within the code functions so that accurate tracking of script could be carried out during testing, these were then removed post testing phase.**
+
 - instructions:
   - When touched or clicked; while active, the buttons text will change to one of the following words:
     - "Deductions" 

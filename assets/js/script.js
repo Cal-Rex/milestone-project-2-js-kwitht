@@ -71,10 +71,16 @@ function instClick() {
    ];
    let altRoller = (Math.round((Math.floor(Math.random() * 11)) / 100 * 60)) + (Math.round((Math.floor(Math.random() * 11)) / 100 * 60));
    document.getElementById('modal-button').innerHTML = instAlts[altRoller];
+   console.log('Instructions button clicked');
+   console.log(`the variable "altRoller" generated a ${altRoller}`);
+   console.log(`the "instAlts" array contains:`);
+   console.log(instAlts);
+   console.log(`Meaning, the instructions button should contain ${instAlts[altRoller]} (instAlts[altRoller])`);
 }
 
 function instReturn() {
    document.getElementById('modal-button').innerHTML = "Instructions";
+   console.log(`button was released, returning innerHTML to "Instructions"`);
 }
 
 
@@ -87,7 +93,11 @@ function rollKnight() {
    document.getElementById('cun-num').textContent = "3";
    document.getElementById('job-icon').style.backgroundImage = "url(assets/images/jobs/knight.webp)";
    job = "Knight";
+   console.log(`job chosen is ${job}`);
+   console.log(`stats are: strength: 5, Agility: 4, Cunning: 3`);
    startGame();
+   console.log('now switching to "lets go" button');
+   console.log('now creating quest');
    createQuest();
 }
 
@@ -98,7 +108,11 @@ function rollThief() {
    document.getElementById('cun-num').textContent = "3";
    document.getElementById('job-icon').style.backgroundImage = "url(assets/images/jobs/thief.webp)";
    job = "Thief";
+   console.log(`job chosen is ${job}`);
+   console.log(`stats are: strength: 2, Agility: 7, Cunning: 3`);
    startGame();
+   console.log('now switching to "lets go" button');
+   console.log('now creating quest');
    createQuest();
 }
 
@@ -109,7 +123,11 @@ function rollMerch() {
    document.getElementById('cun-num').textContent = "6";
    document.getElementById('job-icon').style.backgroundImage = "url(assets/images/jobs/merchant.webp)";
    job = "Merchant";
+   console.log(`job chosen is ${job}`);
+   console.log(`stats are: strength: 3, Agility: 3, Cunning: 6`);
    startGame();
+   console.log('now switching to "lets go" button');
+   console.log('now creating quest');
    createQuest();
 }
 
@@ -180,6 +198,8 @@ function createQuest() {
          "for an important business lunch", "for a romantic long weekend", "because you have been paid a lot of money to do so"
       ]
    };
+   console.log(`all possible outcomes for character name, destniation and reson are stored in the "questLine" object.`);
+   console.log(`questLine object = ${questLine}`);
    let x = [];
    let y = [];
    let z = [];
@@ -195,11 +215,14 @@ function createQuest() {
          break;
       }
    }
+   console.log(`variable "d6" was rolled 3 times (${x}, ${y}, ${z}) and created the 3 numbers that pick relevant contents from the object`);
    document.getElementById('intro-text').textContent =
       `You are ${questLine.name[x]} the ${job} and you are travelling to ${questLine.endDestination[y]}, ${questLine.reason[z]}!`;
+   console.log(`The function has now printed: "You are 'questLine.name ${x}' the ${job} and you are travelling to 'questLine.endDestination ${y}', 'questLine.reason ${z}'!"`);
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
-
+   
+   console.log(`Character name, destination and destination reason are now saved to global variables(charName: ${charName}, destination: ${destination}, reason: ${destReason})`);
    charName = questLine.name[x];
    destination = questLine.endDestination[y];
    destReason = z[0];
@@ -217,6 +240,8 @@ function keepGoing() {
    adventureButton.classList.remove('btn-anim');
    actionButton.classList.add('btn-anim');
    runAwayButton.classList.add('btn-anim');
+   console.log(`let's go button pressed, change=ing button content to "keep going!" and removing.`);
+   console.log(`game buttons now visible`);
 
    // this is the selection of names that can be chosen for encounter "monsters"
    let names = ["Unfortunate Greg", "Deuce", "Snake-Eyes Pete", "Daunchy",
@@ -242,6 +267,7 @@ function keepGoing() {
       eCalc.push(d6);
    }
    if (eCalc[4] === dupeStopper) {
+      console.log(`encounter roll was ${eCalc[4]}, same as ${dupeStopper}, so it will be rolled again.`)
       while (eCalc[4] === dupeStopper) {
          let i = 0;
          eCalc[4] = (Math.round((Math.floor(Math.random() * 11)) / 100 * 50));
@@ -250,6 +276,7 @@ function keepGoing() {
             break;
          }
       }
+      console.log(`encounter roll is now ${eCalc[4]}`)
    }
 
    // using the first 4 values of the encounter calculation array, 
@@ -258,6 +285,9 @@ function keepGoing() {
    // for each encounter as appropriate
    let monsterResult = eCalc[2] + eCalc[3];
    let nameResult = eCalc[0] + eCalc[1];
+   console.log(`monster or npc type rolled was: ${monsterResult}`);
+   console.log(`name result rolled was ${nameResult}`);
+   console.log(`encounter roll is now: ${eCalc[4]}`);
    // the final number in the encounter calculation array determines the encounter selected by cycling through
    // the if and if else statements below, it also a value to the "check" global variable
    if (eCalc[4] === 0) {
@@ -296,6 +326,8 @@ function keepGoing() {
    // to prevent generating this same encounter on the next round should the player succeed this encounter
    dupeStopper = eCalc[4];
    encounterType = dupeStopper;
+   console.log(`the encounter value has now been pushed to "dupeStopper" to prevent repeat next turn.`);
+   console.log(`dupeStopper is now ${dupestopper}`);
 
    // the background is then randomly cycled
    backgroundRoller();
@@ -315,6 +347,7 @@ function backgroundRoller() {
    // The class that contained the animation for the background is now re-added
    document.getElementById("story-bg").classList.add('encounter-bg-slide');
    document.getElementById("story-bg").style.backgroundImage = bgArray[d6];
+   console.log(`background has been cycled, "d6" rolled has selected bgArray[${d6}]`);
 }
 
 // triggered when the player chooses to "do it!" or "run away!", assigning a value to chack the player's stat against
@@ -333,6 +366,7 @@ function rollDice() {
       diceRoll = (Math.round((Math.floor(Math.random() * 11)) / 100 * 90));
    }
    encounterDiceRoll = diceRoll;
+   console.log(`Progress checked. Because progress is ${encounterDocLog} difficulty is now adjust through if statements`);
 }
 
 // "running away" functions
@@ -341,13 +375,16 @@ function rollDice() {
 function runAway() {
    // global variable set to true to determine the correct type of message to generate on failure
    runRoll = true;
+   console.log(`player chose to run away!`);
    let stat = document.getElementById('dex-num').textContent;
    rollDice();
    let escapeRoll = encounterDiceRoll;
    if (stat >= escapeRoll) {
       runSuccess();
       runRoll = false;
+      console.log(`system rolled a ${escapeRoll}, which is less than the player's stat, run away successfull.`);
    } else {
+      console.log(`system rolled a ${escapeRoll}, which is greater than the player's stat, run away is a fail.`);
       deathMessage();
    }
    document.getElementById('actions').style.visibility = "hidden";
@@ -381,6 +418,7 @@ function runSuccess() {
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
    document.getElementById('keep-going').style.visibility = "visible";
+   console.log(`outcome ${encounterType} is printed from the "flee" variable because the enounter type was ${encounterType}`);
 }
 
 // fight "Do it!" functions
@@ -389,6 +427,7 @@ function runSuccess() {
  * that is assigned to the "check" variable then decides what function to trigger depending 
  * on the compared values of the encounterDiceRoll global variable and player's respective stat */
 function statCheck() {
+   console.log(`player chose to "do it!"`);
    rollDice();
    let playerStat = 0;
    if (check === "strength") {
@@ -403,10 +442,13 @@ function statCheck() {
    } else {
       alert("invalid check type!");
    }
+   console.log(`check for this encounter is ${check}, so player's check stat is ${playerStat}`)
    if (playerStat > encounterDiceRoll) {
       victory();
+      console.log(`system rolled ${encounterDiceRoll} which is less than or equal to the player's stat of ${playerStat}, victory function triggered`);
    } else {
       deathMessage();
+      console.log(`system rolled ${encounterDiceRoll} which is greater than the player's stat of ${playerStat}, death functions triggered`);
    }
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
@@ -420,7 +462,7 @@ function statCheck() {
  * increases the stat that was checked against by 1 and generates a victory message depending
  * encounter type. Triggers the "progress" function. */
 function victory() {
-
+console.log(`because the check was ${check}, the ${check} stat now increases by 1`);
    if (check === "strength") {
       let skill = document.getElementById('str-num').textContent;
       let strSkill = parseInt(skill);
@@ -452,6 +494,10 @@ function victory() {
       You burn it and head onwards.`
    ];
    document.getElementById('encounter-text').textContent = vMessage[encounterType];
+   console.log(`a victory message is pulled from the "vMessage" array based on the encounter type`);
+   console.log(`vMessage:`);
+   console.log(vMessage);
+
 
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
@@ -489,9 +535,10 @@ function progress() {
       stepForward.style.left = "50%";
    }
    document.getElementById('encounter-counter').textContent = progression;
-
+   console.log(`progression is increased, animation triggered by if statement, progress logged`)
    if (progression === 10) {
       winQuest();
+      console.log(`progress 100%, quest completion functions triggered.`)
    }
 }
 
@@ -525,6 +572,9 @@ function winQuest() {
    You blow it all on Funko Pops. You immediately regret your decision, They are utterly useless. 
    Surely no one else will ever make the same mistake...`
    ];
+   console.log(`a game completion message is pulled from the "winQuest" array based on the stored global variables of "charName", "destination" and "destReason"`);
+   console.log(`winQuest array:`);
+   console.log(winQuest);
    let winner = `You did it ${charName}! You made it to ${destination}! ${epilogue[destReason]}`;
    document.getElementById('actions').style.visibility = "hidden";
    document.getElementById('run-actions').style.visibility = "hidden";
@@ -544,6 +594,7 @@ function winQuest() {
 /** animation trigger for job icon when the player dies */
 function deathAnim() {
    document.getElementById('job-icon').classList.add('death-anim');
+   console.log(`death animation triggered`);
 }
 
 /** launches when a run away roll or action roll is failed. 
@@ -592,8 +643,14 @@ function deathMessage() {
 
    if (runRoll === true) {
       death = runDeath[encounterType];
+      console.log(`a death message is pulled from the "runDeath" array because the payer chose to run`);
+   console.log(`runDeath array:`);
+   console.log(runDeath);
    } else {
       death = fightDeath[encounterType];
+      console.log(`a death message is pulled from the "fightDeath" array because the payer chose to fight`);
+   console.log(`fightDeath array:`);
+   console.log(fightDeath);
    }
    document.getElementById('death-text').textContent = death;
    document.getElementById('new-game').style.visibility = "visible";
@@ -601,11 +658,8 @@ function deathMessage() {
 }
 
 function btnAnimReset() {
-   console.log(document.getElementById('keep-going'));
-   console.log(document.getElementById('keep-going').classList, "first class list");
    document.getElementById('keep-going').classList.add('btn-anim');
    actionButton.classList.remove('btn-anim');
-   console.log(document.getElementById('keep-going').classList, "second class list");
    runAwayButton.classList.remove('btn-anim');
 }
 // event listeners for all game functions
